@@ -36,6 +36,11 @@ theme:
     view: material/eye
     repo: fontawesome/brands/git-alt
 
+  extra:
+#versionning
+    version:
+      provider: mike
+      default: latest
 
 markdown_extensions:
 
@@ -79,18 +84,24 @@ extra_javascript:
   - javascripts/tablesort.js
 
 plugins:
- # - glightbox
   - search: 
       lang: fr
-  # - git-revision-date-localized:
-  #     enable_creation_date: true
-  - mike :
+  - mike:
+      # These fields are all optional; the defaults are as below...
+      alias_type: symlink
+      redirect_template: null
+      deploy_prefix: ''
+      canonical_version: null
+      version_selector: true
+      css_dir: css
+      javascript_dir: js
 
 
 extra:
 #versionning
   version:
     provider: mike
+    default: latest
 #Avertissements cookies
   consent:
     title: Cookies
