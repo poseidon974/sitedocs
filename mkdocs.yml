@@ -30,10 +30,11 @@ theme:
     - toc.integrate
     - navigation.top
     - content.action.view
-
+    
   icon:
     edit: material/pencil
     view: material/eye
+    repo: fontawesome/brands/git-alt
 
 
 markdown_extensions:
@@ -78,13 +79,16 @@ extra_javascript:
   - javascripts/tablesort.js
 
 plugins:
-#  - glightbox
+ # - glightbox
   - search: 
       lang: fr
-
+  # - git-revision-date-localized:
+  #     enable_creation_date: true
+  - mike :
 
 
 extra:
+#versionning
   version:
     provider: mike
 #Avertissements cookies
@@ -103,5 +107,7 @@ extra:
       link : https://github.com/poseidon974
 
 copyright: Copyright &copy; 2022-2023 Léo Guilloux
-repo_url : https://github.com/poseidon974/sitesdocs
+repo_url : https://github.com/poseidon974/sitedocs
 repo_name: poseidon974/sitedocs
+
+
