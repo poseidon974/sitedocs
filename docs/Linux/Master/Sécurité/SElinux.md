@@ -62,8 +62,19 @@ ls -Z /etc/hosts
 et 
 
 ```sh
-ps -Z 
+ps -Zfax
 ```
+
+???+ Info
+
+    `Z` pour lister les labels
+
+    `f` affiche sous forme d'arbre
+
+    `a` pour lister les porcessus des autres utilisateurs
+
+    `x` affiche les processus qui n'ont pas de terminal de controle
+
 
 Lister les règles d'une stratégie :
 
@@ -71,7 +82,7 @@ Lister les règles d'une stratégie :
 chcon -R -t 
 ``` 
 
-??? Info 
+???+ Info 
 
     `-R` pour recurcive
 
@@ -111,7 +122,7 @@ ls -lZ \var\log\audit\audit.log
 
 !!!danger
 
-    La reconsititution des labels de sécurités concerne tout les fichiers. Si des labels de sécurité ont été modifiés manuellement, ceux-ci seront réinitialisés par la reconsititution sauf si ceux-ci ont été rentrés dans les configurations persistantes.
+    La reconsititution des labels de sécurités concerne tout les fichiers. Si des labels de sécurité ont été **modifiés manuellement**, ceux-ci **seront réinitialisés** par la reconsititution **sauf si ceux-ci ont été rentrés dans les configurations persistantes**.
 
 Pour reconstruire les labels de sécurité : 
 
@@ -124,3 +135,12 @@ Pour reconstruire les labels de sécurité au **prochain démarrage** :
 ```sh
 touch /.autorelabel
 ```
+
+Au redémarrage on peut observe le relabel :
+
+
+<figure markdown>
+  ![Autorelabel au redémarrage](./images/autorelabel.png)
+  <figcaption>Message au redémarrage de l'autorelabel</figcaption>
+</figure>
+
