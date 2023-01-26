@@ -38,6 +38,7 @@ theme:
     - navigation.top
     - content.action.view
     - content.code.copy
+    - content.tabs.link
 
   icon:
     edit: material/pencil
@@ -83,6 +84,10 @@ markdown_extensions:
 #lien permanants
   - toc:
       permalink: true
+# content tab
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
 
 
 
