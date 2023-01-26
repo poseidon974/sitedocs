@@ -18,6 +18,13 @@ theme:
         icon: material/brightness-4
         name: Passer en mode nuit
 
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Laisser le système décider
+
   language: fr
   features :
     - header.autohide
@@ -30,6 +37,7 @@ theme:
     - toc.integrate
     - navigation.top
     - content.action.view
+    - content.code.copy
 
   icon:
     edit: material/pencil

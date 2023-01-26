@@ -1,3 +1,9 @@
+---
+hide:
+  - footer
+---
+
+
 # Les permissions
 
 ## Liste des permissions
@@ -35,5 +41,33 @@ Et on obtient une liste de fichier plus ou moins longue si docker est installé 
 
 <figure markdown>
   ![Liste des fichiers possèdant le droit `s`](./images/capture_find.png)
-  <figcaption>Liste des fichiers possèdant le droit s</figcaption>
+  <figcaption>Liste des fichiers possèdant le droit permettant une élévation de privilèges</figcaption>
 </figure>
+
+!!! Info
+    On peux ajouter une option `-o` pour faire un or et donc lier plusieurs arguments
+
+    Exemple : `find / -perm /u=s -o -perm /g=s`
+
+## Les capabilities 
+
+Installation des pages de man (si elles ne sont pas présentes) :
+
+```sh
+dnf -y install man-pages
+```
+
+Overture du man de `capabilities` :
+
+```sh
+man capabilities
+```
+
+Les capabilities ont 2 catégories :
+
+- les processus priviliégiés 
+- les processes non priviliégiés
+
+**Les processus priviliégiés** sont appellé par un superutilisateur ou root. Ils contournent les verfications du noyaux.
+
+**Les processus non priviliégiés** sont soumis à une verification basée sur le processus.

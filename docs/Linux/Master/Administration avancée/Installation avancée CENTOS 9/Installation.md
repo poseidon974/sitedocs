@@ -3,7 +3,7 @@ hide:
   - footer
 ---
 
-# Centos
+# Installation de Centos
 
 - kickstart (redhat) = methode d'installation qui permet de faire passer les questions d'installation
     - utilisation avec la modification de l'ecran d'installation
