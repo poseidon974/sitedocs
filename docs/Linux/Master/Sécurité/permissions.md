@@ -102,10 +102,15 @@ Ncat: bind to :::90: Permission denied. QUITTING.
 ```
 
 ??? Rappel "Rappel sur les commandes de groupes et users"
-
+    
+    Ajout d'un groupe nommé ncusers :
+    
     ```sh
-    [root@LG-stream9-1 ~]# groupadd ncusers
-    [root@LG-stream9-1 ~]# useradd -g ncusers ncuser
+    groupadd ncusers
+    ```
+    Ajout d'un utilisateur avec le groupe ncusers
+    ```sh
+    useradd -g ncusers ncuser
     ```
 
 On copie le dossier nc dans le tmp :
