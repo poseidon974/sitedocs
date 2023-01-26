@@ -17,6 +17,7 @@ RUN pip install --no-cache-dir -r requirements.txt \
       pip install --no-cache-dir -r requirements-plugins.txt; \
     fi
 RUN pip install mike
+RUN pip install mkdocs-material
 # Set working directory
 WORKDIR /docs
 
