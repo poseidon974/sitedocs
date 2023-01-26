@@ -144,3 +144,16 @@ Au redémarrage on peut observe le relabel :
   <figcaption>Message au redémarrage de l'autorelabel</figcaption>
 </figure>
 
+Les templates sont stocker dans `/etc/selinux/targeted`.
+
+<figure markdown>
+  ![Dossier contenant les templates](./images/presentationdossiertemplate.png)
+  <figcaption>Contenu du dossier targeted</figcaption>
+</figure>
+
+Exemple d'un fichier (ici `/etc/selinux/targeted/contexts/systemd_contexts`) :
+
+```sh
+runtime=system_u:object_r:systemd_runtime_unit_file_t:s0
+```
+
