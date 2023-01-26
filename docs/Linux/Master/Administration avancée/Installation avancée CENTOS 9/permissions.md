@@ -4,7 +4,9 @@
 
 Commande pour obtenir des informations concernant les droits :
 
-`ls -l`
+```sh
+ls -l
+```
 
 On obteint plusieurs groupes :
 
@@ -22,3 +24,16 @@ On obteint plusieurs groupes :
 - `chown` : pour modifier mes permissions du fichier
 - `chgrp` : L'administrateur et l'utilisateur peuvent modifier les permissions
 - `chmod`: Permet de changer les permissions d'accès d'un fichier ou d'un répertoire (il faut etre propriètaire du fichier)
+
+Pour chercher les fichiers qui possède le droit `s` :
+
+```sh
+find -perm /u=s
+```
+
+Et on obtient une liste de fichier plus ou moins longue si docker est installé : 
+
+<figure markdown>
+  ![Liste des fichiers possèdant le droit `s`](./images/capture_find.png)
+  <figcaption>Liste des fichiers possèdant le droit s</figcaption>
+</figure>
