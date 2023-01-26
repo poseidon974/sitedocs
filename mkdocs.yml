@@ -30,7 +30,7 @@ theme:
     - toc.integrate
     - navigation.top
     - content.action.view
-    
+
   icon:
     edit: material/pencil
     view: material/eye
