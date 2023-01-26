@@ -13,3 +13,4 @@ Voici les différents cours présents et documentés
 |Windows      |   PowerShell                |[Création d'un fichier avec user et date](./Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date.md)         |06/12/2022|
 |Linux        |   Administration            |[LVM](./Linux/Bachelor/LVM/index.md)                                                                                          |01/06/2022|
 |Windows      |   AD                        |[Création d'une GPO](./Windows/Active%20directory/GPO.md)                                                                     |07/12/2022|
+|Linux        |   Administration avancée    |[Les permissions](./Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/permissions.md)       |02/12/2022|
