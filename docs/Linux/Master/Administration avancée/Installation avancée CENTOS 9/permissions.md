@@ -1,5 +1,7 @@
 # Les permissions
 
+## Liste des permissions
+
 Commande pour obtenir des informations concernant les droits :
 
 `ls -l`
@@ -15,3 +17,8 @@ On obteint plusieurs groupes :
 - t : on trouve la permission sur tout les dossiers temporaires/partages. **Seul le propriètaire du fichier peut le supprimer.** (sticky-bit)
 
 
+## Commandes de changements de permissions
+
+- `chown` : pour modifier mes permissions du fichier
+- `chgrp` : L'administrateur et l'utilisateur peuvent modifier les permissions
+- `chmod`: Permet de changer les permissions d'accès d'un fichier ou d'un répertoire (il faut etre propriètaire du fichier)
