@@ -157,3 +157,69 @@ Exemple d'un fichier (ici `/etc/selinux/targeted/contexts/systemd_contexts`) :
 runtime=system_u:object_r:systemd_runtime_unit_file_t:s0
 ```
 
+### Travail sur un serveur FTP
+
+!!! abstract 
+
+    Installation du serveur : **vsftpd**
+
+On observe ensuite les labels de sécurité sur les dossiers `/var/ftp` et `/var/ftp/pub`.
+
+On remmarque que sur les labels de sécurité, on retrouve un label *public_content_t*.
+
+On demarre le service avec `systemctl start vsftpd`.
+
+!!!Note 
+
+    Le firewall bloque peut-être les connexion au ftp via le navigateur (ftp://*ipmachine*).
+
+    On active le service firewall FTP :
+
+    ```sh
+    firewall-cmd --add-service=ftp
+    ```
+
+On se connecte avec un client ftp et une session comme root. On obteint un succès de connexion.
+
+On s'intérresse maintenant au fichier de configuration `/etc/vsftpd/vsftpd.conf`.
+
+On retrouve la ligne :
+
+```sh
+anonymous_enable=NO
+```
+
+La ligne ci-dessus doit être commentée afin de pouvoir autoriser les connexions anonymes.
+
+!!!warning
+
+    Il faut restart le service afin de prendre en compte le changement de configuration.
+
+
+On va créer les dossiers pour déplacer l'attache du ftp dans `/home/ftp/pub`
+
+???info
+
+    On peut utiliser `mkdir -p ` avec l'option `-p` qui permet de créer les parents du dossier voulu.
+
+On ajoute une ligne dans `/etc/vsftpd/vsftpd.conf` pour lier le ftp dans le dossier créer précédement :
+
+```sh
+anon_root=/home/ftp
+```
+
+On regarde les labels de séurité sur le dossier `ls -lZ /home/ftp/`
+
+```sh
+drwxr-xr-x. 2 root root unconfined_u:object_r:user_home_t:s0 4096 27 janv. 09:34 pub
+```
+
+!!! info
+
+    A partir de redhat 9, on à maintenant accès au FTP .
+
+On cherche à lister les différents modules de SE Linux avec la commande avec l'installation de tools:
+
+```sh
+dnf -y install setools-console
+```
