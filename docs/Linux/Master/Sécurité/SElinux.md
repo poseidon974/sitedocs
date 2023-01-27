@@ -436,7 +436,7 @@ Pour la sécurité, on va désactiver toutes les executions des .cgi :
 On désactive alors l'execution des CGI :
 
 ```sh 
-setsebool httpd_enable_cgi off
+setsebool -P httpd_enable_cgi off
 ```
 
 !!!tip 
