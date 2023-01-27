@@ -426,3 +426,18 @@ Si on test le script dans le navigateur avec la commande  `curl http://172.19.25
     Attention, les commandes sont executées avec l'identité du user `wwwdata`. 
 
     **Le utlisateur possède donc tout les droits de créations et autres liés à `wwwdata`.**
+
+Pour la sécurité, on va désactiver toutes les executions des .cgi :
+
+```sh
+ getsebool -a | grep http
+```
+
+On désactive alors l'execution des CGI :
+
+```sh 
+setsebool httpd_enable_cgi off
+```
+
+!!!tip 
+    Attention au mode de selinux car si il est en *permissive* cela laissera actif l'execution des CGI.
