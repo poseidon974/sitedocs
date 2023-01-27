@@ -73,3 +73,20 @@ sudo swapon /dev/sda3
 sudo swapoff /dev/sda3
 ```
 #### Commande ID
+
+## Sudoreplay
+
+Avec l'activation des logs réalisé plus haut, tout les logs ont été enregistrés. Les logs se trouvent dans `/var/log/sudo-io`
+
+On peux afficher les logs avec la commande :
+```sh
+ls -trl /var/log/sudo-io/00/00/*
+```
+
+On peux aussi afficher les replays avec le TSID avec la commande :
+
+```sh
+sudoreplay -l
+```
+
+Pour jouer les sessions, on utlise sudoreplay avec `sudoreplay TSID`.
