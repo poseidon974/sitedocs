@@ -19,4 +19,57 @@ Dans ce dossier, vous pouvez créer un fichier avec n'importe quelle extension a
 
 ## Mise en oeuvre de sudo
 
-Directive de configuration avec `!log_output`
+
+???+ info "Directives de configurations"
+    Ici chez sudo, nous avons une directive de configuration avec `!log_output`. Tout est redirigé dans le dossier `/var/log/sudo-io`.
+
+### Mise en place des logs
+
+Création du dossier pour le stockage des logs d'output :
+
+```sh
+mkdir -p /var/log/sudo-io
+```
+
+Application des redirections de logs dans le dossier nouvellement crée. Ici on place un nouveau fichier dans `/etc/sudoers.d/` nommé *config* :
+
+```sh
+Defaults log_output
+Defaults!/usr/bin/sudoreplay !log_output
+Defaults!/sbin/reboot !log_output
+```
+
+### Réalisaton de règles pour sudo
+
+#### Commandes swap
+
+On souhaite que le groupe `users` puisse réaliser les commandes :
+
+- `swapon`avec n'importe quel argument 
+- `swapoff`avec l'argument unique \dev\sda3
+
+On réalise un nouveau fichier nommé `swap_off_users` dans le dossier de configuration de sudo :
+
+```sh
+%users     ALL   =    (ALL)     /sbin/swapon, /sbin/swapoff /dev/sda3
+```
+
+
+!!!tip
+    Pour tester les commandes, il est conseillé de prendre un utilisateur sans aucun groupes afin de pouvoir tester simplement.
+
+    Rappel : pour ajouter un user la commande est `useradd` et la commande pour ajouter dans un groupe `usermod -aG`
+
+Ici on ajoute l'utlisateur `utlisateur` dans le groupe users :
+
+```sh
+usermod -aG users utilisateur
+```
+
+Pour tester les commandes, on utlise les commandes suivantes :
+
+```sh linenums="1"
+sudo swapon /dev/sda3
+sudo swapoff /dev/sda3
+```
+#### Commande ID
