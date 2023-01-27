@@ -223,3 +223,16 @@ On cherche à lister les différents modules de SE Linux avec la commande avec l
 ```sh
 dnf -y install setools-console
 ```
+
+On va lister tout les règles d'autorisations :
+
+```sh
+sesearch --allow -s ftpd_t | grep " ftpd"
+```
+
+Et on obteint une information concernant la règle ci-dessus :
+
+```sh
+allow ftpd_t user_home_t:dir { create link rename reparent rmdir setattr unlink watch watch_reads };
+allow ftpd_t user_home_t:file { create ioctl link lock map open read rename setattr unlink watch watch_reads write };
+```
