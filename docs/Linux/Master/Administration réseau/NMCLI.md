@@ -41,3 +41,12 @@ On active la connextion avec :
 ```bash
 nmcli connection up ipfixe
 ```
+
+## Networkd
+
+Installation du package *systemd-networkd* pour obtenir la commande `networkctl`:
+
+```bash
+dnf -y install systemd-networkd
+```
+
