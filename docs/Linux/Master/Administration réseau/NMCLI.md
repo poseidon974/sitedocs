@@ -5,10 +5,10 @@ hide:
 
 # Configuration réseau
 
+## Configuration d'une IP fixe avec nmcli
+
 !!!info
     *nmcli* est un outil qui permet de gérer la configuration réseau en interagissant avec le deamon *NetworkManager*. nmcli est utilisé pour créer, afficher, modifier, supprimer, activer et désactiver les connexions réseau, ainsi que pour contrôler et afficher l'état des périphériques réseau.
-
-## Configuration d'une IP fixe avec nmcli
 
 Pour ajouter une IP fixe, *nmcli* propose une gestion de profile permettant d'activer une configuration personnalisée pour chaque réseau souhaité.
 
