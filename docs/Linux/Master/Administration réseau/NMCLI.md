@@ -42,7 +42,7 @@ On active la connextion avec :
 nmcli connection up ipfixe
 ```
 
-## Networkd
+## Network Manager
 
 Installation du package *systemd-networkd* pour obtenir la commande `networkctl`:
 
@@ -50,3 +50,59 @@ Installation du package *systemd-networkd* pour obtenir la commande `networkctl`
 dnf -y install systemd-networkd
 ```
 
+Pour observer les différentes cartes réseaux, on utlise *networkctl* :
+
+```bash linenums="1"
+IDX LINK        TYPE     OPERATIONAL SETUP
+  1 lo          loopback carrier     unmanaged
+  2 eth0        ether    routable    unmanaged
+  3 eth1        ether    carrier     unmanaged
+  4 docker0     bridge   routable    unmanaged
+  6 vethda849ef ether    enslaved    unmanaged
+```
+
+Empecher le management des cartes tout le temps :
+
+- Ajout d'un fichier dans /etc/NetworkManager/conf.d/99-unmanaged.conf
+```bash
+[keyfile]
+  unmanaged-devices=mac:00:15:5d:85:01:0f,mac:00:15:5d:85:01:10
+```
+- Suppression des profiles avec nmcli : 
+```bash
+nmcli connection delete #nomdelaconnexion
+```
+
+Configuration d'une carte avec un fichier de configuration dans `/etc/systemd/network/` avec un fichier en .network :
+
+```bash
+# Configuration du LAN 1
+[Match]
+MACAddress=00:15:5d:85:01:0f
+
+
+[Network]
+Address=192.168.131.254/24
+# Configuration du LAN 2
+[Match]
+MACAddress=00:15:5d:85:01:10
+
+
+[Network]
+Address=192.168.132.254/24
+```
+
+!!!tip
+  Pour continuer le tp, on utilise 3 machines différentes afin d'avoir la possibilité de communiquer entre elles.
+
+Modification des fichiers de configuration de network :
+```bash
+# Configuration du LAN 1
+[Match]
+MACAddress=00:15:5d:85:01:0f
+
+
+[Network]
+Address=192.168.131.1/24
+Gateway=192.168.131.254
+```
