@@ -238,4 +238,3 @@ De plus, on remarque 2 commandes **iptables** permettant d'ajouter (option -A) e
     ```
 
 On réalise notre propre fichier de configuration. Au prélable, comme il n'y a pas de dossier en .d pour faire des configurations annexe, on copie le fichier de configuration pour en faire une sauvegarde.
-
