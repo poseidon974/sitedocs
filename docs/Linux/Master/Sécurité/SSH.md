@@ -182,6 +182,8 @@ sshguard-nftables.x86_64 : Configuration for nftables backend of SSHGuard
 
 ## PortKnocker
 
+### Installation du serveur knock
+
 !!!info 
     Port_knocker permet d’ouvrir et de fermer les ports d’une machine de façon dynamique. Il agit avec un client qui vient "frapper" à la porte de la machine sur plusieurs ports. Si la séquence est correcte, port-knocker ouvre le port qui correspond à la séquence pendant un certain temps avant de le désactiver.
 
@@ -238,3 +240,41 @@ De plus, on remarque 2 commandes **iptables** permettant d'ajouter (option -A) e
     ```
 
 On réalise notre propre fichier de configuration. Au prélable, comme il n'y a pas de dossier en .d pour faire des configurations annexe, on copie le fichier de configuration pour en faire une sauvegarde.
+
+Modification du fichier knockd.config :
+
+```bash linenums="1"
+
+[opencloseSSH]
+        sequence      = 2222:tcp,3333:udp,4444:tcp
+        seq_timeout   = 15
+        start_command = /bin/firewall-cmd --zone=public --add-rich-rule 'rule family=ipv4 source address=%IP% service name=ssh accept'
+        tcpflags      = syn
+        cmd_timeout   = 10
+        stop_command  = /bin/firewall-cmd --zone=public --remove-rich-rule 'rule family=ipv4 source address=%IP% service name=ssh accept'
+
+```
+
+Ici nous avons utilisé ***firewall-cmd*** pour remplacer ***iptables***. Les *start_command* et *stop_command* permettent d'ajouter avec les *rich-rules* le service SSH.
+
+Sur la séquence, les ports sont en tcp et udp. 
+
+!!!warning
+    Lorsque le port n'est pas spécifié, celui-ci prend par défaut la valeur **TCP**.*
+
+### Connexion avec knock
+
+Pour la connexion client, nous avons besoin du package *knock*.
+
+On toc à la porte de la machine :
+
+```bash
+knock  10.56.126.74 2222:tcp 3333:udp 4444:tcp
+```
+
+Si on decompose la commande, on retrouve l'ip de destination puis les différents ports avec les protocoles si ce n'est pas du ***TCP***.
+
+!!!warning
+    Une fois la commande de knock envoyée, il faut envoyer la commande ssh dans le laps de temps où le port est ouvert
+
+
