@@ -255,6 +255,12 @@ Modification du fichier knockd.config :
 
 ```
 
+!!!warning 
+    Comme ici on utilise *firewall-cmd*, on désactive sur la zone publique ssh
+    ```sh
+    firewall-cmd --zone=public --remove-service=ssh
+    ```
+
 Ici nous avons utilisé ***firewall-cmd*** pour remplacer ***iptables***. Les *start_command* et *stop_command* permettent d'ajouter avec les *rich-rules* le service SSH.
 
 Sur la séquence, les ports sont en tcp et udp. 
