@@ -99,15 +99,15 @@ extra_javascript:
 plugins:
   - search: 
       lang: fr
-  - mike:
-      # These fields are all optional; the defaults are as below...
-      alias_type: symlink
-      redirect_template: null
-      deploy_prefix: ''
-      canonical_version: null
-      version_selector: true
-      css_dir: css
-      javascript_dir: js
+  # - mike:
+  #     # These fields are all optional; the defaults are as below...
+  #     alias_type: symlink
+  #     redirect_template: null
+  #     deploy_prefix: ''
+  #     canonical_version: null
+  #     version_selector: true
+  #     css_dir: css
+  #     javascript_dir: js
 
 
 extra:
