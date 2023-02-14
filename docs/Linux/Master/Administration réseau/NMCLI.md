@@ -122,5 +122,11 @@ net.ipv4.ip_forward = 1
 Mettre en place une règle de firewall pour enlever le message "paquet filtré" :
 
 ```bash
-firewall-cmd --zone=trusted --add-source=192.168.0.0/16
+firewall-cmd --zone=trusted --add-source=192.168.0.0/16 --permanent
+```
+
+Ajout d'une ou plusieurs routes statiques permanantes avec *nmcli* pour permettre à plusieurs sous-réseaux de communiquer entre eux :
+
+```bash
+nmcli connection modify eth2 +ipv4.routes "192.168.101.0/24 10.56.126.220"
 ```
