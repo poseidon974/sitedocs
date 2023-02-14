@@ -96,6 +96,7 @@ Address=192.168.132.254/24
     Pour continuer le tp, on utilise 3 machines différentes afin d'avoir la possibilité de communiquer entre elles.
 
 Modification des fichiers de configuration de network :
+
 ```bash
 # Configuration du LAN 1
 [Match]
@@ -105,4 +106,21 @@ MACAddress=00:15:5d:85:01:0f
 [Network]
 Address=192.168.131.1/24
 Gateway=192.168.131.254
+```
+
+On active le routage car par défaut le routage n'est pas activé sur linux :
+
+```bash
+sysctl -w net.ipv4.ip_forward=1 
+```
+Rendre le paramètre persistant dans *etc/sysctl.d/01-routage.conf* :
+
+```bash
+net.ipv4.ip_forward = 1
+```
+
+Mettre en place une règle de firewall pour enlever le message "paquet filtré" :
+
+```bash
+firewall-cmd --zone=trusted --add-source=192.168.0.0/16
 ```
