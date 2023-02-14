@@ -93,7 +93,7 @@ Address=192.168.132.254/24
 ```
 
 !!!tip
-  Pour continuer le tp, on utilise 3 machines différentes afin d'avoir la possibilité de communiquer entre elles.
+    Pour continuer le tp, on utilise 3 machines différentes afin d'avoir la possibilité de communiquer entre elles.
 
 Modification des fichiers de configuration de network :
 ```bash
