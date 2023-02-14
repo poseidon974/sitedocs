@@ -235,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../Bachelor/LVM/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link md-tabs__link--active">
         Linux
       </a>
     </li>
@@ -415,6 +415,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_1">
@@ -444,25 +446,100 @@
       
         
           
-            
+        
           
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../Bachelor/LVM/">LVM</a>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2_1_1">
+          Partionnement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
-      <nav class="md-nav" aria-label="LVM" data-md-level="3">
+      <nav class="md-nav" aria-label="Partionnement" data-md-level="3">
         <label class="md-nav__title" for="__nav_2_1_1">
           <span class="md-nav__icon md-icon"></span>
-          LVM
+          Partionnement
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
+        Mise en place des partitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/Partionnement/RAID/" class="md-nav__link">
+        RAID
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_2" type="checkbox" id="__nav_2_1_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2">
+          Deploiement ansible
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploiement ansible" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Deploiement ansible
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
+        Deployment ansible
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -734,6 +811,13 @@
         <li class="md-nav__item">
   <a href="#configuration-dune-ip-fixe-avec-nmcli" class="md-nav__link">
     Configuration d'une IP fixe avec nmcli
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-manager" class="md-nav__link">
+    Network Manager
   </a>
   
 </li>
@@ -1294,6 +1378,63 @@ eth0     40d5bcc8-ca0c-42a9-9fad-388b15a5e856  ethernet  --
 <p>On active la connextion avec :</p>
 <div class="highlight"><pre><span></span><code>nmcli connection up ipfixe
 </code></pre></div>
+<h2 id="network-manager">Network Manager<a class="headerlink" href="#network-manager" title="Permanent link">&para;</a></h2>
+<p>Installation du package <em>systemd-networkd</em> pour obtenir la commande <code>networkctl</code>:</p>
+<div class="highlight"><pre><span></span><code>dnf -y install systemd-networkd
+</code></pre></div>
+<p>Pour observer les différentes cartes réseaux, on utlise <em>networkctl</em> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>IDX LINK        TYPE     OPERATIONAL SETUP
+  <span class="m">1</span> lo          loopback carrier     unmanaged
+  <span class="m">2</span> eth0        ether    routable    unmanaged
+  <span class="m">3</span> eth1        ether    carrier     unmanaged
+  <span class="m">4</span> docker0     bridge   routable    unmanaged
+  <span class="m">6</span> vethda849ef ether    enslaved    unmanaged
+</code></pre></div></td></tr></table></div>
+<p>Empecher le management des cartes tout le temps :</p>
+<ul>
+<li>Ajout d'un fichier dans /etc/NetworkManager/conf.d/99-unmanaged.conf
+<div class="highlight"><pre><span></span><code><span class="o">[</span>keyfile<span class="o">]</span>
+  unmanaged-devices<span class="o">=</span>mac:00:15:5d:85:01:0f,mac:00:15:5d:85:01:10
+</code></pre></div></li>
+<li>Suppression des profiles avec nmcli : 
+<div class="highlight"><pre><span></span><code>nmcli connection delete <span class="c1">#nomdelaconnexion</span>
+</code></pre></div></li>
+</ul>
+<p>Configuration d'une carte avec un fichier de configuration dans <code>/etc/systemd/network/</code> avec un fichier en .network :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Configuration du LAN 1</span>
+<span class="o">[</span>Match<span class="o">]</span>
+<span class="nv">MACAddress</span><span class="o">=</span><span class="m">00</span>:15:5d:85:01:0f
+
+
+<span class="o">[</span>Network<span class="o">]</span>
+<span class="nv">Address</span><span class="o">=</span><span class="m">192</span>.168.131.254/24
+<span class="c1"># Configuration du LAN 2</span>
+<span class="o">[</span>Match<span class="o">]</span>
+<span class="nv">MACAddress</span><span class="o">=</span><span class="m">00</span>:15:5d:85:01:10
+
+
+<span class="o">[</span>Network<span class="o">]</span>
+<span class="nv">Address</span><span class="o">=</span><span class="m">192</span>.168.132.254/24
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Pour continuer le tp, on utilise 3 machines différentes afin d'avoir la possibilité de communiquer entre elles.</p>
+</div>
+<p>Modification des fichiers de configuration de network :
+<div class="highlight"><pre><span></span><code><span class="c1"># Configuration du LAN 1</span>
+<span class="o">[</span>Match<span class="o">]</span>
+<span class="nv">MACAddress</span><span class="o">=</span><span class="m">00</span>:15:5d:85:01:0f
+
+
+<span class="o">[</span>Network<span class="o">]</span>
+<span class="nv">Address</span><span class="o">=</span><span class="m">192</span>.168.131.1/24
+<span class="nv">Gateway</span><span class="o">=</span><span class="m">192</span>.168.131.254
+</code></pre></div></p>
 
 
 
