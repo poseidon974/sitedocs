@@ -89,6 +89,11 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true 
 
+# listes
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
 
 
 extra_javascript:

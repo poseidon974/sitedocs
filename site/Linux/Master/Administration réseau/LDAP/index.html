@@ -1370,6 +1370,90 @@ objectclass <span class="o">(</span> <span class="m">1</span>.3.6.1.1.1.2.2 NAME
         MAY <span class="o">(</span> userPassword $ memberUid $ description <span class="o">)</span> <span class="o">)</span>
 </code></pre></div>
 <p>1 objet rentré dans l'annuaire doit obliatoirement avoir une classe structurale.</p>
+<p>La classe Account se situe dans le fichier <code>cosine.schema</code> et cette classe est une classe Structurale :</p>
+<div class="highlight"><pre><span></span><code>objectclass <span class="o">(</span> <span class="m">0</span>.9.2342.19200300.100.4.5 NAME <span class="s1">&#39;account&#39;</span>
+        SUP top STRUCTURAL
+        MUST userid
+        MAY <span class="o">(</span> description $ seeAlso $ localityName $
+                organizationName $ organizationalUnitName $ host <span class="o">)</span>
+        <span class="o">)</span>
+</code></pre></div>
+<p>Démarrage de ldap :</p>
+<div class="highlight"><pre><span></span><code>systemctl start slapd
+</code></pre></div>
+<p>Plusieurs LDAP :</p>
+<ul>
+<li>Ldapi : Connexion avec le socket UNIX (locale)</li>
+<li>Ldaps : connexion avec des certficats (utlisé par des clients TLS)</li>
+<li>Ldap : connexion simple sans certificats (tuilisé par des clients non TLS)</li>
+</ul>
+<p>Les commandes <code>ldapwhoami</code> permettent de tester l'accès à un annuaire.</p>
+<p>Recherche et connexion dans l'annuaire avec connexion :</p>
+<div class="highlight"><pre><span></span><code>ldapsearch -Y EXTERNAL -H ldapi:/// -Q  -b <span class="nv">CN</span><span class="o">=</span>config
+</code></pre></div>
+<p>Options de filtres ( attention pas d'opérateur &lt; ou &gt; (opératuers strictes) ) :</p>
+<ul>
+<li><code>=</code>(égal)</li>
+<li><code>*</code>: joker</li>
+<li><code>&lt;=</code> (plus petit ou égal)</li>
+<li><code>&gt;=</code> (plus grand ou égal)</li>
+<li><code>~=</code>(approximation)</li>
+</ul>
+<p>Recherche portée avec scope <code>-s</code> et ses options :</p>
+<ul>
+<li>base (uniquement la base)</li>
+<li>sub (à partir de la base sur la totalité de la base)</li>
+<li>one (fils directs)</li>
+</ul>
+<p>ldapmodifiy utlise un schéma pour la modification :</p>
+<ul>
+<li>le DN,<ul>
+<li><strong>le type d'opération réalisée,</strong></li>
+<li>changetype: add : pour ajouter une entrée</li>
+<li>changetype: delete : pour supprimer une entrée</li>
+<li>changetype: modify : pour modifier une entrée déjà présente<ul>
+<li><strong>La ligne du dessous mentionne alors le type de modification :</strong></li>
+<li>add : attribut</li>
+<li>delete : attribut</li>
+<li>replace : attribut<ul>
+<li><strong>La ligne du dessous donne alors la nouvelle valeur de l'attribut</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Création d'un fichier pour modifier le mot de passe root :</p>
+<div class="highlight"><pre><span></span><code>dn: <span class="nv">olcDatabase</span><span class="o">={</span><span class="m">2</span><span class="o">}</span>mdb,cn<span class="o">=</span>config
+changetype: modify
+replace: olcRootPW
+olcRootPW: secret
+</code></pre></div>
+<p>Application de la modification : </p>
+<p><div class="highlight"><pre><span></span><code>ldapmodify -Y EXTERNAL -H ldapi:/// -Q -f modif-rootpw.ldif
+</code></pre></div>
+Observation de la modification avec la commande <code>ldapsearch -Y EXTERNAL -H ldapi:/// -Q -LLL -b 'olcDatabase={2}mdb,cn=config'</code> : </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn: <span class="nv">olcDatabase</span><span class="o">={</span><span class="m">2</span><span class="o">}</span>mdb,cn<span class="o">=</span>config
+objectClass: olcDatabaseConfig
+objectClass: olcMdbConfig
+olcDatabase: <span class="o">{</span><span class="m">2</span><span class="o">}</span>mdb
+olcDbDirectory: /var/lib/ldap
+olcSuffix: <span class="nv">dc</span><span class="o">=</span>my-domain,dc<span class="o">=</span>com
+olcRootDN: <span class="nv">cn</span><span class="o">=</span>Manager,dc<span class="o">=</span>my-domain,dc<span class="o">=</span>com
+olcDbIndex: objectClass eq,pres
+olcDbIndex: ou,cn,mail,surname,givenname eq,pres,sub
+<span class="hll">olcRootPW: secret
+</span></code></pre></div></td></tr></table></div>
 
 
 
