@@ -1345,6 +1345,31 @@
 <p>LDAP est l'abréviation de Lightweight Directory Access Protocol (protocole léger d'accès à un annuaire). C'est un protocole de communication utilisé pour accéder à des annuaires en ligne, qui sont des bases de données contenant des informations sur des utilisateurs, des groupes, des ordinateurs et d'autres ressources réseau.</p>
 <p>LDAP permet aux clients d'accéder à ces annuaires pour effectuer des opérations telles que la recherche, la lecture, la mise à jour et la suppression de données. Les annuaires LDAP sont utilisés dans de nombreuses applications, notamment pour la gestion des utilisateurs et des groupes, l'authentification et l'autorisation, la messagerie électronique, la voix sur IP, et bien d'autres.</p>
 <p>LDAP utilise un modèle client-serveur et repose sur un ensemble de règles et de spécifications définies par l'Internet Engineering Task Force (IETF). Il est considéré comme un protocole efficace et sûr pour la gestion de données d'annuaire à grande échelle.</p>
+<p>Recherche dans les schemas :</p>
+<div class="highlight"><pre><span></span><code>grep -rni --color PosixAccount /etc/openldap/schema/
+</code></pre></div>
+<p>Affichage des lignes de 161 à 180 du fichier <code>nis.schema</code> :</p>
+<div class="highlight"><pre><span></span><code>objectclass <span class="o">(</span> <span class="m">1</span>.3.6.1.1.1.2.0 NAME <span class="s1">&#39;posixAccount&#39;</span>
+        DESC <span class="s1">&#39;Abstraction of an account with POSIX attributes&#39;</span>
+        SUP top AUXILIARY
+        MUST <span class="o">(</span> cn $ uid $ uidNumber $ gidNumber $ homeDirectory <span class="o">)</span>
+        MAY <span class="o">(</span> userPassword $ loginShell $ gecos $ description <span class="o">)</span> <span class="o">)</span>
+
+objectclass <span class="o">(</span> <span class="m">1</span>.3.6.1.1.1.2.1 NAME <span class="s1">&#39;shadowAccount&#39;</span>
+        DESC <span class="s1">&#39;Additional attributes for shadow passwords&#39;</span>
+        SUP top AUXILIARY
+        MUST uid
+        MAY <span class="o">(</span> userPassword $ shadowLastChange $ shadowMin $
+              shadowMax $ shadowWarning $ shadowInactive $
+              shadowExpire $ shadowFlag $ description <span class="o">)</span> <span class="o">)</span>
+
+objectclass <span class="o">(</span> <span class="m">1</span>.3.6.1.1.1.2.2 NAME <span class="s1">&#39;posixGroup&#39;</span>
+        DESC <span class="s1">&#39;Abstraction of a group of accounts&#39;</span>
+        SUP top STRUCTURAL
+        MUST <span class="o">(</span> cn $ gidNumber <span class="o">)</span>
+        MAY <span class="o">(</span> userPassword $ memberUid $ description <span class="o">)</span> <span class="o">)</span>
+</code></pre></div>
+<p>1 objet rentré dans l'annuaire doit obliatoirement avoir une classe structurale.</p>
 
 
 
