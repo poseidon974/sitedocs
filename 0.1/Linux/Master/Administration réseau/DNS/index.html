@@ -13,7 +13,7 @@
     
     
       
-        <title>DNS - Documentation - CS2I</title>
+        <title>Les DNS - Documentation - CS2I</title>
       
     
     
@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#les-dns" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -100,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DNS
+              Les DNS
             
           </span>
         </div>
@@ -752,6 +757,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_2_2">
@@ -778,11 +785,58 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Les DNS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        DNS
+        Les DNS
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bind" class="md-nav__link">
+    Bind
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LDAP/" class="md-nav__link">
+        LDAP
+      </a>
     </li>
   
 
@@ -1318,8 +1372,19 @@
   </a>
 
 
-  <h1>DNS</h1>
-
+<h1 id="les-dns">Les DNS<a class="headerlink" href="#les-dns" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">Objectifs</p>
+<ul>
+<li>
+<p>Déclarer le serveur DNS</p>
+</li>
+<li>
+<p>Etre un salve d'un autre serveur</p>
+</li>
+</ul>
+</div>
+<h2 id="bind">Bind<a class="headerlink" href="#bind" title="Permanent link">&para;</a></h2>
 <p>Installation de bind :</p>
 <div class="highlight"><pre><span></span><code>dnf install -y <span class="nb">bind</span>
 </code></pre></div>
@@ -1367,7 +1432,14 @@
 <span class="normal">38</span>
 <span class="normal">39</span>
 <span class="normal">40</span>
-<span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code>options <span class="o">{</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code>options <span class="o">{</span>
 <span class="hll">        listen-on port <span class="m">53</span> <span class="o">{</span> <span class="m">127</span>.0.0.1<span class="p">;</span> <span class="m">10</span>.56.126.223<span class="o">}</span><span class="p">;</span>
 </span>        listen-on-v6 port <span class="m">53</span> <span class="o">{</span> ::1<span class="p">;</span> <span class="o">}</span><span class="p">;</span>
         directory       <span class="s2">&quot;/var/named&quot;</span><span class="p">;</span>
@@ -1408,7 +1480,49 @@ logging <span class="o">{</span>
                 severity dynamic<span class="p">;</span>
         <span class="o">}</span><span class="p">;</span>
 <span class="o">}</span><span class="p">;</span>
+zone <span class="s2">&quot;.&quot;</span> IN <span class="o">{</span>
+        <span class="nb">type</span> hint<span class="p">;</span>
+        file <span class="s2">&quot;named.ca&quot;</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+
+include <span class="s2">&quot;/etc/named.rfc1912.zones&quot;</span><span class="p">;</span>
+include <span class="s2">&quot;/etc/named.root.key&quot;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+<p>Ajout d'une ACL que l'on pourra réutiliser : </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>acl mes-clients <span class="o">{</span>
+    <span class="m">10</span>.56.126.0/24<span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>Ajout de <em>mes-clients</em> sur la ligne suivante: </p>
+<div class="highlight"><pre><span></span><code>allow-query     <span class="o">{</span> localhost<span class="p">;</span> mes-clients<span class="p">;</span> <span class="o">}</span><span class="p">;</span>
+</code></pre></div>
+<p>Ajout d'une zone avec la création d'un fichier dans <code>/etc/named/mes-domaines.conf</code> :</p>
+<div class="highlight"><pre><span></span><code>zone <span class="s2">&quot;dom3.local. &quot;</span><span class="o">{</span>
+     <span class="nb">type</span> master<span class="p">;</span>
+     file <span class="s2">&quot;dynamic/dom3.local.zone&quot;</span><span class="p">;</span>
+<span class="o">}</span><span class="p">;</span>
+</code></pre></div>
+<p>Pour que le fichier soit lu par named, on lui indique le chemin complet dans sont fichier de configuration <code>etc/named.conf</code> :</p>
+<div class="highlight"><pre><span></span><code>include <span class="s2">&quot;/etc/named/mes-domaines.conf&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>Configuration de la zone dans <code>/var/named/dynamic/dom3.local.zone</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$TTL</span> <span class="m">3600</span>
+@       IN      SOA     dns1 leoguilloux.yahoo.com. <span class="o">(</span>
+                        <span class="m">2023021401</span> <span class="p">;</span> Serial
+                        <span class="m">3600</span>       <span class="p">;</span> Refresh
+                        <span class="m">1800</span>       <span class="p">;</span> Retry
+                        <span class="m">604800</span>     <span class="p">;</span> Expire
+                        <span class="m">86400</span> <span class="o">)</span>    <span class="p">;</span> Minimum TTL
+@       NS      dns1
+dns1    A       <span class="m">10</span>.56.126.223
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Ports ouverts sur une machine</p>
+<div class="highlight"><pre><span></span><code>ss -plntu
+</code></pre></div>
+</div>
 
 
 
@@ -1456,13 +1570,13 @@ logging <span class="o">{</span>
       
       
         
-        <a href="../NMCLI/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Configuration réseau" rel="next">
+        <a href="../LDAP/" class="md-footer__link md-footer__link--next" aria-label="Suivant: LDAP" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Suivant
               </span>
-              Configuration réseau
+              LDAP
             </div>
           </div>
           <div class="md-footer__button md-icon">
