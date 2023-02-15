@@ -90,3 +90,37 @@ Ajout de *mes-clients* sur la ligne suivante:
 ```bash
 allow-query     { localhost; mes-clients; };
 ```
+
+Ajout d'une zone avec la création d'un fichier dans `/etc/named/mes-domaines.conf` :
+
+```bash
+zone "dom3.local. "{
+     type master;
+     file "dynamic/dom3.local.zone";
+};
+```
+
+Pour que le fichier soit lu par named, on lui indique le chemin complet dans sont fichier de configuration `etc/named.conf` :
+
+```bash
+include "/etc/named/mes-domaines.conf";
+```
+
+Configuration de la zone dans `/var/named/dynamic/dom3.local.zone` :
+
+```bash
+$TTL 3600
+@       IN      SOA     dns1 leoguilloux.yahoo.com. (
+                        2023021401 ; Serial
+                        3600       ; Refresh
+                        1800       ; Retry
+                        604800     ; Expire
+                        86400 )    ; Minimum TTL
+@       NS      dns1
+dns1    A       10.56.126.223
+```
+
+!!!info "Ports ouverts sur une machine"
+    ```bash
+    ss -plntu
+    ```
