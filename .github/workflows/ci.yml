@@ -19,6 +19,8 @@ jobs:
           path: .cache
       - run: pip install mkdocs-material
       - run: pip install mike 
+      - run: git config user.name ci-bot
+      - run: git config user.email leo.guilloux8+ci-bot@gmail.com
       - run: mike deploy 0.1
 #      - run: mkdocs gh-deploy --force
 
