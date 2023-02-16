@@ -124,3 +124,17 @@ dns1    A       10.56.126.223
     ```bash
     ss -plntu
     ```
+
+Pour que une machine cliente puisse ping l'exterieur, on lui met une route par défaut passant par la gateway.
+
+Sur le routeur, on lui change l'interface dans la zone external :
+
+```bash 
+firewall-cmd --zone=external --add-interface=eth2 --permanent
+```
+
+On redémarre le service avec :
+
+```bash
+systemctl restart firewalld
+```

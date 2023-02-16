@@ -5,11 +5,15 @@ hide:
 
 # LDAP
 
+## Définition
+
 LDAP est l'abréviation de Lightweight Directory Access Protocol (protocole léger d'accès à un annuaire). C'est un protocole de communication utilisé pour accéder à des annuaires en ligne, qui sont des bases de données contenant des informations sur des utilisateurs, des groupes, des ordinateurs et d'autres ressources réseau.
 
 LDAP permet aux clients d'accéder à ces annuaires pour effectuer des opérations telles que la recherche, la lecture, la mise à jour et la suppression de données. Les annuaires LDAP sont utilisés dans de nombreuses applications, notamment pour la gestion des utilisateurs et des groupes, l'authentification et l'autorisation, la messagerie électronique, la voix sur IP, et bien d'autres.
 
 LDAP utilise un modèle client-serveur et repose sur un ensemble de règles et de spécifications définies par l'Internet Engineering Task Force (IETF). Il est considéré comme un protocole efficace et sûr pour la gestion de données d'annuaire à grande échelle.
+
+## Découverte et paramétrages
 
 Recherche dans les schemas :
 
@@ -66,7 +70,7 @@ Plusieurs LDAP :
 - Ldaps : connexion avec des certficats (utlisé par des clients TLS)
 - Ldap : connexion simple sans certificats (tuilisé par des clients non TLS)
 
-Les commandes `ldapwhoami` permettent de tester l'accès à un annuaire.
+Les commandes ***ldapwhoami*** permettent de tester l'accès à un annuaire.
 
 Recherche et connexion dans l'annuaire avec connexion :
 
@@ -88,7 +92,7 @@ Recherche portée avec scope `-s` et ses options :
 - sub (à partir de la base sur la totalité de la base)
 - one (fils directs)
 
-ldapmodifiy utlise un schéma pour la modification :
+***ldapmodify*** utlise un schéma pour la modification :
 
 - le DN,
     * **le type d'opération réalisée,**
@@ -128,4 +132,111 @@ olcRootDN: cn=Manager,dc=my-domain,dc=com
 olcDbIndex: objectClass eq,pres
 olcDbIndex: ou,cn,mail,surname,givenname eq,pres,sub
 olcRootPW: secret
+```
+
+Pour obtenir un mot de passe chiffré, on utilise `slappasswd`.
+
+!!!info "Saut de ligne"
+        Dans les différents éditeurs, ceux-ci enregisre un saut de ligne qui est interprété par ldap (ex: mot de passe de 6 caractères comptera sur 7). Cela se suprrime avec la commande :
+        ```bash
+        echo -n secret > .ldappass
+        ```
+## Réalisation du travail
+
+!!!abstract "Travail à réaliser"
+        - [x] On cherche à créer une organisation "mon domaine domX.local" (entrée d'annuaire "organization")
+              * [x] Création d'une OU "users" (entrée d'annuaire : organizationUnit")
+                   + [x] Ajout d'une entrée basée sur posixAccount : "ldapuser1"
+              * [x]  Création d'une OU "groups" (entrée d'annuaire : organizationUnit")
+                   + [x] Ajout d'une entrée basée sur posixGroup : "ldapgroup1"
+
+### Création d'une organisation avec la création d'un fichier `org.ldif`
+
+```bash
+dn: dc=dom3,dc=local
+objectClass: organization
+objectClass: dcObject
+o: Mon domaine dom0.local
+```
+
+On ajout l'organistaion avec :
+
+```bash
+ldapadd -D cn=leo,dc=dom3,dc=local -y ~/.ldappass -f org.ldif -c
+```
+
+!!!info
+        L'option `-c` permet de continuer si des lignes provoquent des erreurs
+
+
+Dans la suite des travaux, nous continurons dans le fichier `org.ldif`.
+
+### Création d'une OU "users"
+
+```bash 
+dn: ou=users,dc=dom3,dc=local
+objectClass: organizationalUnit
+```
+
+### Ajout d'un utilisateur `ldapuser1` 
+
+Ajout du schéma inetorgperson :
+
+```bash
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+```
+
+Ajout de l'utilisateur :
+
+```bash
+dn: cn=ldapuser1,ou=groups,dc=dom3,dc=local
+objectClass: posixAccount
+objectClass: inetOrgPerson
+cn: Youzer Un
+gn: Youzer
+sn: Un
+uid: ldpauser1
+uidNumber: 10001
+gidNumber: 10000
+homeDirectory: /home/ldapuser1
+```
+
+
+### Création d'une OU "groups"
+
+```bash
+dn: ou=groups,dc=dom3,dc=local
+objectClass: organizationalUnit
+```
+
+### Ajout d'un groupe `ldapgroup1` 
+
+On cherche dans les schémas les références à posixGroup :
+
+```bash
+grep -rni --color PosixGroup /etc/openldap/schema/
+```
+
+On retrouve dans le fichier `nis.schema` que l'identifiant est *gidnumber*. 
+
+On ajoute le schema nis.ldif :
+
+```bash
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
+```
+
+On cherche l'erreur suivante sur les `manager` que l'on trouve dans cosine.schema. On ajoute ensuite le fichier ldif :
+
+```bash
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+```
+
+Si il y a des erreurs, il faut intégrer les fichier dans l'ordre `nis.ldif` puis `cosine.ldif`.
+
+Code définitif pour la création :
+
+```bash
+dn: cn=ldapgroupe1,ou=groups,dc=dom3,dc=local
+objectClass: posixGroup
+gidNumber: 10000
 ```
