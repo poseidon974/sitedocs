@@ -10,6 +10,8 @@ hide:
 
     - Etre un salve d'un autre serveur
 
+Pour la résolution de noms DNS, la commande `getent` est présente sur les systèmes linux. 
+
 ## Bind
 
 Installation de bind :
