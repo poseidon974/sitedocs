@@ -421,6 +421,8 @@ uid=10001(ldapuser1) gid=10000(ldapgroupe1) groupes=10000(ldapgroupe1)
 
 ### Certification avec TLS
 
+#### Certificat auto-signé
+
 Création d'un dossier avec des droits personnalisés sur le serveur :
 
 ```bash
@@ -443,3 +445,58 @@ Ajout des droits sur le fichier `ca.pem` :
 ```bash
 chmod 444 /etc/openldap/certs/ca.pem
 ```
+
+#### Certificat serveur
+
+Création des fichiers `server.csr` et `key.pem` :
+
+```bash
+openssl req \
+-newkey rsa:4096 -nodes -keyout /etc/openldap/certs/key.pem \
+-subj '/CN=dom3.local/' \
+-out server.csr
+```
+
+Ajout des permissions :
+
+```bash
+chmod 440 /etc/openldap/certs/key.pem
+```
+
+#### Tamponnage du fichier 
+
+```bash
+openssl x509 -req -days 365 -sha256 -in server.csr -out /etc/openldap/certs/cert.pem \
+-CA /etc/openldap/certs/ca.pem -CAkey /etc/openldap/certs/ca-key.pem -CAcreateserial \
+-extfile <(printf "basicConstraints = CA:FALSE\n subjectAltName=IP:127.0.0.1,IP:10.56.126.220,DNS:ldap.dom3.local")
+```
+
+Verifications du certificat :
+
+```bash
+openssl x509 -noout -subject < /etc/openldap/certs/cert.pem
+```
+
+#### Intégration des configurations
+
+Ajouter un fichier tls.ldif :
+
+```bash linenums="1"
+dn: cn=config
+changetype: modify
+replace: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/openldap/certs/ca.pem
+-
+replace: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/openldap/certs/cert.pem
+-
+replace: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/openldap/certs/key.pem
+```
+
+Ajout de la configuration avec `ldapmodify` :
+
+```bash
+ldapmodify -Y EXTERNAL -H ldapi:/// < tls.ldif
+```
+
