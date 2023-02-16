@@ -186,9 +186,9 @@ Ajout du schéma inetorgperson :
 ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
 ```
 
-Ajout de l'utilisateur :
+Ajout de l'utilisateur ici dans `groups`:
 
-```bash
+```bash linenums="1"
 dn: cn=ldapuser1,ou=groups,dc=dom3,dc=local
 objectClass: posixAccount
 objectClass: inetOrgPerson
@@ -201,6 +201,20 @@ gidNumber: 10000
 homeDirectory: /home/ldapuser1
 ```
 
+Ajout d'utilisateur ici dans `users` :
+
+```bash linenums="1"
+dn: cn=ldapuser1,ou=users,dc=dom3,dc=local
+objectClass: posixAccount
+objectClass: inetOrgPerson
+cn: Youzer Un
+gn: Youzer
+sn: Un
+uid: ldapuser1
+uidNumber: 10001
+gidNumber: 10000
+homeDirectory: /home/ldapuser1
+```
 
 ### Création d'une OU "groups"
 
@@ -342,3 +356,90 @@ auth        required                                     pam_deny.so
 ```
 
 On observe de nouvelles lignes qui se sont ajoutées dans le fichier avec des paramètres supplémentaires.
+
+### Configuration de SSS
+
+Ajout d'un fichier de configuration `/etc/sssd/sssd.conf` :
+
+```bash
+[sssd]
+services = nss, pam
+domains = dom3.local
+
+[nss]
+filter_users = root
+filter_groups = root
+
+[domain/dom3.local]
+cache_credentials = true
+id_provider = ldap
+auth_provider = ldap
+ldap_uri = ldap://10.56.126.220
+#ldap_tls_reqcert = demand
+ldap_search_base = dc=dom3,dc=local
+ldap_user_search_base = ou=users,dc=dom3,dc=local
+ldap_groups_search_base = ou=groups,dc=dom3,dc=local
+
+[pam]
+offline_credentials_expiration = 1
+offline_failed_login_attempts = 3
+offline_failed_login_delay = 5
+```
+
+Modification des droits en 600 :
+
+```bash
+chmod 600 /etc/sssd/sssd.conf
+```
+
+Démarrage du service SSSD qui nécéssitait un fichier de configuration :
+
+```bash
+systemctl restart sssd
+```
+
+On verifie la connexion avec `sssctl user-checks ldapuser1` (ici un extrait du message retour):
+
+```bash linenums="1"
+user: ldapuser1
+action: acct
+service: system-auth
+
+SSSD nss user lookup result:
+ - user name: ldapuser1
+ - user id: 10001
+ - group id: 10000
+ - gecos: Youzer Un
+ - home directory: /home/ldapuser1
+ - shell:
+```
+Verficiation aussi avec `id ldapuser1` :
+
+```bash
+uid=10001(ldapuser1) gid=10000(ldapgroupe1) groupes=10000(ldapgroupe1)
+```
+
+### Certification avec TLS
+
+Création d'un dossier avec des droits personnalisés sur le serveur :
+
+```bash
+install -d -m 2750 -o root -g ldap /etc/openldap/certs
+```
+
+Création des documents `ca.pem` et `ca-key.pem` :
+
+```bash
+openssl req \
+-newkey rsa:4096 -nodes -keyout /etc/openldap/certs/ca-key.pem \
+-subj '/countryName=FR/stateOrProvinceName=Bretagne/organizationName=Actilis/CN=CA-LDAP/' \
+-x509 -sha256 -days 365 \
+-extensions v3_ca \
+-out /etc/openldap/certs/ca.pem
+```
+
+Ajout des droits sur le fichier `ca.pem` :
+
+```bash
+chmod 444 /etc/openldap/certs/ca.pem
+```
