@@ -295,3 +295,50 @@ modules qui suivent (même required ou requisite) dans le contexte
 - Optional : La réussite d'un module optional est nécessaire si les autres sont ignorés. Le module n'est pas appelé si
 un autre module réussit ou échoue
 - Include : sert à brancher vers un sous-fichier de règles PAM
+
+## SSSD
+
+Pourquoi utiliser SSHD ? Car SSHD est plus récent que PAM pour LDAP.
+
+Installation des packages SSHD :
+
+```bash
+dnf -y install sssd sssd-ldap sssd-tools oddjob oddjob-mkhomedir
+```
+
+Démarrage du service :
+
+```bash
+systemctl enable --now oddjobd.service
+```
+
+Authselect permet de configurer des profils d'authentifications.
+
+Nous pouvons lister les profils avec `authselect list` :
+
+```bash
+- minimal        Local users only for minimal installations
+- sssd           Enable SSSD for system authentication (also for local users only)
+- winbind        Enable winbind for system authentication
+```
+
+Configuration de PAM avec SSHD :
+
+```bash 
+authselect select --force sssd with-mkhomedir
+```
+
+Si on regarde maintenant le fichier de pam `system_auth` :
+
+```bash
+auth        required                                     pam_env.so
+auth        required                                     pam_faildelay.so delay=2000000
+auth        [default=1 ignore=ignore success=ok]         pam_usertype.so isregular
+auth        [default=1 ignore=ignore success=ok]         pam_localuser.so
+auth        sufficient                                   pam_unix.so nullok
+auth        [default=1 ignore=ignore success=ok]         pam_usertype.so isregular
+auth        sufficient                                   pam_sss.so forward_pass
+auth        required                                     pam_deny.so
+```
+
+On observe de nouvelles lignes qui se sont ajoutées dans le fichier avec des paramètres supplémentaires.
