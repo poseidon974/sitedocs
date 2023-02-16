@@ -22,7 +22,7 @@ jobs:
       - run: git fetch origin gh-pages --depth=1
       - run: git config user.name ci-bot
       - run: git config user.email leo.guilloux8+ci-bot@gmail.com
-      - run: mkdocs gh-deploy --force
+#      - run: mkdocs gh-deploy --force
 
 
 # name: build

@@ -15,6 +15,12 @@ LDAP utilise un modèle client-serveur et repose sur un ensemble de règles et d
 
 ## Découverte et paramétrages
 
+!!!success
+        Changer toutes les commandes qui demande un editeur de texte comme ldapvi, on peut changer l'editeur avec :
+        ```bash
+        export EDITOR=nano
+        ```
+
 Recherche dans les schemas :
 
 ```bash
@@ -500,3 +506,56 @@ Ajout de la configuration avec `ldapmodify` :
 ldapmodify -Y EXTERNAL -H ldapi:/// < tls.ldif
 ```
 
+
+Modification et ajout du fichier `/etc/openldap/ldap.conf` :
+
+```bash
+TLS_CACERT /etc/openldap/certs/ca.pem
+TLS_REQCERT demand
+``` 
+
+Ajout pour sudo :
+
+```bash
+dn: cn=defaults,ou=SUDOers,dc=example,dc=com
+objectClass: top
+objectClass: sudoRole
+cn: defaults
+description: Default sudoOption's go here
+sudoOption: env_keep+=SSH_AUTH_SOCK
+```
+
+Téléchargement de  schema2ldif :
+
+- [Documentation](https://fusiondirectory-user-manual.readthedocs.io/en/1.3/index.html) de schema2ldif
+- Ajout d'un repo avec la création d'un fichier `/etc/yum.repos.d/fusion.repo` :
+```bash
+[fusiondirectory-schema2ldif-release]
+name=Fusiondirectory Packages for CentOS 7
+baseurl=https://public.fusiondirectory.org/centos7-schema2ldif-release/RPMS
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-FUSIONDIRECTORY
+```
+- Télechargement via dnf de schema2ldif
+
+Modification d'un fichier en ldif :
+
+```bash
+schema2ldif /usr/share/doc/sudo/schema.OpenLDAP > sudo-schema.ldif
+```
+
+On peut observer le début du fichier avec la commande `head sudo-schema.ldif` :
+
+```bash
+dn: cn=schema,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: schema
+#
+# OpenLDAP schema file for Sudo
+# Save as /etc/openldap/schema/sudo.schema and restart slapd.
+# For a version that uses online configuration, see schema.olcSudo.
+#
+olcAttributeTypes: ( 1.3.6.1.4.1.15953.9.1.1
+  NAME 'sudoUser'
+```

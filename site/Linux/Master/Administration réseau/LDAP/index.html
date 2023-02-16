@@ -802,9 +802,163 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LDAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         LDAP
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Définition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decouverte-et-parametrages" class="md-nav__link">
+    Découverte et paramétrages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realisation-du-travail" class="md-nav__link">
+    Réalisation du travail
+  </a>
+  
+    <nav class="md-nav" aria-label="Réalisation du travail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-organisation-avec-la-creation-dun-fichier-orgldif" class="md-nav__link">
+    Création d'une organisation avec la création d'un fichier org.ldif
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-ou-users" class="md-nav__link">
+    Création d'une OU "users"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajout-dun-utilisateur-ldapuser1" class="md-nav__link">
+    Ajout d'un utilisateur ldapuser1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-ou-groups" class="md-nav__link">
+    Création d'une OU "groups"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajout-dun-groupe-ldapgroup1" class="md-nav__link">
+    Ajout d'un groupe ldapgroup1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pam" class="md-nav__link">
+    PAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sssd" class="md-nav__link">
+    SSSD
+  </a>
+  
+    <nav class="md-nav" aria-label="SSSD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-sss" class="md-nav__link">
+    Configuration de SSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certification-avec-tls" class="md-nav__link">
+    Certification avec TLS
+  </a>
+  
+    <nav class="md-nav" aria-label="Certification avec TLS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#certificat-auto-signe" class="md-nav__link">
+    Certificat auto-signé
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificat-serveur" class="md-nav__link">
+    Certificat serveur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tamponnage-du-fichier" class="md-nav__link">
+    Tamponnage du fichier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-des-configurations" class="md-nav__link">
+    Intégration des configurations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1342,9 +1496,11 @@
 
 
 <h1 id="ldap">LDAP<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h1>
+<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
 <p>LDAP est l'abréviation de Lightweight Directory Access Protocol (protocole léger d'accès à un annuaire). C'est un protocole de communication utilisé pour accéder à des annuaires en ligne, qui sont des bases de données contenant des informations sur des utilisateurs, des groupes, des ordinateurs et d'autres ressources réseau.</p>
 <p>LDAP permet aux clients d'accéder à ces annuaires pour effectuer des opérations telles que la recherche, la lecture, la mise à jour et la suppression de données. Les annuaires LDAP sont utilisés dans de nombreuses applications, notamment pour la gestion des utilisateurs et des groupes, l'authentification et l'autorisation, la messagerie électronique, la voix sur IP, et bien d'autres.</p>
 <p>LDAP utilise un modèle client-serveur et repose sur un ensemble de règles et de spécifications définies par l'Internet Engineering Task Force (IETF). Il est considéré comme un protocole efficace et sûr pour la gestion de données d'annuaire à grande échelle.</p>
+<h2 id="decouverte-et-parametrages">Découverte et paramétrages<a class="headerlink" href="#decouverte-et-parametrages" title="Permanent link">&para;</a></h2>
 <p>Recherche dans les schemas :</p>
 <div class="highlight"><pre><span></span><code>grep -rni --color PosixAccount /etc/openldap/schema/
 </code></pre></div>
@@ -1387,7 +1543,7 @@ objectclass <span class="o">(</span> <span class="m">1</span>.3.6.1.1.1.2.2 NAME
 <li>Ldaps : connexion avec des certficats (utlisé par des clients TLS)</li>
 <li>Ldap : connexion simple sans certificats (tuilisé par des clients non TLS)</li>
 </ul>
-<p>Les commandes <code>ldapwhoami</code> permettent de tester l'accès à un annuaire.</p>
+<p>Les commandes <strong><em>ldapwhoami</em></strong> permettent de tester l'accès à un annuaire.</p>
 <p>Recherche et connexion dans l'annuaire avec connexion :</p>
 <div class="highlight"><pre><span></span><code>ldapsearch -Y EXTERNAL -H ldapi:/// -Q  -b <span class="nv">CN</span><span class="o">=</span>config
 </code></pre></div>
@@ -1405,7 +1561,7 @@ objectclass <span class="o">(</span> <span class="m">1</span>.3.6.1.1.1.2.2 NAME
 <li>sub (à partir de la base sur la totalité de la base)</li>
 <li>one (fils directs)</li>
 </ul>
-<p>ldapmodifiy utlise un schéma pour la modification :</p>
+<p><strong><em>ldapmodify</em></strong> utlise un schéma pour la modification :</p>
 <ul>
 <li>le DN,<ul>
 <li><strong>le type d'opération réalisée,</strong></li>
@@ -1454,6 +1610,325 @@ olcDbIndex: objectClass eq,pres
 olcDbIndex: ou,cn,mail,surname,givenname eq,pres,sub
 <span class="hll">olcRootPW: secret
 </span></code></pre></div></td></tr></table></div>
+<p>Pour obtenir un mot de passe chiffré, on utilise <code>slappasswd</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Saut de ligne<p>Dans les différents éditeurs, ceux-ci enregisre un saut de ligne qui est interprété par ldap (ex: mot de passe de 6 caractères comptera sur 7). Cela se suprrime avec la commande :
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> -n secret &gt; .ldappass
+</code></pre></div></p>
+</p>
+</div>
+<h2 id="realisation-du-travail">Réalisation du travail<a class="headerlink" href="#realisation-du-travail" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Travail à réaliser<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> On cherche à créer une organisation "mon domaine domX.local" (entrée d'annuaire "organization")<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création d'une OU "users" (entrée d'annuaire : organizationUnit")<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'une entrée basée sur posixAccount : "ldapuser1"</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création d'une OU "groups" (entrée d'annuaire : organizationUnit")<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'une entrée basée sur posixGroup : "ldapgroup1"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+</div>
+<h3 id="creation-dune-organisation-avec-la-creation-dun-fichier-orgldif">Création d'une organisation avec la création d'un fichier <code>org.ldif</code><a class="headerlink" href="#creation-dune-organisation-avec-la-creation-dun-fichier-orgldif" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dn: <span class="nv">dc</span><span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass: organization
+objectClass: dcObject
+o: Mon domaine dom0.local
+</code></pre></div>
+<p>On ajout l'organistaion avec :</p>
+<div class="highlight"><pre><span></span><code>ldapadd -D <span class="nv">cn</span><span class="o">=</span>leo,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span> -y ~/.ldappass -f org.ldif -c
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info<p>L'option <code>-c</code> permet de continuer si des lignes provoquent des erreurs</p>
+</p>
+</div>
+<p>Dans la suite des travaux, nous continurons dans le fichier <code>org.ldif</code>.</p>
+<h3 id="creation-dune-ou-users">Création d'une OU "users"<a class="headerlink" href="#creation-dune-ou-users" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dn: <span class="nv">ou</span><span class="o">=</span>users,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass: organizationalUnit
+</code></pre></div>
+<h3 id="ajout-dun-utilisateur-ldapuser1">Ajout d'un utilisateur <code>ldapuser1</code><a class="headerlink" href="#ajout-dun-utilisateur-ldapuser1" title="Permanent link">&para;</a></h3>
+<p>Ajout du schéma inetorgperson :</p>
+<div class="highlight"><pre><span></span><code>ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+</code></pre></div>
+<p>Ajout de l'utilisateur ici dans <code>groups</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn: <span class="nv">cn</span><span class="o">=</span>ldapuser1,ou<span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass: posixAccount
+objectClass: inetOrgPerson
+cn: Youzer Un
+gn: Youzer
+sn: Un
+uid: ldpauser1
+uidNumber: <span class="m">10001</span>
+gidNumber: <span class="m">10000</span>
+homeDirectory: /home/ldapuser1
+</code></pre></div></td></tr></table></div>
+<p>Ajout d'utilisateur ici dans <code>users</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn: <span class="nv">cn</span><span class="o">=</span>ldapuser1,ou<span class="o">=</span>users,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass: posixAccount
+objectClass: inetOrgPerson
+cn: Youzer Un
+gn: Youzer
+sn: Un
+uid: ldapuser1
+uidNumber: <span class="m">10001</span>
+gidNumber: <span class="m">10000</span>
+homeDirectory: /home/ldapuser1
+</code></pre></div></td></tr></table></div>
+<h3 id="creation-dune-ou-groups">Création d'une OU "groups"<a class="headerlink" href="#creation-dune-ou-groups" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dn: <span class="nv">ou</span><span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass: organizationalUnit
+</code></pre></div>
+<h3 id="ajout-dun-groupe-ldapgroup1">Ajout d'un groupe <code>ldapgroup1</code><a class="headerlink" href="#ajout-dun-groupe-ldapgroup1" title="Permanent link">&para;</a></h3>
+<p>On cherche dans les schémas les références à posixGroup :</p>
+<div class="highlight"><pre><span></span><code>grep -rni --color PosixGroup /etc/openldap/schema/
+</code></pre></div>
+<p>On retrouve dans le fichier <code>nis.schema</code> que l'identifiant est <em>gidnumber</em>. </p>
+<p>On ajoute le schema nis.ldif :</p>
+<div class="highlight"><pre><span></span><code>ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
+</code></pre></div>
+<p>On cherche l'erreur suivante sur les <code>manager</code> que l'on trouve dans cosine.schema. On ajoute ensuite le fichier ldif :</p>
+<div class="highlight"><pre><span></span><code>ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+</code></pre></div>
+<p>Si il y a des erreurs, il faut intégrer les fichier dans l'ordre <code>nis.ldif</code> puis <code>cosine.ldif</code>.</p>
+<p>Code définitif pour la création :</p>
+<div class="highlight"><pre><span></span><code>dn: <span class="nv">cn</span><span class="o">=</span>ldapgroupe1,ou<span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass: posixGroup
+gidNumber: <span class="m">10000</span>
+</code></pre></div>
+<h2 id="pam">PAM<a class="headerlink" href="#pam" title="Permanent link">&para;</a></h2>
+<p>PAM permet d'authentifier des utilisateurs en utilisant LDAP.</p>
+<p>On cherche les fichiers de PAM avec <code>/etc/pam.d/</code>.</p>
+<p>Le fichier <code>other</code> est présent lorsque aucun fichier du nom du programme existe.</p>
+<p>Pour voir si un programme dépend de pam ou tout autre programme, on utilise <code>ldd</code>. Par exemple pour <strong><em>passwd</em></strong>, on obtient :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>        linux-vdso.so.1 <span class="o">(</span>0x00007ffcf63ec000<span class="o">)</span>
+        libuser.so.1 <span class="o">=</span>&gt; /lib64/libuser.so.1 <span class="o">(</span>0x00007ff80b72f000<span class="o">)</span>
+        libgobject-2.0.so.0 <span class="o">=</span>&gt; /lib64/libgobject-2.0.so.0 <span class="o">(</span>0x00007ff80b6d4000<span class="o">)</span>
+        libglib-2.0.so.0 <span class="o">=</span>&gt; /lib64/libglib-2.0.so.0 <span class="o">(</span>0x00007ff80b59a000<span class="o">)</span>
+        libpopt.so.0 <span class="o">=</span>&gt; /lib64/libpopt.so.0 <span class="o">(</span>0x00007ff80b58b000<span class="o">)</span>
+<span class="hll">        libpam.so.0 <span class="o">=</span>&gt; /lib64/libpam.so.0 <span class="o">(</span>0x00007ff80b579000<span class="o">)</span>
+</span>        libpam_misc.so.0 <span class="o">=</span>&gt; /lib64/libpam_misc.so.0 <span class="o">(</span>0x00007ff80b573000<span class="o">)</span>
+        libaudit.so.1 <span class="o">=</span>&gt; /lib64/libaudit.so.1 <span class="o">(</span>0x00007ff80b543000<span class="o">)</span>
+        libselinux.so.1 <span class="o">=</span>&gt; /lib64/libselinux.so.1 <span class="o">(</span>0x00007ff80b516000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /lib64/libc.so.6 <span class="o">(</span>0x00007ff80b200000<span class="o">)</span>
+        libgmodule-2.0.so.0 <span class="o">=</span>&gt; /lib64/libgmodule-2.0.so.0 <span class="o">(</span>0x00007ff80b510000<span class="o">)</span>
+        libcrypt.so.2 <span class="o">=</span>&gt; /lib64/libcrypt.so.2 <span class="o">(</span>0x00007ff80b4d6000<span class="o">)</span>
+        libffi.so.8 <span class="o">=</span>&gt; /lib64/libffi.so.8 <span class="o">(</span>0x00007ff80b4ca000<span class="o">)</span>
+        libpcre.so.1 <span class="o">=</span>&gt; /lib64/libpcre.so.1 <span class="o">(</span>0x00007ff80b450000<span class="o">)</span>
+        libeconf.so.0 <span class="o">=</span>&gt; /lib64/libeconf.so.0 <span class="o">(</span>0x00007ff80b445000<span class="o">)</span>
+        libm.so.6 <span class="o">=</span>&gt; /lib64/libm.so.6 <span class="o">(</span>0x00007ff80b125000<span class="o">)</span>
+        libcap-ng.so.0 <span class="o">=</span>&gt; /lib64/libcap-ng.so.0 <span class="o">(</span>0x00007ff80b43c000<span class="o">)</span>
+        libpcre2-8.so.0 <span class="o">=</span>&gt; /lib64/libpcre2-8.so.0 <span class="o">(</span>0x00007ff80b089000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007ff80b762000<span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<p>On observe ligne 6, que le programme nécéssite PAM pour focntionner.</p>
+<p>Pour l'authentification, le fichier de PAM <code>/etc/pam.d/system_auth</code> présente les règles d'authentifications.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>auth        required      pam_env.so
+auth        sufficient    pam_unix.so try_first_pass nullok
+auth        required      pam_deny.so
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note<p>PAM est appelé pour le login et ne donnera jamais l'élément qui à échoué. </p>
+</p>
+</div>
+<p>Chez PAM, plusieurs stratégies sont prédéfinies :</p>
+<ul>
+<li>Required : Réussir le module est nécessaire, on annoncera une erreur à la fin du traitement uniquement si 1 des
+modules "required" échoue.</li>
+<li>Requisite : Réussir le module est nécessaire : la première erreur (on annoncera laquelle) est synonyme d'abandon</li>
+<li>Sufficient : La réussite du module est suffisante pour que l'on valide le contexte. On ne fait pas l'analyse des
+modules qui suivent (même required ou requisite) dans le contexte</li>
+<li>Optional : La réussite d'un module optional est nécessaire si les autres sont ignorés. Le module n'est pas appelé si
+un autre module réussit ou échoue</li>
+<li>Include : sert à brancher vers un sous-fichier de règles PAM</li>
+</ul>
+<h2 id="sssd">SSSD<a class="headerlink" href="#sssd" title="Permanent link">&para;</a></h2>
+<p>Pourquoi utiliser SSHD ? Car SSHD est plus récent que PAM pour LDAP.</p>
+<p>Installation des packages SSHD :</p>
+<div class="highlight"><pre><span></span><code>dnf -y install sssd sssd-ldap sssd-tools oddjob oddjob-mkhomedir
+</code></pre></div>
+<p>Démarrage du service :</p>
+<div class="highlight"><pre><span></span><code>systemctl <span class="nb">enable</span> --now oddjobd.service
+</code></pre></div>
+<p>Authselect permet de configurer des profils d'authentifications.</p>
+<p>Nous pouvons lister les profils avec <code>authselect list</code> :</p>
+<div class="highlight"><pre><span></span><code>- minimal        Local users only <span class="k">for</span> minimal installations
+- sssd           Enable SSSD <span class="k">for</span> system authentication <span class="o">(</span>also <span class="k">for</span> <span class="nb">local</span> users only<span class="o">)</span>
+- winbind        Enable winbind <span class="k">for</span> system authentication
+</code></pre></div>
+<p>Configuration de PAM avec SSHD :</p>
+<div class="highlight"><pre><span></span><code>authselect <span class="k">select</span> --force sssd with-mkhomedir
+</code></pre></div>
+<p>Si on regarde maintenant le fichier de pam <code>system_auth</code> :</p>
+<div class="highlight"><pre><span></span><code>auth        required                                     pam_env.so
+auth        required                                     pam_faildelay.so <span class="nv">delay</span><span class="o">=</span><span class="m">2000000</span>
+auth        <span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">1</span> <span class="nv">ignore</span><span class="o">=</span>ignore <span class="nv">success</span><span class="o">=</span>ok<span class="o">]</span>         pam_usertype.so isregular
+auth        <span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">1</span> <span class="nv">ignore</span><span class="o">=</span>ignore <span class="nv">success</span><span class="o">=</span>ok<span class="o">]</span>         pam_localuser.so
+auth        sufficient                                   pam_unix.so nullok
+auth        <span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">1</span> <span class="nv">ignore</span><span class="o">=</span>ignore <span class="nv">success</span><span class="o">=</span>ok<span class="o">]</span>         pam_usertype.so isregular
+auth        sufficient                                   pam_sss.so forward_pass
+auth        required                                     pam_deny.so
+</code></pre></div>
+<p>On observe de nouvelles lignes qui se sont ajoutées dans le fichier avec des paramètres supplémentaires.</p>
+<h3 id="configuration-de-sss">Configuration de SSS<a class="headerlink" href="#configuration-de-sss" title="Permanent link">&para;</a></h3>
+<p>Ajout d'un fichier de configuration <code>/etc/sssd/sssd.conf</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>sssd<span class="o">]</span>
+<span class="nv">services</span> <span class="o">=</span> nss, pam
+<span class="nv">domains</span> <span class="o">=</span> dom3.local
+
+<span class="o">[</span>nss<span class="o">]</span>
+<span class="nv">filter_users</span> <span class="o">=</span> root
+<span class="nv">filter_groups</span> <span class="o">=</span> root
+
+<span class="o">[</span>domain/dom3.local<span class="o">]</span>
+<span class="nv">cache_credentials</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">id_provider</span> <span class="o">=</span> ldap
+<span class="nv">auth_provider</span> <span class="o">=</span> ldap
+<span class="nv">ldap_uri</span> <span class="o">=</span> ldap://10.56.126.220
+<span class="c1">#ldap_tls_reqcert = demand</span>
+<span class="nv">ldap_search_base</span> <span class="o">=</span> <span class="nv">dc</span><span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+<span class="nv">ldap_user_search_base</span> <span class="o">=</span> <span class="nv">ou</span><span class="o">=</span>users,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+<span class="nv">ldap_groups_search_base</span> <span class="o">=</span> <span class="nv">ou</span><span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+
+<span class="o">[</span>pam<span class="o">]</span>
+<span class="nv">offline_credentials_expiration</span> <span class="o">=</span> <span class="m">1</span>
+<span class="nv">offline_failed_login_attempts</span> <span class="o">=</span> <span class="m">3</span>
+<span class="nv">offline_failed_login_delay</span> <span class="o">=</span> <span class="m">5</span>
+</code></pre></div>
+<p>Modification des droits en 600 :</p>
+<div class="highlight"><pre><span></span><code>chmod <span class="m">600</span> /etc/sssd/sssd.conf
+</code></pre></div>
+<p>Démarrage du service SSSD qui nécéssitait un fichier de configuration :</p>
+<div class="highlight"><pre><span></span><code>systemctl restart sssd
+</code></pre></div>
+<p>On verifie la connexion avec <code>sssctl user-checks ldapuser1</code> (ici un extrait du message retour):</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>user: ldapuser1
+action: acct
+service: system-auth
+
+SSSD nss user lookup result:
+ - user name: ldapuser1
+ - user id: <span class="m">10001</span>
+ - group id: <span class="m">10000</span>
+ - gecos: Youzer Un
+ - home directory: /home/ldapuser1
+ - shell:
+</code></pre></div></td></tr></table></div>
+Verficiation aussi avec <code>id ldapuser1</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="nv">uid</span><span class="o">=</span><span class="m">10001</span><span class="o">(</span>ldapuser1<span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">10000</span><span class="o">(</span>ldapgroupe1<span class="o">)</span> <span class="nv">groupes</span><span class="o">=</span><span class="m">10000</span><span class="o">(</span>ldapgroupe1<span class="o">)</span>
+</code></pre></div>
+<h3 id="certification-avec-tls">Certification avec TLS<a class="headerlink" href="#certification-avec-tls" title="Permanent link">&para;</a></h3>
+<h4 id="certificat-auto-signe">Certificat auto-signé<a class="headerlink" href="#certificat-auto-signe" title="Permanent link">&para;</a></h4>
+<p>Création d'un dossier avec des droits personnalisés sur le serveur :</p>
+<div class="highlight"><pre><span></span><code>install -d -m <span class="m">2750</span> -o root -g ldap /etc/openldap/certs
+</code></pre></div>
+<p>Création des documents <code>ca.pem</code> et <code>ca-key.pem</code> :</p>
+<div class="highlight"><pre><span></span><code>openssl req <span class="se">\</span>
+-newkey rsa:4096 -nodes -keyout /etc/openldap/certs/ca-key.pem <span class="se">\</span>
+-subj <span class="s1">&#39;/countryName=FR/stateOrProvinceName=Bretagne/organizationName=Actilis/CN=CA-LDAP/&#39;</span> <span class="se">\</span>
+-x509 -sha256 -days <span class="m">365</span> <span class="se">\</span>
+-extensions v3_ca <span class="se">\</span>
+-out /etc/openldap/certs/ca.pem
+</code></pre></div>
+<p>Ajout des droits sur le fichier <code>ca.pem</code> :</p>
+<div class="highlight"><pre><span></span><code>chmod <span class="m">444</span> /etc/openldap/certs/ca.pem
+</code></pre></div>
+<h4 id="certificat-serveur">Certificat serveur<a class="headerlink" href="#certificat-serveur" title="Permanent link">&para;</a></h4>
+<p>Création des fichiers <code>server.csr</code> et <code>key.pem</code> :</p>
+<div class="highlight"><pre><span></span><code>openssl req <span class="se">\</span>
+-newkey rsa:4096 -nodes -keyout /etc/openldap/certs/key.pem <span class="se">\</span>
+-subj <span class="s1">&#39;/CN=dom3.local/&#39;</span> <span class="se">\</span>
+-out server.csr
+</code></pre></div>
+<p>Ajout des permissions :</p>
+<div class="highlight"><pre><span></span><code>chmod <span class="m">440</span> /etc/openldap/certs/key.pem
+</code></pre></div>
+<h4 id="tamponnage-du-fichier">Tamponnage du fichier<a class="headerlink" href="#tamponnage-du-fichier" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>openssl x509 -req -days <span class="m">365</span> -sha256 -in server.csr -out /etc/openldap/certs/cert.pem <span class="se">\</span>
+-CA /etc/openldap/certs/ca.pem -CAkey /etc/openldap/certs/ca-key.pem -CAcreateserial <span class="se">\</span>
+-extfile &lt;<span class="o">(</span><span class="nb">printf</span> <span class="s2">&quot;basicConstraints = CA:FALSE\n subjectAltName=IP:127.0.0.1,IP:10.56.126.220,DNS:ldap.dom3.local&quot;</span><span class="o">)</span>
+</code></pre></div>
+<p>Verifications du certificat :</p>
+<div class="highlight"><pre><span></span><code>openssl x509 -noout -subject &lt; /etc/openldap/certs/cert.pem
+</code></pre></div>
+<h4 id="integration-des-configurations">Intégration des configurations<a class="headerlink" href="#integration-des-configurations" title="Permanent link">&para;</a></h4>
+<p>Ajouter un fichier tls.ldif :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn: <span class="nv">cn</span><span class="o">=</span>config
+changetype: modify
+replace: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/openldap/certs/ca.pem
+-
+replace: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/openldap/certs/cert.pem
+-
+replace: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/openldap/certs/key.pem
+</code></pre></div></td></tr></table></div>
+<p>Ajout de la configuration avec <code>ldapmodify</code> :</p>
+<div class="highlight"><pre><span></span><code>ldapmodify -Y EXTERNAL -H ldapi:/// &lt; tls.ldif
+</code></pre></div>
 
 
 

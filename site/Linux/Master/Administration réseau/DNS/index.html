@@ -1384,6 +1384,7 @@
 </li>
 </ul>
 </div>
+<p>Pour la résolution de noms DNS, la commande <code>getent</code> est présente sur les systèmes linux. </p>
 <h2 id="bind">Bind<a class="headerlink" href="#bind" title="Permanent link">&para;</a></h2>
 <p>Installation de bind :</p>
 <div class="highlight"><pre><span></span><code>dnf install -y <span class="nb">bind</span>
@@ -1523,6 +1524,13 @@ dns1    A       <span class="m">10</span>.56.126.223
 <div class="highlight"><pre><span></span><code>ss -plntu
 </code></pre></div>
 </div>
+<p>Pour que une machine cliente puisse ping l'exterieur, on lui met une route par défaut passant par la gateway.</p>
+<p>Sur le routeur, on lui change l'interface dans la zone external :</p>
+<div class="highlight"><pre><span></span><code>firewall-cmd --zone<span class="o">=</span>external --add-interface<span class="o">=</span>eth2 --permanent
+</code></pre></div>
+<p>On redémarre le service avec :</p>
+<div class="highlight"><pre><span></span><code>systemctl restart firewalld
+</code></pre></div>
 
 
 
