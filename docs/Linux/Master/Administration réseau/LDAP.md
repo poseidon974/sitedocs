@@ -240,3 +240,58 @@ dn: cn=ldapgroupe1,ou=groups,dc=dom3,dc=local
 objectClass: posixGroup
 gidNumber: 10000
 ```
+
+## PAM
+
+PAM permet d'authentifier des utilisateurs en utilisant LDAP.
+
+On cherche les fichiers de PAM avec `/etc/pam.d/`.
+
+Le fichier `other` est présent lorsque aucun fichier du nom du programme existe.
+
+Pour voir si un programme dépend de pam ou tout autre programme, on utilise `ldd`. Par exemple pour ***passwd***, on obtient :
+
+```bash linenums="1" hl_lines="6"
+        linux-vdso.so.1 (0x00007ffcf63ec000)
+        libuser.so.1 => /lib64/libuser.so.1 (0x00007ff80b72f000)
+        libgobject-2.0.so.0 => /lib64/libgobject-2.0.so.0 (0x00007ff80b6d4000)
+        libglib-2.0.so.0 => /lib64/libglib-2.0.so.0 (0x00007ff80b59a000)
+        libpopt.so.0 => /lib64/libpopt.so.0 (0x00007ff80b58b000)
+        libpam.so.0 => /lib64/libpam.so.0 (0x00007ff80b579000)
+        libpam_misc.so.0 => /lib64/libpam_misc.so.0 (0x00007ff80b573000)
+        libaudit.so.1 => /lib64/libaudit.so.1 (0x00007ff80b543000)
+        libselinux.so.1 => /lib64/libselinux.so.1 (0x00007ff80b516000)
+        libc.so.6 => /lib64/libc.so.6 (0x00007ff80b200000)
+        libgmodule-2.0.so.0 => /lib64/libgmodule-2.0.so.0 (0x00007ff80b510000)
+        libcrypt.so.2 => /lib64/libcrypt.so.2 (0x00007ff80b4d6000)
+        libffi.so.8 => /lib64/libffi.so.8 (0x00007ff80b4ca000)
+        libpcre.so.1 => /lib64/libpcre.so.1 (0x00007ff80b450000)
+        libeconf.so.0 => /lib64/libeconf.so.0 (0x00007ff80b445000)
+        libm.so.6 => /lib64/libm.so.6 (0x00007ff80b125000)
+        libcap-ng.so.0 => /lib64/libcap-ng.so.0 (0x00007ff80b43c000)
+        libpcre2-8.so.0 => /lib64/libpcre2-8.so.0 (0x00007ff80b089000)
+        /lib64/ld-linux-x86-64.so.2 (0x00007ff80b762000)
+```
+
+On observe ligne 6, que le programme nécéssite PAM pour focntionner.
+
+Pour l'authentification, le fichier de PAM `/etc/pam.d/system_auth` présente les règles d'authentifications.
+
+```bash linenums="1"
+auth        required      pam_env.so
+auth        sufficient    pam_unix.so try_first_pass nullok
+auth        required      pam_deny.so
+```
+!!!note
+        PAM est appelé pour le login et ne donnera jamais l'élément qui à échoué. 
+
+Chez PAM, plusieurs stratégies sont prédéfinies :
+
+- Required : Réussir le module est nécessaire, on annoncera une erreur à la fin du traitement uniquement si 1 des
+modules "required" échoue.
+- Requisite : Réussir le module est nécessaire : la première erreur (on annoncera laquelle) est synonyme d'abandon
+- Sufficient : La réussite du module est suffisante pour que l'on valide le contexte. On ne fait pas l'analyse des
+modules qui suivent (même required ou requisite) dans le contexte
+- Optional : La réussite d'un module optional est nécessaire si les autres sont ignorés. Le module n'est pas appelé si
+un autre module réussit ou échoue
+- Include : sert à brancher vers un sous-fichier de règles PAM
