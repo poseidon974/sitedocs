@@ -9,22 +9,24 @@
       
       
       
+        <link rel="prev" href="../../Rappels/Rappel%20sur%20la%20virtualisation/">
       
-        <link rel="next" href="Linux/Bachelor/Partionnement/Partition_LVM/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+        <link rel="next" href="../../../Windows/Active%20directory/GPO/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
-        <title>Documentation - CS2I</title>
+        <title>Kubernetes - Documentation - CS2I</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0d440cfe.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -40,7 +42,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#kubernetes" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -84,7 +91,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+    <a href="../../.." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Kubernetes
             
           </span>
         </div>
@@ -197,12 +204,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="." class="md-tabs__link md-tabs__link--active">
+    <a href="../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -227,7 +232,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link">
+      <a href="../../../Linux/Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link">
         Linux
       </a>
     </li>
@@ -241,6 +246,8 @@
         
   
   
+    
+  
 
 
   
@@ -252,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link">
+      <a href="../../Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link md-tabs__link--active">
         Vitrualisation & cloud
       </a>
     </li>
@@ -275,7 +282,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Windows/Active%20directory/GPO/" class="md-tabs__link">
+      <a href="../../../Windows/Active%20directory/GPO/" class="md-tabs__link">
         Windows
       </a>
     </li>
@@ -315,7 +322,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+    <a href="../../.." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -344,19 +351,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -470,7 +469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
+      <a href="../../../Linux/Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
         Mise en place des partitions
       </a>
     </li>
@@ -484,7 +483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/Partionnement/RAID/" class="md-nav__link">
+      <a href="../../../Linux/Bachelor/Partionnement/RAID/" class="md-nav__link">
         RAID
       </a>
     </li>
@@ -536,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
+      <a href="../../../Linux/Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
         Deployment ansible
       </a>
     </li>
@@ -665,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
+      <a href="../../../Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
         Installation de Centos
       </a>
     </li>
@@ -717,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
+      <a href="../../../Linux/Master/Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
         Programme du jour
       </a>
     </li>
@@ -782,7 +781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/DNS/" class="md-nav__link">
+      <a href="../../../Linux/Master/Administration%20r%C3%A9seau/DNS/" class="md-nav__link">
         Les DNS
       </a>
     </li>
@@ -796,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/LDAP/" class="md-nav__link">
+      <a href="../../../Linux/Master/Administration%20r%C3%A9seau/LDAP/" class="md-nav__link">
         LDAP
       </a>
     </li>
@@ -810,7 +809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/NMCLI/" class="md-nav__link">
+      <a href="../../../Linux/Master/Administration%20r%C3%A9seau/NMCLI/" class="md-nav__link">
         Configuration réseau
       </a>
     </li>
@@ -824,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/SSH/" class="md-nav__link">
+      <a href="../../../Linux/Master/Administration%20r%C3%A9seau/SSH/" class="md-nav__link">
         Sécurité de SSH
       </a>
     </li>
@@ -880,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/SElinux/" class="md-nav__link">
+      <a href="../../../Linux/Master/S%C3%A9curit%C3%A9/SElinux/" class="md-nav__link">
         Se linux
       </a>
     </li>
@@ -894,7 +893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/permissions/" class="md-nav__link">
+      <a href="../../../Linux/Master/S%C3%A9curit%C3%A9/permissions/" class="md-nav__link">
         Les permissions
       </a>
     </li>
@@ -908,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/sudo/" class="md-nav__link">
+      <a href="../../../Linux/Master/S%C3%A9curit%C3%A9/sudo/" class="md-nav__link">
         Sudo et Sudoreplay
       </a>
     </li>
@@ -942,14 +941,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
         
@@ -966,7 +967,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Vitrualisation & cloud
@@ -1014,7 +1015,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
+      <a href="../../Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
         Commandes dans Kubernetes
       </a>
     </li>
@@ -1028,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
+      <a href="../../Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
         Syntaxe fichier deployment et services
       </a>
     </li>
@@ -1082,7 +1083,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
+      <a href="../../Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
         La vitrualisation
       </a>
     </li>
@@ -1101,16 +1102,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
       
       
         
@@ -1123,7 +1126,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Kube
@@ -1134,11 +1137,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/kube/Informations%20sur%20kubernetes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Kubernetes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Kubernetes
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Définition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autres-plateformes" class="md-nav__link">
+    Autres plateformes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctionnement-de-kubernetes" class="md-nav__link">
+    Fonctionnement de Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-de-kubernetes" class="md-nav__link">
+    Architecture de kubernetes
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture de kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#termes-utilises-dans-kubernetes" class="md-nav__link">
+    Termes utilisés dans Kubernetes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objets-de-kubernetes" class="md-nav__link">
+    Objets de kubernetes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1231,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Active%20directory/GPO/" class="md-nav__link">
+      <a href="../../../Windows/Active%20directory/GPO/" class="md-nav__link">
         GPO
       </a>
     </li>
@@ -1287,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
+      <a href="../../../Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
         Création d'un dossier+script
       </a>
     </li>
@@ -1301,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
+      <a href="../../../Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
         Création fichier avec user + date
       </a>
     </li>
@@ -1341,7 +1426,7 @@
     
       
     
-    <a href="https://github.com/poseidon974/sitedocs/raw/master/docs/index.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/poseidon974/sitedocs/raw/master/docs/Vitrualisation & cloud/kube/Informations sur kubernetes.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
@@ -1349,67 +1434,110 @@
 
 
 
-<p>Voici les différents cours présents et documentés</p>
+<h1 id="kubernetes">Kubernetes<a class="headerlink" href="#kubernetes" title="Permanent link">&para;</a></h1>
+<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
+<p>Kubernetes est une solution Open Source permettant l'orchestration de ressources conteneurisées. Cette solution est une solution développée par Google et elle à été offert à la <em>Linux Fondation</em> (2014). 
+Par la suite la CNCF (Cloud Native Computing Fondation) à été crée en 2015.</p>
+<div class="admonition info">
+<p class="admonition-title">Définition de kubernetes par la CNCF</p>
+<p>Kubernetes est ue plateforme open source extensible et portable pour la gestion de charge de trvail et de service conteneurisés.</p>
+</div>
+<h2 id="autres-plateformes">Autres plateformes<a class="headerlink" href="#autres-plateformes" title="Permanent link">&para;</a></h2>
+<p>On retrouve plusieurs plateformes encore active aujourd'hui contrairement à Docker Swarm, Mesos ...</p>
+<p>Les solutions actuelles : </p>
+<ul>
+<li>Titus, solution utilisée par Netflix</li>
+<li>Nomad, soltion en voggue propulsée par Hashicorp</li>
+<li>Apache Mesos , solution proposée par Apache</li>
+</ul>
+<h2 id="fonctionnement-de-kubernetes">Fonctionnement de Kubernetes<a class="headerlink" href="#fonctionnement-de-kubernetes" title="Permanent link">&para;</a></h2>
+<h2 id="architecture-de-kubernetes">Architecture de kubernetes<a class="headerlink" href="#architecture-de-kubernetes" title="Permanent link">&para;</a></h2>
+<p><img alt="Architecture simple" src="../../Images/Architecture%20Kubernetes.png" /></p>
+<h3 id="termes-utilises-dans-kubernetes">Termes utilisés dans Kubernetes<a class="headerlink" href="#termes-utilises-dans-kubernetes" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Type</th>
-<th>Formation</th>
-<th align="left">Cours</th>
-<th align="left">Date</th>
+<th align="left">Terme</th>
+<th align="left">Signification</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Linux</td>
-<td>Administration avancée</td>
-<td align="left"><a href="Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/">Installation avancée CENTOS9</a></td>
-<td align="left">01/12/2022</td>
+<td align="left">Master (ou control-plane)</td>
+<td align="left">Permet de gérer le systèmes</td>
 </tr>
 <tr>
-<td>Linux</td>
-<td>Administration avancée</td>
-<td align="left"><a href="Linux/Master/Administration%20avanc%C3%A9e/RPM-YUM/Index/">RPM et YUM</a></td>
-<td align="left">02/12/2022</td>
+<td align="left">Workers</td>
+<td align="left">Permet d'executer l'applicatif</td>
 </tr>
 <tr>
-<td>Windows</td>
-<td>PowerShell</td>
-<td align="left"><a href="Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/">Création d'un dossier et d'un script</a></td>
-<td align="left">06/12/2022</td>
+<td align="left">ETCD</td>
+<td align="left">Magasin de valeurs clés cohérent et hautement disponible</td>
 </tr>
 <tr>
-<td>Windows</td>
-<td>PowerShell</td>
-<td align="left"><a href="Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/">Création d'un fichier avec user et date</a></td>
-<td align="left">06/12/2022</td>
+<td align="left">Scheduleur</td>
+<td align="left">Assure les différentes contraintes (arret, démarrage des conteneurs)</td>
 </tr>
 <tr>
-<td>Linux</td>
-<td>Administration</td>
-<td align="left">[LVM]</td>
-<td align="left">01/06/2022</td>
+<td align="left">Controller Manager</td>
+<td align="left">Gestion des droits</td>
 </tr>
 <tr>
-<td>Windows</td>
-<td>AD</td>
-<td align="left"><a href="Windows/Active%20directory/GPO/">Création d'une GPO</a></td>
-<td align="left">07/12/2022</td>
+<td align="left">API-SERVER</td>
+<td align="left">Centre névralgique de kubernetes</td>
 </tr>
 <tr>
-<td>Linux</td>
-<td>Sécurité</td>
-<td align="left"><a href="Linux/Master/S%C3%A9curit%C3%A9/permissions/">Les permissions</a></td>
-<td align="left">26/01/2023</td>
+<td align="left">Kube proxy</td>
+<td align="left">Assure le réseau, la communication avec l'api-server</td>
 </tr>
 <tr>
-<td>Linux</td>
-<td>Sécurité</td>
-<td align="left"><a href="Linux/Master/S%C3%A9curit%C3%A9/SElinux/">SE Linux</a></td>
-<td align="left">26/01/2023</td>
+<td align="left">Kubelet</td>
+<td align="left">Seul composant non contenurisé. Service <code>systemctl</code> qui va communiquer avec le moteur de contenurisation</td>
+</tr>
+<tr>
+<td align="left">container</td>
+<td align="left">Ressource exécutant une application</td>
+</tr>
+<tr>
+<td align="left">pod</td>
+<td align="left">Groupement d'un ou plusieurs conteneurs</td>
+</tr>
+<tr>
+<td align="left">deployment</td>
+<td align="left">Orchestre les <em>pods</em> et <em>replicaSets</em></td>
+</tr>
+<tr>
+<td align="left">deamonset</td>
+<td align="left">S'assure d'avoir un pod sur chaque noeud</td>
+</tr>
+<tr>
+<td align="left">statefullset</td>
+<td align="left">[legacy] S'assure de n'avoir qu'un seul pod</td>
+</tr>
+<tr>
+<td align="left">service</td>
+<td align="left">Explose votre application sur le réseau du cluster</td>
+</tr>
+<tr>
+<td align="left">ingress</td>
+<td align="left">Permet d'exposer un service en externe (#reverseProxy)</td>
+</tr>
+<tr>
+<td align="left">persistent volumes claims</td>
+<td align="left">Demande d'allocation de stockage</td>
+</tr>
+<tr>
+<td align="left">configMaps</td>
+<td align="left">stockage clé-valeur non confidentiel</td>
+</tr>
+<tr>
+<td align="left">secrets</td>
+<td align="left">stockage clé-valeur confidentiel</td>
 </tr>
 </tbody>
 </table>
+<h2 id="objets-de-kubernetes">Objets de kubernetes<a class="headerlink" href="#objets-de-kubernetes" title="Permanent link">&para;</a></h2>
+<p><img alt="objects" src="../../Images/Kubernetes%20Objects.png" /></p>
 
 
 
@@ -1441,15 +1569,30 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" hidden>
         
+          
+          <a href="../../Rappels/Rappel%20sur%20la%20virtualisation/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: La vitrualisation" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Précédent
+                </span>
+                La vitrualisation
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Mise en place des partitions" rel="next">
+          <a href="../../../Windows/Active%20directory/GPO/" class="md-footer__link md-footer__link--next" aria-label="Suivant: GPO" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Suivant
                 </span>
-                Mise en place des partitions
+                GPO
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1562,14 +1705,14 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="javascripts/tablesort.js"></script>
+        <script src="../../../javascripts/tablesort.js"></script>
       
     
   </body>

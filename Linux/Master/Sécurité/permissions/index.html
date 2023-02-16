@@ -9,22 +9,24 @@
       
       
       
+        <link rel="prev" href="../SElinux/">
       
-        <link rel="next" href="Linux/Bachelor/Partionnement/Partition_LVM/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+        <link rel="next" href="../sudo/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
-        <title>Documentation - CS2I</title>
+        <title>Les permissions - Documentation - CS2I</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0d440cfe.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -40,7 +42,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#les-permissions" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -84,7 +91,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+    <a href="../../../.." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Les permissions
             
           </span>
         </div>
@@ -197,12 +204,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="." class="md-tabs__link md-tabs__link--active">
+    <a href="../../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -210,6 +215,8 @@
       
         
   
+  
+    
   
 
 
@@ -227,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link md-tabs__link--active">
         Linux
       </a>
     </li>
@@ -252,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link">
         Vitrualisation & cloud
       </a>
     </li>
@@ -275,7 +282,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Windows/Active%20directory/GPO/" class="md-tabs__link">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-tabs__link">
         Windows
       </a>
     </li>
@@ -315,7 +322,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+    <a href="../../../.." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -344,19 +351,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -367,14 +366,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
         
@@ -389,7 +390,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Linux
@@ -470,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
         Mise en place des partitions
       </a>
     </li>
@@ -484,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/Partionnement/RAID/" class="md-nav__link">
+      <a href="../../../Bachelor/Partionnement/RAID/" class="md-nav__link">
         RAID
       </a>
     </li>
@@ -536,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
+      <a href="../../../Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
         Deployment ansible
       </a>
     </li>
@@ -562,16 +563,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
       
       
         
@@ -588,7 +591,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Master
@@ -665,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
+      <a href="../../Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
         Installation de Centos
       </a>
     </li>
@@ -717,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
+      <a href="../../Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
         Programme du jour
       </a>
     </li>
@@ -782,7 +785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/DNS/" class="md-nav__link">
+      <a href="../../Administration%20r%C3%A9seau/DNS/" class="md-nav__link">
         Les DNS
       </a>
     </li>
@@ -796,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/LDAP/" class="md-nav__link">
+      <a href="../../Administration%20r%C3%A9seau/LDAP/" class="md-nav__link">
         LDAP
       </a>
     </li>
@@ -810,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/NMCLI/" class="md-nav__link">
+      <a href="../../Administration%20r%C3%A9seau/NMCLI/" class="md-nav__link">
         Configuration réseau
       </a>
     </li>
@@ -824,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/SSH/" class="md-nav__link">
+      <a href="../../Administration%20r%C3%A9seau/SSH/" class="md-nav__link">
         Sécurité de SSH
       </a>
     </li>
@@ -843,14 +846,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" checked>
       
       
         
@@ -867,7 +872,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2_3">
           <span class="md-nav__icon md-icon"></span>
           Sécurité
@@ -880,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/SElinux/" class="md-nav__link">
+      <a href="../SElinux/" class="md-nav__link">
         Se linux
       </a>
     </li>
@@ -892,11 +897,86 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/permissions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Les permissions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Les permissions
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#liste-des-permissions" class="md-nav__link">
+    Liste des permissions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-de-changements-de-permissions" class="md-nav__link">
+    Commandes de changements de permissions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-capabilities" class="md-nav__link">
+    Les capabilities
+  </a>
+  
+    <nav class="md-nav" aria-label="Les capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#premieres-notions-sur-les-capabilities" class="md-nav__link">
+    Premières notions sur les capabilities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tests-de-la-commande-nc" class="md-nav__link">
+    Tests de la commande NC
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -908,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/sudo/" class="md-nav__link">
+      <a href="../sudo/" class="md-nav__link">
         Sudo et Sudoreplay
       </a>
     </li>
@@ -1014,7 +1094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
         Commandes dans Kubernetes
       </a>
     </li>
@@ -1028,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
         Syntaxe fichier deployment et services
       </a>
     </li>
@@ -1082,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
         La vitrualisation
       </a>
     </li>
@@ -1136,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/kube/Informations%20sur%20kubernetes/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/kube/Informations%20sur%20kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -1231,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Active%20directory/GPO/" class="md-nav__link">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-nav__link">
         GPO
       </a>
     </li>
@@ -1287,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
         Création d'un dossier+script
       </a>
     </li>
@@ -1301,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
         Création fichier avec user + date
       </a>
     </li>
@@ -1341,7 +1421,7 @@
     
       
     
-    <a href="https://github.com/poseidon974/sitedocs/raw/master/docs/index.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/poseidon974/sitedocs/raw/master/docs/Linux/Master/Sécurité/permissions.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
@@ -1349,67 +1429,98 @@
 
 
 
-<p>Voici les différents cours présents et documentés</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Formation</th>
-<th align="left">Cours</th>
-<th align="left">Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Linux</td>
-<td>Administration avancée</td>
-<td align="left"><a href="Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/">Installation avancée CENTOS9</a></td>
-<td align="left">01/12/2022</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Administration avancée</td>
-<td align="left"><a href="Linux/Master/Administration%20avanc%C3%A9e/RPM-YUM/Index/">RPM et YUM</a></td>
-<td align="left">02/12/2022</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td>PowerShell</td>
-<td align="left"><a href="Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/">Création d'un dossier et d'un script</a></td>
-<td align="left">06/12/2022</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td>PowerShell</td>
-<td align="left"><a href="Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/">Création d'un fichier avec user et date</a></td>
-<td align="left">06/12/2022</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Administration</td>
-<td align="left">[LVM]</td>
-<td align="left">01/06/2022</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td>AD</td>
-<td align="left"><a href="Windows/Active%20directory/GPO/">Création d'une GPO</a></td>
-<td align="left">07/12/2022</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Sécurité</td>
-<td align="left"><a href="Linux/Master/S%C3%A9curit%C3%A9/permissions/">Les permissions</a></td>
-<td align="left">26/01/2023</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Sécurité</td>
-<td align="left"><a href="Linux/Master/S%C3%A9curit%C3%A9/SElinux/">SE Linux</a></td>
-<td align="left">26/01/2023</td>
-</tr>
-</tbody>
-</table>
+<h1 id="les-permissions">Les permissions<a class="headerlink" href="#les-permissions" title="Permanent link">&para;</a></h1>
+<h2 id="liste-des-permissions">Liste des permissions<a class="headerlink" href="#liste-des-permissions" title="Permanent link">&para;</a></h2>
+<p>Commande pour obtenir des informations concernant les droits :</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l
+</code></pre></div>
+<p>On obteint plusieurs groupes :</p>
+<p><img alt="Permissions sous linux" src="../images/OzXZ6.png" /></p>
+<ul>
+<li>x : pour se déplacer dedans (pour les fichier, on execute le fichier tel qu'un script)</li>
+<li>w : modification de contenu avec l'ajout, la modification ou la suppression d'octect (en fichiers ou en repertoires)</li>
+<li>r : lecture et copie des fichiers ( répertoire : lister les fichiers)</li>
+<li>s : Il confère l'identité du propriétaire de la commande (avec <code>passwd</code> par exemple)</li>
+<li>t : on trouve la permission sur tout les dossiers temporaires/partages. <strong>Seul le propriètaire du fichier peut le supprimer.</strong> (sticky-bit)</li>
+</ul>
+<h2 id="commandes-de-changements-de-permissions">Commandes de changements de permissions<a class="headerlink" href="#commandes-de-changements-de-permissions" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>chown</code> : pour modifier mes permissions du fichier</li>
+<li><code>chgrp</code> : L'administrateur et l'utilisateur peuvent modifier les permissions</li>
+<li><code>chmod</code>: Permet de changer les permissions d'accès d'un fichier ou d'un répertoire (il faut etre propriètaire du fichier)</li>
+</ul>
+<p>Pour chercher les fichiers qui possède le droit <code>s</code> :</p>
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>-perm<span class="w"> </span>/u<span class="o">=</span>s
+</code></pre></div>
+<p>Et on obtient une liste de fichier plus ou moins longue si docker est installé : </p>
+<figure>
+<p><img alt="Liste des fichiers possèdant le droit s" src="../images/capture_find.png" />
+  </p>
+<figcaption>Liste des fichiers possèdant le droit permettant une élévation de privilèges</figcaption>
+</figure>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>On peux ajouter une option <code>-o</code> pour faire un or et donc lier plusieurs arguments</p>
+<p>Exemple : <code>find / -perm /u=s -o -perm /g=s</code></p>
+</div>
+<h2 id="les-capabilities">Les capabilities<a class="headerlink" href="#les-capabilities" title="Permanent link">&para;</a></h2>
+<h3 id="premieres-notions-sur-les-capabilities">Premières notions sur les capabilities<a class="headerlink" href="#premieres-notions-sur-les-capabilities" title="Permanent link">&para;</a></h3>
+<p>Installation des pages de man (si elles ne sont pas présentes) :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>man-pages
+</code></pre></div>
+<p>Overture du man de <code>capabilities</code> :</p>
+<div class="highlight"><pre><span></span><code>man<span class="w"> </span>capabilities
+</code></pre></div>
+<p>Les capabilities ont 2 catégories :</p>
+<ul>
+<li>les processus priviliégiés </li>
+<li>les processes non priviliégiés</li>
+</ul>
+<p><strong>Les processus priviliégiés</strong> sont appellé par un superutilisateur ou root. Ils contournent les verfications du noyaux.</p>
+<p><strong>Les processus non priviliégiés</strong> sont soumis à une verification basée sur le processus.</p>
+<p>Les options :</p>
+<ul>
+<li><code>CAP_DAC_OVERRIDE</code> permet à root de contourner les vérification de lecture et d'écritures</li>
+<li><code>CAP_NET_BIND_SERVICE</code> permet de lier un socket aux ports préviliégiés (inférieur à 1024)</li>
+<li><code>CAP_CHOWN</code> permet d'apporter des modifications sur les fichiers</li>
+</ul>
+<h3 id="tests-de-la-commande-nc">Tests de la commande NC<a class="headerlink" href="#tests-de-la-commande-nc" title="Permanent link">&para;</a></h3>
+<p>Avec la commande <code>NC</code>, cela permet de déclarer un serveur d'écoute et ainsi de pouvoir communiquer entre 2 ordinateurs distants</p>
+<details class="tip" open="open">
+<summary>Tip</summary>
+<p>Pour pouvoir utiliser les commandes NC, il faut l'installer :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>nc
+</code></pre></div>
+</details>
+<p>L'utilisation de nc se réalise avec 2 terminaux afin de pouvoir créer comme un canal de communication entre les deux terminaux.</p>
+<p>On lance avec un user sans droits sudo la commande : <code>nc -l 90</code></p>
+<p>On obtient alors une erreur:</p>
+<div class="highlight"><pre><span></span><code>Ncat:<span class="w"> </span><span class="nb">bind</span><span class="w"> </span>to<span class="w"> </span>:::90:<span class="w"> </span>Permission<span class="w"> </span>denied.<span class="w"> </span>QUITTING.
+</code></pre></div>
+<details class="rappel">
+<summary>Rappel sur les commandes de groupes et users</summary>
+<p>Ajout d'un groupe nommé ncusers :</p>
+<p><div class="highlight"><pre><span></span><code>groupadd<span class="w"> </span>ncusers
+</code></pre></div>
+Ajout d'un utilisateur avec le groupe ncusers
+<div class="highlight"><pre><span></span><code>useradd<span class="w"> </span>-g<span class="w"> </span>ncusers<span class="w"> </span>ncuser
+</code></pre></div></p>
+</details>
+<p>On copie le dossier nc dans le tmp :</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/bin/nc<span class="w"> </span>/tmp/capnc
+</code></pre></div>
+<p>Mise en place des droits :</p>
+<div class="highlight"><pre><span></span><code>install<span class="w"> </span>-o<span class="w"> </span>ncuser<span class="w"> </span>-g<span class="w"> </span>ncusers<span class="w"> </span>-m<span class="w"> </span><span class="m">700</span><span class="w"> </span>/bin/nc<span class="w"> </span>/tmp/capnc
+</code></pre></div>
+<p>Règlage des droits avec la commande setcap :</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span>setcap<span class="w">  </span><span class="nv">cap_net_bind_service</span><span class="o">=</span>ep<span class="w">  </span>/tmp/capnc
+</code></pre></div>
+<p>Vérification des droits sur le dossier : </p>
+<div class="highlight"><pre><span></span><code>getcap<span class="w"> </span>/tmp/capnc
+</code></pre></div>
+<p>Puis on vérifie si les droits focntionne avec la connexion sur le ncuser puis l'indication de la commande : </p>
+<div class="highlight"><pre><span></span><code>su<span class="w"> </span>-<span class="w"> </span>ncuser<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;/tmp/capnc -l 90&quot;</span>
+</code></pre></div>
 
 
 
@@ -1441,15 +1552,30 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" hidden>
         
+          
+          <a href="../SElinux/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Se linux" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Précédent
+                </span>
+                Se linux
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Mise en place des partitions" rel="next">
+          <a href="../sudo/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Sudo et Sudoreplay" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Suivant
                 </span>
-                Mise en place des partitions
+                Sudo et Sudoreplay
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1562,14 +1688,14 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="javascripts/tablesort.js"></script>
+        <script src="../../../../javascripts/tablesort.js"></script>
       
     
   </body>

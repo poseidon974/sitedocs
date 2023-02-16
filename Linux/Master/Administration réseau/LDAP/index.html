@@ -1,0 +1,2133 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../DNS/">
+      
+      
+        <link rel="next" href="../NMCLI/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
+    
+    
+      
+        <title>LDAP - Documentation - CS2I</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ldap" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation - CS2I
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LDAP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Passer en mode jour"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Passer en mode jour" for="__palette_3" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Passer en mode nuit"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Passer en mode nuit" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Laisser le système décider"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Laisser le système décider" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/poseidon974/sitedocs" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    poseidon974/sitedocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link md-tabs__link--active">
+        Linux
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link">
+        Vitrualisation & cloud
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-tabs__link">
+        Windows
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Documentation - CS2I
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/poseidon974/sitedocs" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    poseidon974/sitedocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Bachelor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bachelor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          Partionnement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Partionnement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
+        Mise en place des partitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/Partionnement/RAID/" class="md-nav__link">
+        RAID
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          Deploiement ansible
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Deploiement ansible
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
+        Deployment ansible
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Master
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Master
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          Administration avancée
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Administration avancée
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_1" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1_1" id="__nav_2_2_1_1_label" tabindex="0">
+          Installation avancée CENTOS 9
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installation avancée CENTOS 9
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
+        Installation de Centos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1_2" id="__nav_2_2_1_2_label" tabindex="0">
+          RPM YUM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          RPM YUM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
+        Programme du jour
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+          Administration réseau
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Administration réseau
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DNS/" class="md-nav__link">
+        Les DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LDAP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LDAP
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Définition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#decouverte-et-parametrages" class="md-nav__link">
+    Découverte et paramétrages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#realisation-du-travail" class="md-nav__link">
+    Réalisation du travail
+  </a>
+  
+    <nav class="md-nav" aria-label="Réalisation du travail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-organisation-avec-la-creation-dun-fichier-orgldif" class="md-nav__link">
+    Création d'une organisation avec la création d'un fichier org.ldif
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-ou-users" class="md-nav__link">
+    Création d'une OU "users"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajout-dun-utilisateur-ldapuser1" class="md-nav__link">
+    Ajout d'un utilisateur ldapuser1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-ou-groups" class="md-nav__link">
+    Création d'une OU "groups"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajout-dun-groupe-ldapgroup1" class="md-nav__link">
+    Ajout d'un groupe ldapgroup1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pam" class="md-nav__link">
+    PAM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sssd" class="md-nav__link">
+    SSSD
+  </a>
+  
+    <nav class="md-nav" aria-label="SSSD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-sss" class="md-nav__link">
+    Configuration de SSS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certification-avec-tls" class="md-nav__link">
+    Certification avec TLS
+  </a>
+  
+    <nav class="md-nav" aria-label="Certification avec TLS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#certificat-auto-signe" class="md-nav__link">
+    Certificat auto-signé
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificat-serveur" class="md-nav__link">
+    Certificat serveur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tamponnage-du-fichier" class="md-nav__link">
+    Tamponnage du fichier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-des-configurations" class="md-nav__link">
+    Intégration des configurations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NMCLI/" class="md-nav__link">
+        Configuration réseau
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SSH/" class="md-nav__link">
+        Sécurité de SSH
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+          Sécurité
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sécurité
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../S%C3%A9curit%C3%A9/SElinux/" class="md-nav__link">
+        Se linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../S%C3%A9curit%C3%A9/permissions/" class="md-nav__link">
+        Les permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../S%C3%A9curit%C3%A9/sudo/" class="md-nav__link">
+        Sudo et Sudoreplay
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Vitrualisation & cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Vitrualisation & cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Commandes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Commandes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
+        Commandes dans Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
+        Syntaxe fichier deployment et services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Rappels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Rappels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
+        La vitrualisation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Kube
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kube
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/kube/Informations%20sur%20kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Active directory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Active directory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-nav__link">
+        GPO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
+        Création d'un dossier+script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
+        Création fichier avec user + date
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+    
+      
+    
+    <a href="https://github.com/poseidon974/sitedocs/raw/master/docs/Linux/Master/Administration réseau/LDAP.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
+    </a>
+  
+
+
+
+<h1 id="ldap">LDAP<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h1>
+<h2 id="definition">Définition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
+<p>LDAP est l'abréviation de Lightweight Directory Access Protocol (protocole léger d'accès à un annuaire). C'est un protocole de communication utilisé pour accéder à des annuaires en ligne, qui sont des bases de données contenant des informations sur des utilisateurs, des groupes, des ordinateurs et d'autres ressources réseau.</p>
+<p>LDAP permet aux clients d'accéder à ces annuaires pour effectuer des opérations telles que la recherche, la lecture, la mise à jour et la suppression de données. Les annuaires LDAP sont utilisés dans de nombreuses applications, notamment pour la gestion des utilisateurs et des groupes, l'authentification et l'autorisation, la messagerie électronique, la voix sur IP, et bien d'autres.</p>
+<p>LDAP utilise un modèle client-serveur et repose sur un ensemble de règles et de spécifications définies par l'Internet Engineering Task Force (IETF). Il est considéré comme un protocole efficace et sûr pour la gestion de données d'annuaire à grande échelle.</p>
+<h2 id="decouverte-et-parametrages">Découverte et paramétrages<a class="headerlink" href="#decouverte-et-parametrages" title="Permanent link">&para;</a></h2>
+<p>Recherche dans les schemas :</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-rni<span class="w"> </span>--color<span class="w"> </span>PosixAccount<span class="w"> </span>/etc/openldap/schema/
+</code></pre></div>
+<p>Affichage des lignes de 161 à 180 du fichier <code>nis.schema</code> :</p>
+<div class="highlight"><pre><span></span><code>objectclass<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">1</span>.3.6.1.1.1.2.0<span class="w"> </span>NAME<span class="w"> </span><span class="s1">&#39;posixAccount&#39;</span>
+<span class="w">        </span>DESC<span class="w"> </span><span class="s1">&#39;Abstraction of an account with POSIX attributes&#39;</span>
+<span class="w">        </span>SUP<span class="w"> </span>top<span class="w"> </span>AUXILIARY
+<span class="w">        </span>MUST<span class="w"> </span><span class="o">(</span><span class="w"> </span>cn<span class="w"> </span>$<span class="w"> </span>uid<span class="w"> </span>$<span class="w"> </span>uidNumber<span class="w"> </span>$<span class="w"> </span>gidNumber<span class="w"> </span>$<span class="w"> </span>homeDirectory<span class="w"> </span><span class="o">)</span>
+<span class="w">        </span>MAY<span class="w"> </span><span class="o">(</span><span class="w"> </span>userPassword<span class="w"> </span>$<span class="w"> </span>loginShell<span class="w"> </span>$<span class="w"> </span>gecos<span class="w"> </span>$<span class="w"> </span>description<span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="o">)</span>
+
+objectclass<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">1</span>.3.6.1.1.1.2.1<span class="w"> </span>NAME<span class="w"> </span><span class="s1">&#39;shadowAccount&#39;</span>
+<span class="w">        </span>DESC<span class="w"> </span><span class="s1">&#39;Additional attributes for shadow passwords&#39;</span>
+<span class="w">        </span>SUP<span class="w"> </span>top<span class="w"> </span>AUXILIARY
+<span class="w">        </span>MUST<span class="w"> </span>uid
+<span class="w">        </span>MAY<span class="w"> </span><span class="o">(</span><span class="w"> </span>userPassword<span class="w"> </span>$<span class="w"> </span>shadowLastChange<span class="w"> </span>$<span class="w"> </span>shadowMin<span class="w"> </span>$
+<span class="w">              </span>shadowMax<span class="w"> </span>$<span class="w"> </span>shadowWarning<span class="w"> </span>$<span class="w"> </span>shadowInactive<span class="w"> </span>$
+<span class="w">              </span>shadowExpire<span class="w"> </span>$<span class="w"> </span>shadowFlag<span class="w"> </span>$<span class="w"> </span>description<span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="o">)</span>
+
+objectclass<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">1</span>.3.6.1.1.1.2.2<span class="w"> </span>NAME<span class="w"> </span><span class="s1">&#39;posixGroup&#39;</span>
+<span class="w">        </span>DESC<span class="w"> </span><span class="s1">&#39;Abstraction of a group of accounts&#39;</span>
+<span class="w">        </span>SUP<span class="w"> </span>top<span class="w"> </span>STRUCTURAL
+<span class="w">        </span>MUST<span class="w"> </span><span class="o">(</span><span class="w"> </span>cn<span class="w"> </span>$<span class="w"> </span>gidNumber<span class="w"> </span><span class="o">)</span>
+<span class="w">        </span>MAY<span class="w"> </span><span class="o">(</span><span class="w"> </span>userPassword<span class="w"> </span>$<span class="w"> </span>memberUid<span class="w"> </span>$<span class="w"> </span>description<span class="w"> </span><span class="o">)</span><span class="w"> </span><span class="o">)</span>
+</code></pre></div>
+<p>1 objet rentré dans l'annuaire doit obliatoirement avoir une classe structurale.</p>
+<p>La classe Account se situe dans le fichier <code>cosine.schema</code> et cette classe est une classe Structurale :</p>
+<div class="highlight"><pre><span></span><code>objectclass<span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="m">0</span>.9.2342.19200300.100.4.5<span class="w"> </span>NAME<span class="w"> </span><span class="s1">&#39;account&#39;</span>
+<span class="w">        </span>SUP<span class="w"> </span>top<span class="w"> </span>STRUCTURAL
+<span class="w">        </span>MUST<span class="w"> </span>userid
+<span class="w">        </span>MAY<span class="w"> </span><span class="o">(</span><span class="w"> </span>description<span class="w"> </span>$<span class="w"> </span>seeAlso<span class="w"> </span>$<span class="w"> </span>localityName<span class="w"> </span>$
+<span class="w">                </span>organizationName<span class="w"> </span>$<span class="w"> </span>organizationalUnitName<span class="w"> </span>$<span class="w"> </span>host<span class="w"> </span><span class="o">)</span>
+<span class="w">        </span><span class="o">)</span>
+</code></pre></div>
+<p>Démarrage de ldap :</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>slapd
+</code></pre></div>
+<p>Plusieurs LDAP :</p>
+<ul>
+<li>Ldapi : Connexion avec le socket UNIX (locale)</li>
+<li>Ldaps : connexion avec des certficats (utlisé par des clients TLS)</li>
+<li>Ldap : connexion simple sans certificats (tuilisé par des clients non TLS)</li>
+</ul>
+<p>Les commandes <strong><em>ldapwhoami</em></strong> permettent de tester l'accès à un annuaire.</p>
+<p>Recherche et connexion dans l'annuaire avec connexion :</p>
+<div class="highlight"><pre><span></span><code>ldapsearch<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi:///<span class="w"> </span>-Q<span class="w">  </span>-b<span class="w"> </span><span class="nv">CN</span><span class="o">=</span>config
+</code></pre></div>
+<p>Options de filtres ( attention pas d'opérateur &lt; ou &gt; (opératuers strictes) ) :</p>
+<ul>
+<li><code>=</code>(égal)</li>
+<li><code>*</code>: joker</li>
+<li><code>&lt;=</code> (plus petit ou égal)</li>
+<li><code>&gt;=</code> (plus grand ou égal)</li>
+<li><code>~=</code>(approximation)</li>
+</ul>
+<p>Recherche portée avec scope <code>-s</code> et ses options :</p>
+<ul>
+<li>base (uniquement la base)</li>
+<li>sub (à partir de la base sur la totalité de la base)</li>
+<li>one (fils directs)</li>
+</ul>
+<p><strong><em>ldapmodify</em></strong> utlise un schéma pour la modification :</p>
+<ul>
+<li>le DN,<ul>
+<li><strong>le type d'opération réalisée,</strong></li>
+<li>changetype: add : pour ajouter une entrée</li>
+<li>changetype: delete : pour supprimer une entrée</li>
+<li>changetype: modify : pour modifier une entrée déjà présente<ul>
+<li><strong>La ligne du dessous mentionne alors le type de modification :</strong></li>
+<li>add : attribut</li>
+<li>delete : attribut</li>
+<li>replace : attribut<ul>
+<li><strong>La ligne du dessous donne alors la nouvelle valeur de l'attribut</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Création d'un fichier pour modifier le mot de passe root :</p>
+<div class="highlight"><pre><span></span><code>dn:<span class="w"> </span><span class="nv">olcDatabase</span><span class="o">={</span><span class="m">2</span><span class="o">}</span>mdb,cn<span class="o">=</span>config
+changetype:<span class="w"> </span>modify
+replace:<span class="w"> </span>olcRootPW
+olcRootPW:<span class="w"> </span>secret
+</code></pre></div>
+<p>Application de la modification : </p>
+<p><div class="highlight"><pre><span></span><code>ldapmodify<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi:///<span class="w"> </span>-Q<span class="w"> </span>-f<span class="w"> </span>modif-rootpw.ldif
+</code></pre></div>
+Observation de la modification avec la commande <code>ldapsearch -Y EXTERNAL -H ldapi:/// -Q -LLL -b 'olcDatabase={2}mdb,cn=config'</code> : </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn:<span class="w"> </span><span class="nv">olcDatabase</span><span class="o">={</span><span class="m">2</span><span class="o">}</span>mdb,cn<span class="o">=</span>config
+objectClass:<span class="w"> </span>olcDatabaseConfig
+objectClass:<span class="w"> </span>olcMdbConfig
+olcDatabase:<span class="w"> </span><span class="o">{</span><span class="m">2</span><span class="o">}</span>mdb
+olcDbDirectory:<span class="w"> </span>/var/lib/ldap
+olcSuffix:<span class="w"> </span><span class="nv">dc</span><span class="o">=</span>my-domain,dc<span class="o">=</span>com
+olcRootDN:<span class="w"> </span><span class="nv">cn</span><span class="o">=</span>Manager,dc<span class="o">=</span>my-domain,dc<span class="o">=</span>com
+olcDbIndex:<span class="w"> </span>objectClass<span class="w"> </span>eq,pres
+olcDbIndex:<span class="w"> </span>ou,cn,mail,surname,givenname<span class="w"> </span>eq,pres,sub
+<span class="hll">olcRootPW:<span class="w"> </span>secret
+</span></code></pre></div></td></tr></table></div>
+<p>Pour obtenir un mot de passe chiffré, on utilise <code>slappasswd</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Saut de ligne<p>Dans les différents éditeurs, ceux-ci enregisre un saut de ligne qui est interprété par ldap (ex: mot de passe de 6 caractères comptera sur 7). Cela se suprrime avec la commande :
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-n<span class="w"> </span>secret<span class="w"> </span>&gt;<span class="w"> </span>.ldappass
+</code></pre></div></p>
+</p>
+</div>
+<h2 id="realisation-du-travail">Réalisation du travail<a class="headerlink" href="#realisation-du-travail" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Travail à réaliser<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> On cherche à créer une organisation "mon domaine domX.local" (entrée d'annuaire "organization")<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création d'une OU "users" (entrée d'annuaire : organizationUnit")<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'une entrée basée sur posixAccount : "ldapuser1"</li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création d'une OU "groups" (entrée d'annuaire : organizationUnit")<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d'une entrée basée sur posixGroup : "ldapgroup1"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</p>
+</div>
+<h3 id="creation-dune-organisation-avec-la-creation-dun-fichier-orgldif">Création d'une organisation avec la création d'un fichier <code>org.ldif</code><a class="headerlink" href="#creation-dune-organisation-avec-la-creation-dun-fichier-orgldif" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dn:<span class="w"> </span><span class="nv">dc</span><span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass:<span class="w"> </span>organization
+objectClass:<span class="w"> </span>dcObject
+o:<span class="w"> </span>Mon<span class="w"> </span>domaine<span class="w"> </span>dom0.local
+</code></pre></div>
+<p>On ajout l'organistaion avec :</p>
+<div class="highlight"><pre><span></span><code>ldapadd<span class="w"> </span>-D<span class="w"> </span><span class="nv">cn</span><span class="o">=</span>leo,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span><span class="w"> </span>-y<span class="w"> </span>~/.ldappass<span class="w"> </span>-f<span class="w"> </span>org.ldif<span class="w"> </span>-c
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info<p>L'option <code>-c</code> permet de continuer si des lignes provoquent des erreurs</p>
+</p>
+</div>
+<p>Dans la suite des travaux, nous continurons dans le fichier <code>org.ldif</code>.</p>
+<h3 id="creation-dune-ou-users">Création d'une OU "users"<a class="headerlink" href="#creation-dune-ou-users" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dn:<span class="w"> </span><span class="nv">ou</span><span class="o">=</span>users,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass:<span class="w"> </span>organizationalUnit
+</code></pre></div>
+<h3 id="ajout-dun-utilisateur-ldapuser1">Ajout d'un utilisateur <code>ldapuser1</code><a class="headerlink" href="#ajout-dun-utilisateur-ldapuser1" title="Permanent link">&para;</a></h3>
+<p>Ajout du schéma inetorgperson :</p>
+<div class="highlight"><pre><span></span><code>ldapadd<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi:///<span class="w"> </span>-f<span class="w"> </span>/etc/openldap/schema/inetorgperson.ldif
+</code></pre></div>
+<p>Ajout de l'utilisateur ici dans <code>groups</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn:<span class="w"> </span><span class="nv">cn</span><span class="o">=</span>ldapuser1,ou<span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass:<span class="w"> </span>posixAccount
+objectClass:<span class="w"> </span>inetOrgPerson
+cn:<span class="w"> </span>Youzer<span class="w"> </span>Un
+gn:<span class="w"> </span>Youzer
+sn:<span class="w"> </span>Un
+uid:<span class="w"> </span>ldpauser1
+uidNumber:<span class="w"> </span><span class="m">10001</span>
+gidNumber:<span class="w"> </span><span class="m">10000</span>
+homeDirectory:<span class="w"> </span>/home/ldapuser1
+</code></pre></div></td></tr></table></div>
+<p>Ajout d'utilisateur ici dans <code>users</code> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn:<span class="w"> </span><span class="nv">cn</span><span class="o">=</span>ldapuser1,ou<span class="o">=</span>users,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass:<span class="w"> </span>posixAccount
+objectClass:<span class="w"> </span>inetOrgPerson
+cn:<span class="w"> </span>Youzer<span class="w"> </span>Un
+gn:<span class="w"> </span>Youzer
+sn:<span class="w"> </span>Un
+uid:<span class="w"> </span>ldapuser1
+uidNumber:<span class="w"> </span><span class="m">10001</span>
+gidNumber:<span class="w"> </span><span class="m">10000</span>
+homeDirectory:<span class="w"> </span>/home/ldapuser1
+</code></pre></div></td></tr></table></div>
+<h3 id="creation-dune-ou-groups">Création d'une OU "groups"<a class="headerlink" href="#creation-dune-ou-groups" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>dn:<span class="w"> </span><span class="nv">ou</span><span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass:<span class="w"> </span>organizationalUnit
+</code></pre></div>
+<h3 id="ajout-dun-groupe-ldapgroup1">Ajout d'un groupe <code>ldapgroup1</code><a class="headerlink" href="#ajout-dun-groupe-ldapgroup1" title="Permanent link">&para;</a></h3>
+<p>On cherche dans les schémas les références à posixGroup :</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>-rni<span class="w"> </span>--color<span class="w"> </span>PosixGroup<span class="w"> </span>/etc/openldap/schema/
+</code></pre></div>
+<p>On retrouve dans le fichier <code>nis.schema</code> que l'identifiant est <em>gidnumber</em>. </p>
+<p>On ajoute le schema nis.ldif :</p>
+<div class="highlight"><pre><span></span><code>ldapadd<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi:///<span class="w"> </span>-f<span class="w"> </span>/etc/openldap/schema/nis.ldif
+</code></pre></div>
+<p>On cherche l'erreur suivante sur les <code>manager</code> que l'on trouve dans cosine.schema. On ajoute ensuite le fichier ldif :</p>
+<div class="highlight"><pre><span></span><code>ldapadd<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi:///<span class="w"> </span>-f<span class="w"> </span>/etc/openldap/schema/cosine.ldif
+</code></pre></div>
+<p>Si il y a des erreurs, il faut intégrer les fichier dans l'ordre <code>nis.ldif</code> puis <code>cosine.ldif</code>.</p>
+<p>Code définitif pour la création :</p>
+<div class="highlight"><pre><span></span><code>dn:<span class="w"> </span><span class="nv">cn</span><span class="o">=</span>ldapgroupe1,ou<span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+objectClass:<span class="w"> </span>posixGroup
+gidNumber:<span class="w"> </span><span class="m">10000</span>
+</code></pre></div>
+<h2 id="pam">PAM<a class="headerlink" href="#pam" title="Permanent link">&para;</a></h2>
+<p>PAM permet d'authentifier des utilisateurs en utilisant LDAP.</p>
+<p>On cherche les fichiers de PAM avec <code>/etc/pam.d/</code>.</p>
+<p>Le fichier <code>other</code> est présent lorsque aucun fichier du nom du programme existe.</p>
+<p>Pour voir si un programme dépend de pam ou tout autre programme, on utilise <code>ldd</code>. Par exemple pour <strong><em>passwd</em></strong>, on obtient :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">        </span>linux-vdso.so.1<span class="w"> </span><span class="o">(</span>0x00007ffcf63ec000<span class="o">)</span>
+<span class="w">        </span>libuser.so.1<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libuser.so.1<span class="w"> </span><span class="o">(</span>0x00007ff80b72f000<span class="o">)</span>
+<span class="w">        </span>libgobject-2.0.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libgobject-2.0.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b6d4000<span class="o">)</span>
+<span class="w">        </span>libglib-2.0.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libglib-2.0.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b59a000<span class="o">)</span>
+<span class="w">        </span>libpopt.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libpopt.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b58b000<span class="o">)</span>
+<span class="hll"><span class="w">        </span>libpam.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libpam.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b579000<span class="o">)</span>
+</span><span class="w">        </span>libpam_misc.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libpam_misc.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b573000<span class="o">)</span>
+<span class="w">        </span>libaudit.so.1<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libaudit.so.1<span class="w"> </span><span class="o">(</span>0x00007ff80b543000<span class="o">)</span>
+<span class="w">        </span>libselinux.so.1<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libselinux.so.1<span class="w"> </span><span class="o">(</span>0x00007ff80b516000<span class="o">)</span>
+<span class="w">        </span>libc.so.6<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libc.so.6<span class="w"> </span><span class="o">(</span>0x00007ff80b200000<span class="o">)</span>
+<span class="w">        </span>libgmodule-2.0.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libgmodule-2.0.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b510000<span class="o">)</span>
+<span class="w">        </span>libcrypt.so.2<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libcrypt.so.2<span class="w"> </span><span class="o">(</span>0x00007ff80b4d6000<span class="o">)</span>
+<span class="w">        </span>libffi.so.8<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libffi.so.8<span class="w"> </span><span class="o">(</span>0x00007ff80b4ca000<span class="o">)</span>
+<span class="w">        </span>libpcre.so.1<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libpcre.so.1<span class="w"> </span><span class="o">(</span>0x00007ff80b450000<span class="o">)</span>
+<span class="w">        </span>libeconf.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libeconf.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b445000<span class="o">)</span>
+<span class="w">        </span>libm.so.6<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libm.so.6<span class="w"> </span><span class="o">(</span>0x00007ff80b125000<span class="o">)</span>
+<span class="w">        </span>libcap-ng.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libcap-ng.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b43c000<span class="o">)</span>
+<span class="w">        </span>libpcre2-8.so.0<span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span>/lib64/libpcre2-8.so.0<span class="w"> </span><span class="o">(</span>0x00007ff80b089000<span class="o">)</span>
+<span class="w">        </span>/lib64/ld-linux-x86-64.so.2<span class="w"> </span><span class="o">(</span>0x00007ff80b762000<span class="o">)</span>
+</code></pre></div></td></tr></table></div>
+<p>On observe ligne 6, que le programme nécéssite PAM pour focntionner.</p>
+<p>Pour l'authentification, le fichier de PAM <code>/etc/pam.d/system_auth</code> présente les règles d'authentifications.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>auth<span class="w">        </span>required<span class="w">      </span>pam_env.so
+auth<span class="w">        </span>sufficient<span class="w">    </span>pam_unix.so<span class="w"> </span>try_first_pass<span class="w"> </span>nullok
+auth<span class="w">        </span>required<span class="w">      </span>pam_deny.so
+</code></pre></div></td></tr></table></div>
+<div class="admonition note">
+<p class="admonition-title">Note<p>PAM est appelé pour le login et ne donnera jamais l'élément qui à échoué. </p>
+</p>
+</div>
+<p>Chez PAM, plusieurs stratégies sont prédéfinies :</p>
+<ul>
+<li>Required : Réussir le module est nécessaire, on annoncera une erreur à la fin du traitement uniquement si 1 des
+modules "required" échoue.</li>
+<li>Requisite : Réussir le module est nécessaire : la première erreur (on annoncera laquelle) est synonyme d'abandon</li>
+<li>Sufficient : La réussite du module est suffisante pour que l'on valide le contexte. On ne fait pas l'analyse des
+modules qui suivent (même required ou requisite) dans le contexte</li>
+<li>Optional : La réussite d'un module optional est nécessaire si les autres sont ignorés. Le module n'est pas appelé si
+un autre module réussit ou échoue</li>
+<li>Include : sert à brancher vers un sous-fichier de règles PAM</li>
+</ul>
+<h2 id="sssd">SSSD<a class="headerlink" href="#sssd" title="Permanent link">&para;</a></h2>
+<p>Pourquoi utiliser SSHD ? Car SSHD est plus récent que PAM pour LDAP.</p>
+<p>Installation des packages SSHD :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>sssd<span class="w"> </span>sssd-ldap<span class="w"> </span>sssd-tools<span class="w"> </span>oddjob<span class="w"> </span>oddjob-mkhomedir
+</code></pre></div>
+<p>Démarrage du service :</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>oddjobd.service
+</code></pre></div>
+<p>Authselect permet de configurer des profils d'authentifications.</p>
+<p>Nous pouvons lister les profils avec <code>authselect list</code> :</p>
+<div class="highlight"><pre><span></span><code>-<span class="w"> </span>minimal<span class="w">        </span>Local<span class="w"> </span>users<span class="w"> </span>only<span class="w"> </span><span class="k">for</span><span class="w"> </span>minimal<span class="w"> </span>installations
+-<span class="w"> </span>sssd<span class="w">           </span>Enable<span class="w"> </span>SSSD<span class="w"> </span><span class="k">for</span><span class="w"> </span>system<span class="w"> </span>authentication<span class="w"> </span><span class="o">(</span>also<span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nb">local</span><span class="w"> </span>users<span class="w"> </span>only<span class="o">)</span>
+-<span class="w"> </span>winbind<span class="w">        </span>Enable<span class="w"> </span>winbind<span class="w"> </span><span class="k">for</span><span class="w"> </span>system<span class="w"> </span>authentication
+</code></pre></div>
+<p>Configuration de PAM avec SSHD :</p>
+<div class="highlight"><pre><span></span><code>authselect<span class="w"> </span><span class="k">select</span><span class="w"> </span>--force<span class="w"> </span>sssd<span class="w"> </span>with-mkhomedir
+</code></pre></div>
+<p>Si on regarde maintenant le fichier de pam <code>system_auth</code> :</p>
+<div class="highlight"><pre><span></span><code>auth<span class="w">        </span>required<span class="w">                                     </span>pam_env.so
+auth<span class="w">        </span>required<span class="w">                                     </span>pam_faildelay.so<span class="w"> </span><span class="nv">delay</span><span class="o">=</span><span class="m">2000000</span>
+auth<span class="w">        </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ignore</span><span class="o">=</span>ignore<span class="w"> </span><span class="nv">success</span><span class="o">=</span>ok<span class="o">]</span><span class="w">         </span>pam_usertype.so<span class="w"> </span>isregular
+auth<span class="w">        </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ignore</span><span class="o">=</span>ignore<span class="w"> </span><span class="nv">success</span><span class="o">=</span>ok<span class="o">]</span><span class="w">         </span>pam_localuser.so
+auth<span class="w">        </span>sufficient<span class="w">                                   </span>pam_unix.so<span class="w"> </span>nullok
+auth<span class="w">        </span><span class="o">[</span><span class="nv">default</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">ignore</span><span class="o">=</span>ignore<span class="w"> </span><span class="nv">success</span><span class="o">=</span>ok<span class="o">]</span><span class="w">         </span>pam_usertype.so<span class="w"> </span>isregular
+auth<span class="w">        </span>sufficient<span class="w">                                   </span>pam_sss.so<span class="w"> </span>forward_pass
+auth<span class="w">        </span>required<span class="w">                                     </span>pam_deny.so
+</code></pre></div>
+<p>On observe de nouvelles lignes qui se sont ajoutées dans le fichier avec des paramètres supplémentaires.</p>
+<h3 id="configuration-de-sss">Configuration de SSS<a class="headerlink" href="#configuration-de-sss" title="Permanent link">&para;</a></h3>
+<p>Ajout d'un fichier de configuration <code>/etc/sssd/sssd.conf</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>sssd<span class="o">]</span>
+<span class="nv">services</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>nss,<span class="w"> </span>pam
+<span class="nv">domains</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>dom3.local
+
+<span class="o">[</span>nss<span class="o">]</span>
+<span class="nv">filter_users</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>root
+<span class="nv">filter_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>root
+
+<span class="o">[</span>domain/dom3.local<span class="o">]</span>
+<span class="nv">cache_credentials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="nv">id_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ldap
+<span class="nv">auth_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ldap
+<span class="nv">ldap_uri</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>ldap://10.56.126.220
+<span class="c1">#ldap_tls_reqcert = demand</span>
+<span class="nv">ldap_search_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">dc</span><span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+<span class="nv">ldap_user_search_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ou</span><span class="o">=</span>users,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+<span class="nv">ldap_groups_search_base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ou</span><span class="o">=</span>groups,dc<span class="o">=</span>dom3,dc<span class="o">=</span><span class="nb">local</span>
+
+<span class="o">[</span>pam<span class="o">]</span>
+<span class="nv">offline_credentials_expiration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="nv">offline_failed_login_attempts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span>
+<span class="nv">offline_failed_login_delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<p>Modification des droits en 600 :</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/sssd/sssd.conf
+</code></pre></div>
+<p>Démarrage du service SSSD qui nécéssitait un fichier de configuration :</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>sssd
+</code></pre></div>
+<p>On verifie la connexion avec <code>sssctl user-checks ldapuser1</code> (ici un extrait du message retour):</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code>user:<span class="w"> </span>ldapuser1
+action:<span class="w"> </span>acct
+service:<span class="w"> </span>system-auth
+
+SSSD<span class="w"> </span>nss<span class="w"> </span>user<span class="w"> </span>lookup<span class="w"> </span>result:
+<span class="w"> </span>-<span class="w"> </span>user<span class="w"> </span>name:<span class="w"> </span>ldapuser1
+<span class="w"> </span>-<span class="w"> </span>user<span class="w"> </span>id:<span class="w"> </span><span class="m">10001</span>
+<span class="w"> </span>-<span class="w"> </span>group<span class="w"> </span>id:<span class="w"> </span><span class="m">10000</span>
+<span class="w"> </span>-<span class="w"> </span>gecos:<span class="w"> </span>Youzer<span class="w"> </span>Un
+<span class="w"> </span>-<span class="w"> </span>home<span class="w"> </span>directory:<span class="w"> </span>/home/ldapuser1
+<span class="w"> </span>-<span class="w"> </span>shell:
+</code></pre></div></td></tr></table></div>
+Verficiation aussi avec <code>id ldapuser1</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="nv">uid</span><span class="o">=</span><span class="m">10001</span><span class="o">(</span>ldapuser1<span class="o">)</span><span class="w"> </span><span class="nv">gid</span><span class="o">=</span><span class="m">10000</span><span class="o">(</span>ldapgroupe1<span class="o">)</span><span class="w"> </span><span class="nv">groupes</span><span class="o">=</span><span class="m">10000</span><span class="o">(</span>ldapgroupe1<span class="o">)</span>
+</code></pre></div>
+<h3 id="certification-avec-tls">Certification avec TLS<a class="headerlink" href="#certification-avec-tls" title="Permanent link">&para;</a></h3>
+<h4 id="certificat-auto-signe">Certificat auto-signé<a class="headerlink" href="#certificat-auto-signe" title="Permanent link">&para;</a></h4>
+<p>Création d'un dossier avec des droits personnalisés sur le serveur :</p>
+<div class="highlight"><pre><span></span><code>install<span class="w"> </span>-d<span class="w"> </span>-m<span class="w"> </span><span class="m">2750</span><span class="w"> </span>-o<span class="w"> </span>root<span class="w"> </span>-g<span class="w"> </span>ldap<span class="w"> </span>/etc/openldap/certs
+</code></pre></div>
+<p>Création des documents <code>ca.pem</code> et <code>ca-key.pem</code> :</p>
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>req<span class="w"> </span><span class="se">\</span>
+-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-nodes<span class="w"> </span>-keyout<span class="w"> </span>/etc/openldap/certs/ca-key.pem<span class="w"> </span><span class="se">\</span>
+-subj<span class="w"> </span><span class="s1">&#39;/countryName=FR/stateOrProvinceName=Bretagne/organizationName=Actilis/CN=CA-LDAP/&#39;</span><span class="w"> </span><span class="se">\</span>
+-x509<span class="w"> </span>-sha256<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span><span class="se">\</span>
+-extensions<span class="w"> </span>v3_ca<span class="w"> </span><span class="se">\</span>
+-out<span class="w"> </span>/etc/openldap/certs/ca.pem
+</code></pre></div>
+<p>Ajout des droits sur le fichier <code>ca.pem</code> :</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">444</span><span class="w"> </span>/etc/openldap/certs/ca.pem
+</code></pre></div>
+<h4 id="certificat-serveur">Certificat serveur<a class="headerlink" href="#certificat-serveur" title="Permanent link">&para;</a></h4>
+<p>Création des fichiers <code>server.csr</code> et <code>key.pem</code> :</p>
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>req<span class="w"> </span><span class="se">\</span>
+-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-nodes<span class="w"> </span>-keyout<span class="w"> </span>/etc/openldap/certs/key.pem<span class="w"> </span><span class="se">\</span>
+-subj<span class="w"> </span><span class="s1">&#39;/CN=dom3.local/&#39;</span><span class="w"> </span><span class="se">\</span>
+-out<span class="w"> </span>server.csr
+</code></pre></div>
+<p>Ajout des permissions :</p>
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">440</span><span class="w"> </span>/etc/openldap/certs/key.pem
+</code></pre></div>
+<h4 id="tamponnage-du-fichier">Tamponnage du fichier<a class="headerlink" href="#tamponnage-du-fichier" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>x509<span class="w"> </span>-req<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-sha256<span class="w"> </span>-in<span class="w"> </span>server.csr<span class="w"> </span>-out<span class="w"> </span>/etc/openldap/certs/cert.pem<span class="w"> </span><span class="se">\</span>
+-CA<span class="w"> </span>/etc/openldap/certs/ca.pem<span class="w"> </span>-CAkey<span class="w"> </span>/etc/openldap/certs/ca-key.pem<span class="w"> </span>-CAcreateserial<span class="w"> </span><span class="se">\</span>
+-extfile<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;basicConstraints = CA:FALSE\n subjectAltName=IP:127.0.0.1,IP:10.56.126.220,DNS:ldap.dom3.local&quot;</span><span class="o">)</span>
+</code></pre></div>
+<p>Verifications du certificat :</p>
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>x509<span class="w"> </span>-noout<span class="w"> </span>-subject<span class="w"> </span>&lt;<span class="w"> </span>/etc/openldap/certs/cert.pem
+</code></pre></div>
+<h4 id="integration-des-configurations">Intégration des configurations<a class="headerlink" href="#integration-des-configurations" title="Permanent link">&para;</a></h4>
+<p>Ajouter un fichier tls.ldif :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code>dn:<span class="w"> </span><span class="nv">cn</span><span class="o">=</span>config
+changetype:<span class="w"> </span>modify
+replace:<span class="w"> </span>olcTLSCACertificateFile
+olcTLSCACertificateFile:<span class="w"> </span>/etc/openldap/certs/ca.pem
+-
+replace:<span class="w"> </span>olcTLSCertificateFile
+olcTLSCertificateFile:<span class="w"> </span>/etc/openldap/certs/cert.pem
+-
+replace:<span class="w"> </span>olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile:<span class="w"> </span>/etc/openldap/certs/key.pem
+</code></pre></div></td></tr></table></div>
+<p>Ajout de la configuration avec <code>ldapmodify</code> :</p>
+<div class="highlight"><pre><span></span><code>ldapmodify<span class="w"> </span>-Y<span class="w"> </span>EXTERNAL<span class="w"> </span>-H<span class="w"> </span>ldapi:///<span class="w"> </span>&lt;<span class="w"> </span>tls.ldif
+</code></pre></div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pied de page" hidden>
+        
+          
+          <a href="../DNS/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Les DNS" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Précédent
+                </span>
+                Les DNS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../NMCLI/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Configuration réseau" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Suivant
+                </span>
+                Configuration réseau
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022-2023 Léo Guilloux
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/l%C3%A9o-guilloux-0486921a6/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/poseidon974" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+    
+  
+
+
+
+
+  
+
+<h4>Cookies</h4>
+<p>Sur ce site de documentation, quelques cookies peuvent être utilisés. Voici la liste ci-dessous</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepter</button>
+    
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../../../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>

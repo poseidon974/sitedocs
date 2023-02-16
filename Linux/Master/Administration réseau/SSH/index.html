@@ -9,22 +9,24 @@
       
       
       
+        <link rel="prev" href="../NMCLI/">
       
-        <link rel="next" href="Linux/Bachelor/Partionnement/Partition_LVM/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+        <link rel="next" href="../../S%C3%A9curit%C3%A9/SElinux/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
     
     
       
-        <title>Documentation - CS2I</title>
+        <title>Sécurité de SSH - Documentation - CS2I</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.0d440cfe.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.0d440cfe.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.2505c338.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
       
       
 
@@ -40,7 +42,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#securite-de-ssh" class="md-skip">
+          Aller au contenu
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -84,7 +91,7 @@
 
 <header class="md-header md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="En-tête">
-    <a href="." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+    <a href="../../../.." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -103,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Sécurité de SSH
             
           </span>
         </div>
@@ -197,12 +204,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="." class="md-tabs__link md-tabs__link--active">
+    <a href="../../../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -210,6 +215,8 @@
       
         
   
+  
+    
   
 
 
@@ -227,7 +234,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link md-tabs__link--active">
         Linux
       </a>
     </li>
@@ -252,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link">
         Vitrualisation & cloud
       </a>
     </li>
@@ -275,7 +282,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="Windows/Active%20directory/GPO/" class="md-tabs__link">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-tabs__link">
         Windows
       </a>
     </li>
@@ -315,7 +322,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+    <a href="../../../.." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -344,19 +351,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -367,14 +366,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
         
@@ -389,7 +390,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Linux
@@ -470,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
         Mise en place des partitions
       </a>
     </li>
@@ -484,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/Partionnement/RAID/" class="md-nav__link">
+      <a href="../../../Bachelor/Partionnement/RAID/" class="md-nav__link">
         RAID
       </a>
     </li>
@@ -536,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
+      <a href="../../../Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
         Deployment ansible
       </a>
     </li>
@@ -562,16 +563,18 @@
               
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
       
       
         
@@ -588,7 +591,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Master
@@ -665,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
+      <a href="../../Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
         Installation de Centos
       </a>
     </li>
@@ -717,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
+      <a href="../../Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
         Programme du jour
       </a>
     </li>
@@ -743,14 +746,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
       
       
         
@@ -769,7 +774,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2_2">
           <span class="md-nav__icon md-icon"></span>
           Administration réseau
@@ -782,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/DNS/" class="md-nav__link">
+      <a href="../DNS/" class="md-nav__link">
         Les DNS
       </a>
     </li>
@@ -796,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/LDAP/" class="md-nav__link">
+      <a href="../LDAP/" class="md-nav__link">
         LDAP
       </a>
     </li>
@@ -810,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/NMCLI/" class="md-nav__link">
+      <a href="../NMCLI/" class="md-nav__link">
         Configuration réseau
       </a>
     </li>
@@ -822,11 +827,93 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="Linux/Master/Administration%20r%C3%A9seau/SSH/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Sécurité de SSH
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Sécurité de SSH
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changement-du-port-de-ssh" class="md-nav__link">
+    Changement du port de SSH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fail2ban" class="md-nav__link">
+    Fail2ban
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sshguard" class="md-nav__link">
+    SSHGuard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portknocker" class="md-nav__link">
+    PortKnocker
+  </a>
+  
+    <nav class="md-nav" aria-label="PortKnocker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-du-serveur-knock" class="md-nav__link">
+    Installation du serveur knock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connexion-avec-knock" class="md-nav__link">
+    Connexion avec knock
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -880,7 +967,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/SElinux/" class="md-nav__link">
+      <a href="../../S%C3%A9curit%C3%A9/SElinux/" class="md-nav__link">
         Se linux
       </a>
     </li>
@@ -894,7 +981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/permissions/" class="md-nav__link">
+      <a href="../../S%C3%A9curit%C3%A9/permissions/" class="md-nav__link">
         Les permissions
       </a>
     </li>
@@ -908,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/Master/S%C3%A9curit%C3%A9/sudo/" class="md-nav__link">
+      <a href="../../S%C3%A9curit%C3%A9/sudo/" class="md-nav__link">
         Sudo et Sudoreplay
       </a>
     </li>
@@ -1014,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
         Commandes dans Kubernetes
       </a>
     </li>
@@ -1028,7 +1115,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
         Syntaxe fichier deployment et services
       </a>
     </li>
@@ -1082,7 +1169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
         La vitrualisation
       </a>
     </li>
@@ -1136,7 +1223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Vitrualisation%20%26%20cloud/kube/Informations%20sur%20kubernetes/" class="md-nav__link">
+      <a href="../../../../Vitrualisation%20%26%20cloud/kube/Informations%20sur%20kubernetes/" class="md-nav__link">
         Kubernetes
       </a>
     </li>
@@ -1231,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Active%20directory/GPO/" class="md-nav__link">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-nav__link">
         GPO
       </a>
     </li>
@@ -1287,7 +1374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
         Création d'un dossier+script
       </a>
     </li>
@@ -1301,7 +1388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
         Création fichier avec user + date
       </a>
     </li>
@@ -1341,7 +1428,7 @@
     
       
     
-    <a href="https://github.com/poseidon974/sitedocs/raw/master/docs/index.md" title="Consulter la source de cette page" class="md-content__button md-icon">
+    <a href="https://github.com/poseidon974/sitedocs/raw/master/docs/Linux/Master/Administration réseau/SSH.md" title="Consulter la source de cette page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Z"/></svg>
     </a>
@@ -1349,67 +1436,233 @@
 
 
 
-<p>Voici les différents cours présents et documentés</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Formation</th>
-<th align="left">Cours</th>
-<th align="left">Date</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Linux</td>
-<td>Administration avancée</td>
-<td align="left"><a href="Linux/Master/Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/">Installation avancée CENTOS9</a></td>
-<td align="left">01/12/2022</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Administration avancée</td>
-<td align="left"><a href="Linux/Master/Administration%20avanc%C3%A9e/RPM-YUM/Index/">RPM et YUM</a></td>
-<td align="left">02/12/2022</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td>PowerShell</td>
-<td align="left"><a href="Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/">Création d'un dossier et d'un script</a></td>
-<td align="left">06/12/2022</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td>PowerShell</td>
-<td align="left"><a href="Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/">Création d'un fichier avec user et date</a></td>
-<td align="left">06/12/2022</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Administration</td>
-<td align="left">[LVM]</td>
-<td align="left">01/06/2022</td>
-</tr>
-<tr>
-<td>Windows</td>
-<td>AD</td>
-<td align="left"><a href="Windows/Active%20directory/GPO/">Création d'une GPO</a></td>
-<td align="left">07/12/2022</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Sécurité</td>
-<td align="left"><a href="Linux/Master/S%C3%A9curit%C3%A9/permissions/">Les permissions</a></td>
-<td align="left">26/01/2023</td>
-</tr>
-<tr>
-<td>Linux</td>
-<td>Sécurité</td>
-<td align="left"><a href="Linux/Master/S%C3%A9curit%C3%A9/SElinux/">SE Linux</a></td>
-<td align="left">26/01/2023</td>
-</tr>
-</tbody>
-</table>
+<h1 id="securite-de-ssh">Sécurité de SSH<a class="headerlink" href="#securite-de-ssh" title="Permanent link">&para;</a></h1>
+<h2 id="changement-du-port-de-ssh">Changement du port de SSH<a class="headerlink" href="#changement-du-port-de-ssh" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cette solution pour sécuriser SSH n'est pas recommandé car cela ne procure pas beaucoup de sécurité</p>
+</div>
+<p>Localisation du fichier de configguration de SSH </p>
+<div class="highlight"><pre><span></span><code>/etc/ssh/sshd_config
+</code></pre></div>
+<p>Pour modifier le port, on modifie la ligne :</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">#Port 22</span>
+</code></pre></div>
+On enregistre ensuite le fichier et on execute la policy de SE linux : </p>
+<div class="highlight"><pre><span></span><code>semanage<span class="w"> </span>port<span class="w"> </span>-a<span class="w"> </span>-t<span class="w"> </span>ssh_port_t<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span><span class="c1">#PORTNUMBER</span>
+</code></pre></div>
+<p>On restart aussi le service :</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>sshd
+</code></pre></div>
+<h2 id="fail2ban">Fail2ban<a class="headerlink" href="#fail2ban" title="Permanent link">&para;</a></h2>
+<details class="info" open="open">
+<summary>Info</summary>
+<p>Pour chercher des packages qui ne sont pas présent sur les depôts par défaut : <a href="dpkg.org">dpkg.org</a></p>
+</details>
+<p>Installation d'un dépot supplémentaire :</p>
+<p><div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>install<span class="w"> </span>epel-release
+</code></pre></div>
+On cherche le repo <code>fail2ban</code> et de quoi il est composé:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>dnf<span class="w"> </span>search<span class="w"> </span>fail2ban
+dnf<span class="w"> </span>info<span class="w"> </span>fail2ban
+</code></pre></div></td></tr></table></div>
+<p>Installation de bail2ban :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>install<span class="w"> </span>fail2ban-firewalld
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Systemd à la main sur cron, fstab, les services et aussi les logs</p>
+</div>
+<p>Dans le service journald, on cherche les envois de logs avec <code>grep Forward /etc/systemd/journald.conf</code>.</p>
+<p>Cela nous retourne : </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="hll"><span class="c1">#ForwardToSyslog=no</span>
+</span><span class="c1">#ForwardToKMsg=no</span>
+<span class="c1">#ForwardToConsole=no</span>
+<span class="c1">#ForwardToWall=yes</span>
+</code></pre></div></td></tr></table></div>
+<p>Pour obtenir les logs de sshd avec systemctl :</p>
+<div class="highlight"><pre><span></span><code>journalctl<span class="w"> </span>--unit<span class="w"> </span>sshd.service
+</code></pre></div>
+<p>Installation d'un package supplémentaire :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>fail2ban-systemd
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Le service de fail2ban n'est pas en démarrage automatique dès son installation.</p>
+</div>
+<p>Mise en route du service fail2ban :</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>fail2ban
+</code></pre></div>
+<p>Observation des prisons <code>fail2ban-client status</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>Status
+<span class="p">|</span>-<span class="w"> </span>Number<span class="w"> </span>of<span class="w"> </span>jail:<span class="w">      </span><span class="m">0</span>
+<span class="sb">`</span>-<span class="w"> </span>Jail<span class="w"> </span>list:
+</code></pre></div></td></tr></table></div>
+<p>Localisation des fichiers de configuation des fichiers de fail2ban :</p>
+<div class="highlight"><pre><span></span><code>/etc/fail2ban/
+</code></pre></div>
+<div class="admonition failure">
+<p class="admonition-title">Interdiction</p>
+<p>On ne travaille pas sur le fichier de configuration direct, on utilise le dossier en .d à la fin</p>
+</div>
+<p>Affichage de pages de man installées avec le package <code>rpm -ql fail2ban-server | grep /man</code> et on cherche la documentation sur les jails :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>/usr/share/man/man1/fail2ban-client.1.gz
+/usr/share/man/man1/fail2ban-python.1.gz
+/usr/share/man/man1/fail2ban-regex.1.gz
+/usr/share/man/man1/fail2ban-server.1.gz
+/usr/share/man/man1/fail2ban.1.gz
+<span class="hll">/usr/share/man/man5/jail.conf.5.gz
+</span></code></pre></div></td></tr></table></div>
+<p>Ajout d'un fichier de configuration dans le dossier jail.d :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>sshd<span class="o">]</span>
+<span class="nv">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+
+<span class="c1"># Mise en place d&#39;un blocage de 30 minutes si il y a 5 essais erronés en 5 minutes</span>
+
+<span class="nv">bantime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1800</span>
+<span class="nv">findtime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300</span>
+<span class="nv">maxretry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div></td></tr></table></div>
+<p>On restart le service fail2ban :</p>
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>restart<span class="w"> </span>fail2ban.service
+</code></pre></div>
+<p>On peut observer les jail:</p>
+<div class="highlight"><pre><span></span><code>fail2ban-client<span class="w"> </span>get<span class="w"> </span>sshd<span class="w"> </span>banned
+</code></pre></div>
+<p>On déban juste d'un jail avec la commande : </p>
+<div class="highlight"><pre><span></span><code>fail2ban-cleint<span class="w"> </span><span class="nb">set</span><span class="w"> </span>sshd<span class="w"> </span>unbanip<span class="w"> </span><span class="c1">#ipdelamachine</span>
+</code></pre></div>
+<p>On déban une ip de toutes les jails:</p>
+<div class="highlight"><pre><span></span><code>fail2ban-clent<span class="w"> </span>unban<span class="w"> </span><span class="c1">#ipdelamachine</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>On désactive fail2ban pour la suite du tp.</p>
+</div>
+<h2 id="sshguard">SSHGuard<a class="headerlink" href="#sshguard" title="Permanent link">&para;</a></h2>
+<p>Recherche de SSHGuard :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>search<span class="w"> </span>sshguard
+</code></pre></div>
+<p>Dans la liste on cherche ce qui se rapporte au firewall :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">========================================</span><span class="w"> </span>Nom<span class="w"> </span>correspond<span class="w"> </span>exactement<span class="w"> </span>à<span class="w"> </span>:<span class="w"> </span><span class="nv">sshguard</span><span class="w"> </span><span class="o">========================================</span>
+sshguard.x86_64<span class="w"> </span>:<span class="w"> </span>Protects<span class="w"> </span>hosts<span class="w"> </span>from<span class="w"> </span>brute-force<span class="w"> </span>attacks<span class="w"> </span>against<span class="w"> </span>SSH<span class="w"> </span>and<span class="w"> </span>other<span class="w"> </span><span class="nv">services</span>
+<span class="o">=========================================</span><span class="w"> </span>Nom<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>Résumé<span class="w"> </span>correspond<span class="w"> </span>à<span class="w"> </span>:<span class="w"> </span><span class="nv">sshguard</span><span class="w"> </span><span class="o">=========================================</span>
+<span class="hll">sshguard-firewalld.x86_64<span class="w"> </span>:<span class="w"> </span>Configuration<span class="w"> </span><span class="k">for</span><span class="w"> </span>firewalld<span class="w"> </span>backend<span class="w"> </span>of<span class="w"> </span>SSHGuard
+</span>sshguard-iptables.x86_64<span class="w"> </span>:<span class="w"> </span>Configuration<span class="w"> </span><span class="k">for</span><span class="w"> </span>iptables<span class="w"> </span>backend<span class="w"> </span>of<span class="w"> </span>SSHGuard
+sshguard-nftables.x86_64<span class="w"> </span>:<span class="w"> </span>Configuration<span class="w"> </span><span class="k">for</span><span class="w"> </span>nftables<span class="w"> </span>backend<span class="w"> </span>of<span class="w"> </span>SSHGuard
+</code></pre></div></td></tr></table></div>
+<h2 id="portknocker">PortKnocker<a class="headerlink" href="#portknocker" title="Permanent link">&para;</a></h2>
+<h3 id="installation-du-serveur-knock">Installation du serveur knock<a class="headerlink" href="#installation-du-serveur-knock" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Port_knocker permet d’ouvrir et de fermer les ports d’une machine de façon dynamique. Il agit avec un client qui vient "frapper" à la porte de la machine sur plusieurs ports. Si la séquence est correcte, port-knocker ouvre le port qui correspond à la séquence pendant un certain temps avant de le désactiver.</p>
+</div>
+<p>Recherche du pakcge knockd :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>search<span class="w"> </span>knock
+</code></pre></div>
+<p>Installation de knock et de son serveur :</p>
+<div class="highlight"><pre><span></span><code>dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>knock
+dnf<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>knock-server
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Attention le service n'est pas démarré par défaut à l'installation. Pour le démarrer, utiliser :
+<div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>knockd
+</code></pre></div></p>
+</div>
+<p>Localisation des fichiers de configurations :</p>
+<div class="highlight"><pre><span></span><code>/etc/knockd.conf
+</code></pre></div>
+<p>On observe le fichier de configuration : </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>options<span class="o">]</span>
+<span class="w">        </span>UseSyslog
+
+<span class="o">[</span>opencloseSSH<span class="o">]</span>
+<span class="w">        </span><span class="nv">sequence</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="m">2222</span>:udp,3333:tcp,4444:udp
+<span class="w">        </span><span class="nv">seq_timeout</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">15</span>
+<span class="w">        </span><span class="nv">tcpflags</span><span class="w">      </span><span class="o">=</span><span class="w"> </span>syn,ack
+<span class="w">        </span><span class="nv">start_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/sbin/iptables<span class="w"> </span>-A<span class="w"> </span>INPUT<span class="w"> </span>-s<span class="w"> </span>%IP%<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span>ssh<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+<span class="w">        </span><span class="nv">cmd_timeout</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<span class="w">        </span><span class="nv">stop_command</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>/sbin/iptables<span class="w"> </span>-D<span class="w"> </span>INPUT<span class="w"> </span>-s<span class="w"> </span>%IP%<span class="w"> </span>-p<span class="w"> </span>tcp<span class="w"> </span>--dport<span class="w"> </span>ssh<span class="w"> </span>-j<span class="w"> </span>ACCEPT
+</code></pre></div></td></tr></table></div>
+<p>Sur la configuration, on observe la séquence utilisée avec les ports suivants: <code>2222:udp,3333:tcp,4444:udp</code>.</p>
+<p>De plus, on remarque 2 commandes <strong>iptables</strong> permettant d'ajouter (option -A) et de supprimer (option -D) une ip dans le fichier iptables</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pour que le port knocking fontionne correctement, il faut que tout les ports de la machine soient fermés. On utlise la commade <strong>iptables</strong> pour fermer tout les ports :
+<div class="highlight"><pre><span></span><code>iptables<span class="w"> </span>-P<span class="w"> </span>INPUT<span class="w"> </span>DROP
+</code></pre></div></p>
+</div>
+<p>On réalise notre propre fichier de configuration. Au prélable, comme il n'y a pas de dossier en .d pour faire des configurations annexe, on copie le fichier de configuration pour en faire une sauvegarde.</p>
+<p>Modification du fichier knockd.config :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>opencloseSSH<span class="o">]</span>
+<span class="w">        </span><span class="nv">sequence</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="m">2222</span>:tcp,3333:udp,4444:tcp
+<span class="w">        </span><span class="nv">seq_timeout</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">15</span>
+<span class="w">        </span><span class="nv">start_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/bin/firewall-cmd<span class="w"> </span>--zone<span class="o">=</span>public<span class="w"> </span>--add-rich-rule<span class="w"> </span><span class="s1">&#39;rule family=ipv4 source address=%IP% service name=ssh accept&#39;</span>
+<span class="w">        </span><span class="nv">tcpflags</span><span class="w">      </span><span class="o">=</span><span class="w"> </span>syn
+<span class="w">        </span><span class="nv">cmd_timeout</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">10</span>
+<span class="w">        </span><span class="nv">stop_command</span><span class="w">  </span><span class="o">=</span><span class="w"> </span>/bin/firewall-cmd<span class="w"> </span>--zone<span class="o">=</span>public<span class="w"> </span>--remove-rich-rule<span class="w"> </span><span class="s1">&#39;rule family=ipv4 source address=%IP% service name=ssh accept&#39;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Comme ici on utilise <em>firewall-cmd</em>, on désactive sur la zone publique ssh
+<div class="highlight"><pre><span></span><code>firewall-cmd<span class="w"> </span>--zone<span class="o">=</span>public<span class="w"> </span>--remove-service<span class="o">=</span>ssh
+</code></pre></div></p>
+</div>
+<p>Ici nous avons utilisé <strong><em>firewall-cmd</em></strong> pour remplacer <strong><em>iptables</em></strong>. Les <em>start_command</em> et <em>stop_command</em> permettent d'ajouter avec les <em>rich-rules</em> le service SSH.</p>
+<p>Sur la séquence, les ports sont en tcp et udp. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Lorsque le port n'est pas spécifié, celui-ci prend par défaut la valeur <strong>TCP</strong>.*</p>
+</div>
+<h3 id="connexion-avec-knock">Connexion avec knock<a class="headerlink" href="#connexion-avec-knock" title="Permanent link">&para;</a></h3>
+<p>Pour la connexion client, nous avons besoin du package <em>knock</em>.</p>
+<p>On toc à la porte de la machine :</p>
+<div class="highlight"><pre><span></span><code>knock<span class="w">  </span><span class="m">10</span>.56.126.74<span class="w"> </span><span class="m">2222</span>:tcp<span class="w"> </span><span class="m">3333</span>:udp<span class="w"> </span><span class="m">4444</span>:tcp
+</code></pre></div>
+<p>Si on decompose la commande, on retrouve l'ip de destination puis les différents ports avec les protocoles si ce n'est pas du <strong><em>TCP</em></strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Une fois la commande de knock envoyée, il faut envoyer la commande ssh dans le laps de temps où le port est ouvert</p>
+</div>
 
 
 
@@ -1441,15 +1694,30 @@
       
       <nav class="md-footer__inner md-grid" aria-label="Pied de page" hidden>
         
+          
+          <a href="../NMCLI/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Configuration réseau" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  Précédent
+                </span>
+                Configuration réseau
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="Linux/Bachelor/Partionnement/Partition_LVM/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Mise en place des partitions" rel="next">
+          <a href="../../S%C3%A9curit%C3%A9/SElinux/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Se linux" rel="next">
             <div class="md-footer__title">
               <div class="md-ellipsis">
                 <span class="md-footer__direction">
                   Suivant
                 </span>
-                Mise en place des partitions
+                Se linux
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1562,14 +1830,14 @@
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.4b2c34cd.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.4b2c34cd.min.js"></script>
       
         <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
       
-        <script src="javascripts/tablesort.js"></script>
+        <script src="../../../../javascripts/tablesort.js"></script>
       
     
   </body>
