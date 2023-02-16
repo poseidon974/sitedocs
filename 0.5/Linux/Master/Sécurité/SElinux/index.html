@@ -1,0 +1,1957 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Se linux - Documentation - CS2I</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#se-linux" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../../.." title="Documentation - CS2I" class="md-header__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation - CS2I
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Se linux
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Passer en mode jour"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Passer en mode jour" for="__palette_3" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Passer en mode nuit"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Passer en mode nuit" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Laisser le système décider"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Laisser le système décider" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/poseidon974/sitedocs" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    poseidon974/sitedocs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-tabs__link md-tabs__link--active">
+        Linux
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-tabs__link">
+        Vitrualisation & cloud
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-tabs__link">
+        Windows
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Documentation - CS2I" class="md-nav__button md-logo" aria-label="Documentation - CS2I" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Documentation - CS2I
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/poseidon974/sitedocs" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    poseidon974/sitedocs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Bachelor
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Bachelor" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Bachelor
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_1" type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1">
+          Partionnement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Partionnement" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Partionnement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/Partionnement/Partition_LVM/" class="md-nav__link">
+        Mise en place des partitions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/Partionnement/RAID/" class="md-nav__link">
+        RAID
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1_2" type="checkbox" id="__nav_2_1_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2">
+          Deploiement ansible
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deploiement ansible" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Deploiement ansible
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Bachelor/deploiement_ansible/Ansible/" class="md-nav__link">
+        Deployment ansible
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Master
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Master" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Master
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1" type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1">
+          Administration avancée
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Administration avancée" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Administration avancée
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1_1" type="checkbox" id="__nav_2_2_1_1" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1_1">
+          Installation avancée CENTOS 9
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Installation avancée CENTOS 9" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installation avancée CENTOS 9
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20avanc%C3%A9e/Installation%20avanc%C3%A9e%20CENTOS%209/Installation/" class="md-nav__link">
+        Installation de Centos
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_1_2" type="checkbox" id="__nav_2_2_1_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1_2">
+          RPM YUM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="RPM YUM" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          RPM YUM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20avanc%C3%A9e/RPM-YUM/Index/" class="md-nav__link">
+        Programme du jour
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_2" type="checkbox" id="__nav_2_2_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2">
+          Administration réseau
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Administration réseau" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Administration réseau
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20r%C3%A9seau/DNS/" class="md-nav__link">
+        Les DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20r%C3%A9seau/LDAP/" class="md-nav__link">
+        LDAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20r%C3%A9seau/NMCLI/" class="md-nav__link">
+        Configuration réseau
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Administration%20r%C3%A9seau/SSH/" class="md-nav__link">
+        Sécurité de SSH
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3">
+          Sécurité
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Sécurité" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sécurité
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Se linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Se linux
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulations" class="md-nav__link">
+    Manipulations
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mise-a-zero-de-auditlog" class="md-nav__link">
+    Mise à zéro de audit.log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mise-a-zero-de-selinux" class="md-nav__link">
+    Mise à zéro de SElinux
+  </a>
+  
+    <nav class="md-nav" aria-label="Mise à zéro de SElinux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reconstitution-des-labels-de-securite" class="md-nav__link">
+    Reconstitution des labels de sécurité
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travail-sur-un-serveur-ftp" class="md-nav__link">
+    Travail sur un serveur FTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exploration-de-selinux-avec-les-ports" class="md-nav__link">
+    Exploration de SElinux avec les ports
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-booleens-dans-selinux" class="md-nav__link">
+    Les booléens dans SElinux
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../permissions/" class="md-nav__link">
+        Les permissions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sudo/" class="md-nav__link">
+        Sudo et Sudoreplay
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Vitrualisation & cloud
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Vitrualisation & cloud" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Vitrualisation & cloud
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Commandes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Commandes" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Commandes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Commandes%20dans%20kubernetes/" class="md-nav__link">
+        Commandes dans Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Commandes/Syntaxe%20fichier%20deployment%20et%20services/" class="md-nav__link">
+        Syntaxe fichier deployment et services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Rappels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Rappels" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Rappels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/Rappels/Rappel%20sur%20la%20virtualisation/" class="md-nav__link">
+        La vitrualisation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Kube
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Kube" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Kube
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Vitrualisation%20%26%20cloud/kube/Informations%20sur%20kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Windows" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Active directory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Active directory" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Active directory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Windows/Active%20directory/GPO/" class="md-nav__link">
+        GPO
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Powershell" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20d%27un%20dossier%2Bscript/" class="md-nav__link">
+        Création d'un dossier+script
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Windows/Powershell/Cr%C3%A9ation%20fichier%20avec%20user%20%2B%20date/" class="md-nav__link">
+        Création fichier avec user + date
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/poseidon974/sitedocs/edit/master/docs/Linux/Master/Sécurité/SElinux.md" title="Editer cette page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="se-linux">Se linux<a class="headerlink" href="#se-linux" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>SE Linux se base sur la sécurité de type MAC (Mandatory Access Control).</p>
+<p>La commande <code>sestatus</code> permet d'obtenir des informations concernant la protection de SE Linux</p>
+<figure>
+<p><img alt="Exemple de protection SE Linux" src="../images/selinux-status.png" />
+  </p>
+<figcaption>Exemple de protection SE Linux</figcaption>
+</figure>
+<p>SE Linux possède 2 modes :</p>
+<ul>
+<li>Enforcing : cette option bloque et log</li>
+<li>Permissive : cette option laisse tout faire et log</li>
+</ul>
+<p>Pour forcer le mode <code>permissive</code> on utilise la commande :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Solution 1</label><label for="__tabbed_1_2">Solution 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>setenforce <span class="m">0</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>setenforce Permissive
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Pour forcer le mode <code>enforcing</code> on utilise la commande :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Solution 1</label><label for="__tabbed_2_2">Solution 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>setenforce <span class="m">1</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>setenforce Enforcing
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Chaque fihcier et prossesus ont un label de sécurité (security context) avec une forme : </p>
+<blockquote>
+<p>user:role:type(files)/domaine(processus):mls</p>
+</blockquote>
+<p>Cette forme peut-etre lue avec les commandes : </p>
+<div class="highlight"><pre><span></span><code>ls -Z /etc/hosts
+</code></pre></div>
+<p>et </p>
+<div class="highlight"><pre><span></span><code>ps -Zfax
+</code></pre></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p><code>Z</code> pour lister les labels</p>
+<p><code>f</code> affiche sous forme d'arbre</p>
+<p><code>a</code> pour lister les porcessus des autres utilisateurs</p>
+<p><code>x</code> affiche les processus qui n'ont pas de terminal de controle</p>
+</details>
+<p>Lister les règles d'une stratégie :</p>
+<div class="highlight"><pre><span></span><code>chcon -R -t 
+</code></pre></div>
+<details class="info" open="open">
+<summary>Info</summary>
+<p><code>-R</code> pour recurcive</p>
+<p><code>-t</code> pour le type</p>
+</details>
+<h2 id="manipulations">Manipulations<a class="headerlink" href="#manipulations" title="Permanent link">&para;</a></h2>
+<h3 id="mise-a-zero-de-auditlog">Mise à zéro de audit.log<a class="headerlink" href="#mise-a-zero-de-auditlog" title="Permanent link">&para;</a></h3>
+<p>Arret du service auditd :</p>
+<div class="highlight"><pre><span></span><code>systemctl stop auditd
+</code></pre></div>
+<p>Si le service ne veux pas être arrété par le biais de <code>systemctl</code>, utilisez :</p>
+<div class="highlight"><pre><span></span><code>service auditd stop
+</code></pre></div>
+<p>Supprimez le fichier <code>\var\log\audit\audit.log</code></p>
+<div class="highlight"><pre><span></span><code>rm <span class="se">\v</span>ar<span class="se">\l</span>og<span class="se">\a</span>udit<span class="se">\a</span>udit.log
+</code></pre></div>
+<p>On regarde ensuite les labels de sécurité du fichier :</p>
+<div class="highlight"><pre><span></span><code>ls -lZ <span class="se">\v</span>ar<span class="se">\l</span>og<span class="se">\a</span>udit<span class="se">\a</span>udit.log
+</code></pre></div>
+<h3 id="mise-a-zero-de-selinux">Mise à zéro de SElinux<a class="headerlink" href="#mise-a-zero-de-selinux" title="Permanent link">&para;</a></h3>
+<h4 id="reconstitution-des-labels-de-securite">Reconstitution des labels de sécurité<a class="headerlink" href="#reconstitution-des-labels-de-securite" title="Permanent link">&para;</a></h4>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>La reconsititution des labels de sécurités concerne tout les fichiers. Si des labels de sécurité ont été <strong>modifiés manuellement</strong>, ceux-ci <strong>seront réinitialisés</strong> par la reconsititution <strong>sauf si ceux-ci ont été rentrés dans les configurations persistantes</strong>.</p>
+</div>
+<p>Pour reconstruire les labels de sécurité : </p>
+<div class="highlight"><pre><span></span><code>restorecon -R /
+</code></pre></div>
+<p>Pour reconstruire les labels de sécurité au <strong>prochain démarrage</strong> :</p>
+<div class="highlight"><pre><span></span><code>touch /.autorelabel
+</code></pre></div>
+<p>Au redémarrage on peut observe le relabel :</p>
+<figure>
+<p><img alt="Autorelabel au redémarrage" src="../images/autorelabel.png" />
+  </p>
+<figcaption>Message au redémarrage de l'autorelabel</figcaption>
+</figure>
+<p>Les templates sont stocker dans <code>/etc/selinux/targeted</code>.</p>
+<figure>
+<p><img alt="Dossier contenant les templates" src="../images/presentationdossiertemplate.png" />
+  </p>
+<figcaption>Contenu du dossier targeted</figcaption>
+</figure>
+<p>Exemple d'un fichier (ici <code>/etc/selinux/targeted/contexts/systemd_contexts</code>) :</p>
+<div class="highlight"><pre><span></span><code><span class="nv">runtime</span><span class="o">=</span>system_u:object_r:systemd_runtime_unit_file_t:s0
+</code></pre></div>
+<h3 id="travail-sur-un-serveur-ftp">Travail sur un serveur FTP<a class="headerlink" href="#travail-sur-un-serveur-ftp" title="Permanent link">&para;</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>Installation du serveur : <strong>vsftpd</strong></p>
+</div>
+<p>On observe ensuite les labels de sécurité sur les dossiers <code>/var/ftp</code> et <code>/var/ftp/pub</code>.</p>
+<p>On remmarque que sur les labels de sécurité, on retrouve un label <em>public_content_t</em>.</p>
+<p>On demarre le service avec <code>systemctl start vsftpd</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Le firewall bloque peut-être les connexion au ftp via le navigateur (ftp://<em>ipmachine</em>).</p>
+<p>On active le service firewall FTP :</p>
+<div class="highlight"><pre><span></span><code>firewall-cmd --add-service<span class="o">=</span>ftp
+</code></pre></div>
+</div>
+<p>On se connecte avec un client ftp et une session comme root. On obteint un succès de connexion.</p>
+<p>On s'intérresse maintenant au fichier de configuration <code>/etc/vsftpd/vsftpd.conf</code>.</p>
+<p>On retrouve la ligne :</p>
+<div class="highlight"><pre><span></span><code><span class="nv">anonymous_enable</span><span class="o">=</span>NO
+</code></pre></div>
+<p>La ligne ci-dessus doit être commentée afin de pouvoir autoriser les connexions anonymes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Il faut restart le service afin de prendre en compte le changement de configuration.</p>
+</div>
+<p>On va créer les dossiers pour déplacer l'attache du ftp dans <code>/home/ftp/pub</code></p>
+<details class="info">
+<summary>Info</summary>
+<p>On peut utiliser <code>mkdir -p</code> avec l'option <code>-p</code> qui permet de créer les parents du dossier voulu.</p>
+</details>
+<p>On ajoute une ligne dans <code>/etc/vsftpd/vsftpd.conf</code> pour lier le ftp dans le dossier créer précédement :</p>
+<div class="highlight"><pre><span></span><code><span class="nv">anon_root</span><span class="o">=</span>/home/ftp
+</code></pre></div>
+<p>On regarde les labels de séurité sur le dossier <code>ls -lZ /home/ftp/</code></p>
+<div class="highlight"><pre><span></span><code>drwxr-xr-x. <span class="m">2</span> root root unconfined_u:object_r:user_home_t:s0 <span class="m">4096</span> <span class="m">27</span> janv. <span class="m">09</span>:34 pub
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A partir de redhat 9, on à maintenant accès au FTP .</p>
+</div>
+<p>On cherche à lister les différents modules de SE Linux avec la commande avec l'installation de tools:</p>
+<div class="highlight"><pre><span></span><code>dnf -y install setools-console
+</code></pre></div>
+<p>On va lister tout les règles d'autorisations :</p>
+<div class="highlight"><pre><span></span><code>sesearch --allow -s ftpd_t <span class="p">|</span> grep <span class="s2">&quot; ftpd&quot;</span>
+</code></pre></div>
+<p>Et on obteint une information concernant la règle ci-dessus :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>allow ftpd_t user_home_t:dir <span class="o">{</span> create link rename reparent rmdir setattr unlink watch watch_reads <span class="o">}</span><span class="p">;</span>
+allow ftpd_t user_home_t:file <span class="o">{</span> create ioctl link lock map open <span class="nb">read</span> rename setattr unlink watch watch_reads write <span class="o">}</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>On peux filtrer aussi avec :</p>
+<div class="highlight"><pre><span></span><code>sesearch --allow -s ftpd_t -t user_home_t
+</code></pre></div>
+<p>On obteint :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code>allow daemon user_home_t:file <span class="o">{</span> append getattr <span class="o">}</span><span class="p">;</span>
+allow domain file_type:blk_file map<span class="p">;</span> <span class="o">[</span> domain_can_mmap_files <span class="o">]</span>:True
+allow domain file_type:chr_file map<span class="p">;</span> <span class="o">[</span> domain_can_mmap_files <span class="o">]</span>:True
+allow domain file_type:file map<span class="p">;</span> <span class="o">[</span> domain_can_mmap_files <span class="o">]</span>:True
+allow domain file_type:lnk_file map<span class="p">;</span> <span class="o">[</span> domain_can_mmap_files <span class="o">]</span>:True
+allow ftpd_t file_type:filesystem getattr<span class="p">;</span>
+allow ftpd_t non_security_file_type:dir <span class="o">{</span> add_name create getattr ioctl link lock open <span class="nb">read</span> remove_name rename reparent rmdir search setattr unlink watch watch_reads write <span class="o">}</span><span class="p">;</span> <span class="o">[</span> ftpd_full_access <span class="o">]</span>:True
+allow ftpd_t non_security_file_type:dir <span class="o">{</span> add_name getattr ioctl lock open <span class="nb">read</span> remove_name search write <span class="o">}</span><span class="p">;</span> <span class="o">[</span> ftpd_full_access <span class="o">]</span>:True
+allow ftpd_t non_security_file_type:dir <span class="o">{</span> add_name getattr ioctl lock open <span class="nb">read</span> remove_name search write <span class="o">}</span><span class="p">;</span> <span class="o">[</span> ftpd_full_access <span class="o">]</span>:True
+allow ftpd_t non_security_file_type:file <span class="o">{</span> append create getattr ioctl link lock open <span class="nb">read</span> rename setattr unlink watch watch_reads write <span class="o">}</span><span class="p">;</span> <span class="o">[</span> ftpd_full_access <span class="o">]</span>:True
+allow ftpd_t non_security_file_type:lnk_file <span class="o">{</span> append create getattr ioctl link lock <span class="nb">read</span> rename setattr unlink watch watch_reads write <span class="o">}</span><span class="p">;</span> <span class="o">[</span> ftpd_full_access <span class="o">]</span>:True
+<span class="hll">allow ftpd_t user_home_t:dir <span class="o">{</span> create link rename reparent rmdir setattr unlink watch watch_reads <span class="o">}</span><span class="p">;</span>
+</span><span class="hll">allow ftpd_t user_home_t:file <span class="o">{</span> create ioctl link lock map open <span class="nb">read</span> rename setattr unlink watch watch_reads write <span class="o">}</span><span class="p">;</span>
+</span>allow userdom_filetrans_type user_home_t:dir <span class="o">{</span> add_name getattr ioctl lock open <span class="nb">read</span> remove_name search write <span class="o">}</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="exploration-de-selinux-avec-les-ports">Exploration de SElinux avec les ports<a class="headerlink" href="#exploration-de-selinux-avec-les-ports" title="Permanent link">&para;</a></h3>
+<p>Installation de apache avec le package <strong><em>httpd</em></strong>.</p>
+<p>Une fois l'installation terminée, on modifie le port de Apache dans le fichier de configuration (<code>/etc/httpd/conf/httpd.conf</code>) :</p>
+<div class="highlight"><pre><span></span><code>Listen 8888
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Pour activer la modification, il faut redémarrer le service ou le démarrer si cela n'a pas été fait à l'installation</strong></p>
+<p>Pour redémarrer :</p>
+<div class="highlight"><pre><span></span><code>systemctl restart httpd
+</code></pre></div>
+<p>Pour démarrer le service :</p>
+<div class="highlight"><pre><span></span><code>systemctl start httpd
+</code></pre></div>
+</div>
+<p>Avec le restart, on obteint une erreur de configuration :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>Job <span class="k">for</span> httpd.service failed because the control process exited with error code.
+See <span class="s2">&quot;systemctl status httpd.service&quot;</span> and <span class="s2">&quot;journalctl -xeu httpd.service&quot;</span> <span class="k">for</span> details.
+</code></pre></div></td></tr></table></div>
+<p>Si on observe les logs avec <code>journalctl -u httpd | tail</code>, on remarque que le port 8888 provoque un problème :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code>janv. <span class="m">27</span> <span class="m">11</span>:15:33 LG-stream9-1.local systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Starting The Apache HTTP Server...
+<span class="hll">janv. <span class="m">27</span> <span class="m">11</span>:15:35 LG-stream9-1.local httpd<span class="o">[</span><span class="m">1865</span><span class="o">]</span>: <span class="o">(</span><span class="m">13</span><span class="o">)</span>Permission denied: AH00072: make_sock: could not <span class="nb">bind</span> to address <span class="o">[</span>::<span class="o">]</span>:8888
+</span><span class="hll">janv. <span class="m">27</span> <span class="m">11</span>:15:35 LG-stream9-1.local httpd<span class="o">[</span><span class="m">1865</span><span class="o">]</span>: <span class="o">(</span><span class="m">13</span><span class="o">)</span>Permission denied: AH00072: make_sock: could not <span class="nb">bind</span> to address <span class="m">0</span>.0.0.0:8888
+</span>janv. <span class="m">27</span> <span class="m">11</span>:15:35 LG-stream9-1.local httpd<span class="o">[</span><span class="m">1865</span><span class="o">]</span>: no listening sockets available, shutting down
+janv. <span class="m">27</span> <span class="m">11</span>:15:35 LG-stream9-1.local httpd<span class="o">[</span><span class="m">1865</span><span class="o">]</span>: AH00015: Unable to open logs
+janv. <span class="m">27</span> <span class="m">11</span>:15:35 LG-stream9-1.local systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: httpd.service: Main process exited, <span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span><span class="m">1</span>/FAILURE
+janv. <span class="m">27</span> <span class="m">11</span>:15:35 LG-stream9-1.local systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: httpd.service: Failed with result <span class="s1">&#39;exit-code&#39;</span>.
+janv. <span class="m">27</span> <span class="m">11</span>:15:35 LG-stream9-1.local systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Failed to start The Apache HTTP Server.
+</code></pre></div></td></tr></table></div>
+<p>On cherche aussi dans <code>/var/log/audit/audit.log</code> avec la commane <code>grep avc /var/log/audit/audit.log</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">type</span><span class="o">=</span>AVC <span class="nv">msg</span><span class="o">=</span>audit<span class="o">(</span><span class="m">1674814535</span>.950:140<span class="o">)</span>: avc:  denied  <span class="o">{</span> name_bind <span class="o">}</span> <span class="k">for</span>  <span class="nv">pid</span><span class="o">=</span><span class="m">1865</span> <span class="nv">comm</span><span class="o">=</span><span class="s2">&quot;httpd&quot;</span> <span class="nv">src</span><span class="o">=</span><span class="m">8888</span> <span class="nv">scontext</span><span class="o">=</span>system_u:system_r:httpd_t:s0 <span class="nv">tcontext</span><span class="o">=</span>system_u:object_r:unreserved_port_t:s0 <span class="nv">tclass</span><span class="o">=</span>tcp_socket <span class="nv">permissive</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">type</span><span class="o">=</span>AVC <span class="nv">msg</span><span class="o">=</span>audit<span class="o">(</span><span class="m">1674814535</span>.953:141<span class="o">)</span>: avc:  denied  <span class="o">{</span> name_bind <span class="o">}</span> <span class="k">for</span>  <span class="nv">pid</span><span class="o">=</span><span class="m">1865</span> <span class="nv">comm</span><span class="o">=</span><span class="s2">&quot;httpd&quot;</span> <span class="nv">src</span><span class="o">=</span><span class="m">8888</span> <span class="nv">scontext</span><span class="o">=</span>system_u:system_r:httpd_t:s0 <span class="nv">tcontext</span><span class="o">=</span>system_u:object_r:unreserved_port_t:s0 <span class="nv">tclass</span><span class="o">=</span>tcp_socket <span class="nv">permissive</span><span class="o">=</span><span class="m">0</span>
+</code></pre></div></td></tr></table></div>
+<p>On utilise <em>audit2</em> pour comprendre le problème avec la commande (<code>grep avc /var/log/audit/audit.log | tail -n -1 | audit2why</code>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>Was caused by:
+The boolean nis_enabled was <span class="nb">set</span> incorrectly.
+Description:
+Allow nis to enabled
+Allow access by executing:
+<span class="c1"># setsebool -P nis_enabled 1</span>
+</code></pre></div></td></tr></table></div>
+<p>Puis on cherche de savoir comment résoudre ce problème avec <em>audit2</em> avec la commande (<code>grep avc /var/log/audit/audit.log | tail -n -1 | audit2allow</code>):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">#============= httpd_t ==============</span>
+
+<span class="c1">#!!!! This avc can be allowed using the boolean &#39;nis_enabled&#39;</span>
+allow httpd_t unreserved_port_t:tcp_socket name_bind<span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p><strong>Attention cela provoque une faille de sécurité. Nous allons donc passer par <em>semanage</em>.</strong></p>
+</div>
+<p>Pour lister tout les ports avec <em>semanage</em> (<code>semanage port -l | grep http</code> ) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>http_cache_port_t              tcp      <span class="m">8080</span>, <span class="m">8118</span>, <span class="m">8123</span>, <span class="m">10001</span>-10010
+http_cache_port_t              udp      <span class="m">3130</span>
+<span class="hll">http_port_t                    tcp      <span class="m">80</span>, <span class="m">81</span>, <span class="m">443</span>, <span class="m">488</span>, <span class="m">8008</span>, <span class="m">8009</span>, <span class="m">8443</span>, <span class="m">9000</span>
+</span>pegasus_http_port_t            tcp      <span class="m">5988</span>
+pegasus_https_port_t           tcp      <span class="m">5989</span>
+</code></pre></div></td></tr></table></div>
+<p>Ici on peut découvrir tout les ports, on modifie alors le label http pour autoriser le port 8888 :</p>
+<div class="highlight"><pre><span></span><code>semanage port -a -t http_port_t -p tcp <span class="m">8888</span>
+</code></pre></div>
+<p>Si on observe les ports, on le retrouve dans la liste :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code>http_cache_port_t              tcp      <span class="m">8080</span>, <span class="m">8118</span>, <span class="m">8123</span>, <span class="m">10001</span>-10010
+http_cache_port_t              udp      <span class="m">3130</span>
+<span class="hll">http_port_t                    tcp      <span class="m">8888</span>, <span class="m">80</span>, <span class="m">81</span>, <span class="m">443</span>, <span class="m">488</span>, <span class="m">8008</span>, <span class="m">8009</span>, <span class="m">8443</span>, <span class="m">9000</span>
+</span>pegasus_http_port_t            tcp      <span class="m">5988</span>
+pegasus_https_port_t           tcp      <span class="m">5989</span>
+</code></pre></div></td></tr></table></div>
+<p>On redémarre alors le service <strong>httpd</strong> et on obteint aucune erreurs.</p>
+<h3 id="les-booleens-dans-selinux">Les booléens dans SElinux<a class="headerlink" href="#les-booleens-dans-selinux" title="Permanent link">&para;</a></h3>
+<details class="info">
+<summary>Prérequis pour réaliser cette activité</summary>
+<p>Il est nécéssaire d'avoir un serveur web (par exemple httpd autrement dit apache).</p>
+<p>Ici nous utilisons le serveur web précédement installé et sur le port 8888. Normalement, le port par défaut est 80.</p>
+</details>
+<p>Création d'un fichier <code>/var/www/cgi-bin/env.cgi</code> contenant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">echo</span> -e <span class="s2">&quot;Content-Type: text/plain\n\n&quot;</span>
+
+<span class="nb">set</span>
+</code></pre></div></td></tr></table></div>
+<p>On rend ensuite le fichier executable pour tout le monde :</p>
+<div class="highlight"><pre><span></span><code>chmod <span class="m">755</span> /var/www/cgi-bin/env.cgi
+</code></pre></div>
+<p>Puis on test avec un curl :</p>
+<div class="highlight"><pre><span></span><code>curl http://127.0.0.1:8888/cgi-bin/env.cgi
+</code></pre></div>
+<details class="warning" open="open">
+<summary>Attention au firewall</summary>
+<p>Attention le firewall peut bloquer la communication sur le port 8888. Il faut autoriser le trafic sur le port :</p>
+<div class="highlight"><pre><span></span><code>firewall-cmd --add-port<span class="o">=</span><span class="m">8888</span>/tcp
+</code></pre></div>
+</details>
+<p>Petite modification du fichier <code>/var/www/cgi-bin/env.cgi</code> pour executer des requetes dans l'URL:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+
+<span class="nb">echo</span> -e <span class="s2">&quot;Content-Type: text/plain\n\n&quot;</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;La commande est : </span><span class="nv">$QUERY_STRING</span><span class="s2">&quot;</span>
+<span class="nv">CMD</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$QUERY_STRING</span> <span class="p">|</span> sed <span class="s1">&#39;s,%20, ,g&#39;</span><span class="k">)</span>
+<span class="nv">$CMD</span>
+</code></pre></div></td></tr></table></div>
+<p>Si on test le script dans le navigateur avec la commande  <code>curl http://172.19.252.60:8888/cgi-bin/env.cgi?ls</code>:</p>
+<figure>
+<p><img alt="Exemple avec la commande ls" src="../images/commandecgi.png" />
+  </p>
+<figcaption>Exemple avec la commande ls</figcaption>
+</figure>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>Attention, les commandes sont executées avec l'identité du user <code>wwwdata</code>. </p>
+<p><strong>Le utlisateur possède donc tout les droits de créations et autres liés à <code>wwwdata</code>.</strong></p>
+</div>
+<p>Pour la sécurité, on va désactiver toutes les executions des .cgi :</p>
+<div class="highlight"><pre><span></span><code> getsebool -a <span class="p">|</span> grep http
+</code></pre></div>
+<p>On désactive alors l'execution des CGI :</p>
+<div class="highlight"><pre><span></span><code>setsebool -P httpd_enable_cgi off
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Attention au mode de selinux car si il est en <em>permissive</em> cela laissera actif l'execution des CGI.</p>
+</div>
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+    
+    <nav class="md-footer__inner md-grid" aria-label="Pied de page" hidden>
+      
+        
+        <a href="../../Administration%20r%C3%A9seau/SSH/" class="md-footer__link md-footer__link--prev" aria-label="Précédent: Sécurité de SSH" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Précédent
+              </span>
+              Sécurité de SSH
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../permissions/" class="md-footer__link md-footer__link--next" aria-label="Suivant: Les permissions" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Suivant
+              </span>
+              Les permissions
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022-2023 Léo Guilloux
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/l%C3%A9o-guilloux-0486921a6/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/poseidon974" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+    
+  
+
+
+
+
+  
+
+<h4>Cookies</h4>
+<p>Sur ce site de documentation, quelques cookies peuvent être utilisés. Voici la liste ci-dessous</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        <label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accepter</button>
+    
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["header.autohide", "navigation.tabs", "navigation.tabs.sticky", "navigation.footer", "navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top", "content.action.view", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../../../javascripts/tablesort.js"></script>
+      
+    
+    
+  </body>
+</html>
