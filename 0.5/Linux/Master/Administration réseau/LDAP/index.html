@@ -580,6 +580,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_2">
@@ -1016,19 +1018,70 @@
         
           
         
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_3">
+          Conteneur et pipelines CICD
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Conteneur et pipelines CICD" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Conteneur et pipelines CICD
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Conteneur%20et%20pipelines%20CICD/Docker/" class="md-nav__link">
+        Docker
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_4" type="checkbox" id="__nav_2_2_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_4">
           Sécurité
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Sécurité" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_2_3">
+        <label class="md-nav__title" for="__nav_2_2_4">
           <span class="md-nav__icon md-icon"></span>
           Sécurité
         </label>
@@ -1501,6 +1554,12 @@
 <p>LDAP permet aux clients d'accéder à ces annuaires pour effectuer des opérations telles que la recherche, la lecture, la mise à jour et la suppression de données. Les annuaires LDAP sont utilisés dans de nombreuses applications, notamment pour la gestion des utilisateurs et des groupes, l'authentification et l'autorisation, la messagerie électronique, la voix sur IP, et bien d'autres.</p>
 <p>LDAP utilise un modèle client-serveur et repose sur un ensemble de règles et de spécifications définies par l'Internet Engineering Task Force (IETF). Il est considéré comme un protocole efficace et sûr pour la gestion de données d'annuaire à grande échelle.</p>
 <h2 id="decouverte-et-parametrages">Découverte et paramétrages<a class="headerlink" href="#decouverte-et-parametrages" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">Success<p>Changer toutes les commandes qui demande un editeur de texte comme ldapvi, on peut changer l'editeur avec :
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span>nano
+</code></pre></div></p>
+</p>
+</div>
 <p>Recherche dans les schemas :</p>
 <div class="highlight"><pre><span></span><code>grep -rni --color PosixAccount /etc/openldap/schema/
 </code></pre></div>
@@ -1929,6 +1988,57 @@ olcTLSCertificateKeyFile: /etc/openldap/certs/key.pem
 <p>Ajout de la configuration avec <code>ldapmodify</code> :</p>
 <div class="highlight"><pre><span></span><code>ldapmodify -Y EXTERNAL -H ldapi:/// &lt; tls.ldif
 </code></pre></div>
+<p>Modification et ajout du fichier <code>/etc/openldap/ldap.conf</code> :</p>
+<div class="highlight"><pre><span></span><code>TLS_CACERT /etc/openldap/certs/ca.pem
+TLS_REQCERT demand
+</code></pre></div>
+<p>Ajout pour sudo :</p>
+<div class="highlight"><pre><span></span><code>dn: <span class="nv">cn</span><span class="o">=</span>defaults,ou<span class="o">=</span>SUDOers,dc<span class="o">=</span>example,dc<span class="o">=</span>com
+objectClass: top
+objectClass: sudoRole
+cn: defaults
+description: Default sudoOption<span class="err">&#39;</span>s go here
+sudoOption: <span class="nv">env_keep</span><span class="o">+=</span>SSH_AUTH_SOCK
+</code></pre></div>
+<p>Téléchargement de  schema2ldif :</p>
+<ul>
+<li><a href="https://fusiondirectory-user-manual.readthedocs.io/en/1.3/index.html">Documentation</a> de schema2ldif</li>
+<li>Ajout d'un repo avec la création d'un fichier <code>/etc/yum.repos.d/fusion.repo</code> :
+<div class="highlight"><pre><span></span><code><span class="o">[</span>fusiondirectory-schema2ldif-release<span class="o">]</span>
+<span class="nv">name</span><span class="o">=</span>Fusiondirectory Packages <span class="k">for</span> CentOS <span class="m">7</span>
+<span class="nv">baseurl</span><span class="o">=</span>https://public.fusiondirectory.org/centos7-schema2ldif-release/RPMS
+<span class="nv">enabled</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">gpgcheck</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">gpgkey</span><span class="o">=</span>file:///etc/pki/rpm-gpg/RPM-GPG-KEY-FUSIONDIRECTORY
+</code></pre></div></li>
+<li>Télechargement via dnf de schema2ldif</li>
+</ul>
+<p>Modification d'un fichier en ldif :</p>
+<div class="highlight"><pre><span></span><code>schema2ldif /usr/share/doc/sudo/schema.OpenLDAP &gt; sudo-schema.ldif
+</code></pre></div>
+<p>On peut observer le début du fichier avec la commande <code>head sudo-schema.ldif</code> :</p>
+<div class="highlight"><pre><span></span><code>dn: <span class="nv">cn</span><span class="o">=</span>schema,cn<span class="o">=</span>schema,cn<span class="o">=</span>config
+objectClass: olcSchemaConfig
+cn: schema
+<span class="c1">#</span>
+<span class="c1"># OpenLDAP schema file for Sudo</span>
+<span class="c1"># Save as /etc/openldap/schema/sudo.schema and restart slapd.</span>
+<span class="c1"># For a version that uses online configuration, see schema.olcSudo.</span>
+<span class="c1">#</span>
+olcAttributeTypes: <span class="o">(</span> <span class="m">1</span>.3.6.1.4.1.15953.9.1.1
+  NAME <span class="s1">&#39;sudoUser&#39;</span>
+</code></pre></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Dernière mise à jour:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 16, 2023</span>
+      
+    
+  </small>
+</div>
 
 
 
