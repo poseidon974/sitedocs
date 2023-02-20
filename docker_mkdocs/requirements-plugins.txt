@@ -1,2 +1,5 @@
+mkdocs-material==9.0.3
 mkdocs-minify-plugin==0.6.2
 mkdocs-redirects==1.2.0
+mkdocs-git-revision-date-localized-plugin
+mike

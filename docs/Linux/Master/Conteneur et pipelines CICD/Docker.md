@@ -189,3 +189,74 @@ services:
     Pour la déclaration des ports, 2 synthaxes sont possibles avec une *short* et une *long*
 
     Documentation de docker disponible : [Reférence docker](https://docs.docker.com/compose/compose-file/#ports)
+
+
+Pour forcer un rebuild d'un docker compose, la commande à un ajout d'une option pour forcer le build :
+```bash
+docker compose up -d --build
+```
+
+Modification de docker file pour ajouter le contenu d'un dossier :
+```bash hl_lines="3"
+FROM registry.actilis.net/docker-images/httpd:2.4-alpine
+
+COPY site-content/ /var/www/html
+```
+
+Ajout du dossier site-content et d'un fichier d'index.html :
+```bash
+.
+├── build
+│   ├── Dockerfile
+│   └── site-content
+│       └── index.html
+└── compose.yml
+```
+
+## Docker compose et mkdocs
+
+Ajout d'un fichier mkdocs.yml dans le dossier build et ajout de la configuration.
+
+Ajout d'un dockerfile :
+
+```bash
+#### Build en deux étapes
+## Première étape : Compiler la documentation dans un dossier
+FROM registry.actilis.net/docker-images/mkdocs:latest as constructeur
+COPY .git .git
+COPY mkdocs.yml /docs
+COPY src        /docs/src
+#COPY includes   /docs/includes
+RUN mkdocs build
+
+
+## Deuxième étape : Construire l'image basée sur nginx
+FROM registry.actilis.net/docker-images/httpd:2.4-alpine 
+COPY --from=constructeur --chown=www-data /docs/site /var/www/html
+```
+
+Ajout d'un docker compose pour directement lancer l'application :
+
+```yml
+services:
+  dev-serv:
+    image: registry.actilis.net/docker-images/mkdocs:latest
+    command: serve -a 0.0.0.0:80
+    restart: on-failure
+    ports:
+    - 8000:80
+    volumes:
+    - ./:/docs
+```
+
+Création d'un makefile :
+
+```bash
+serve:
+	docker compose -f dev.yml up -d
+build:
+	docker compose build
+
+deploy:
+	docker compose up -d --build 
+```
