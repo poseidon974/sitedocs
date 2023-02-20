@@ -1,3 +1,8 @@
+---
+hide:
+    - footer
+---
+
 # Docker
 
 ## Préparation de l'installation docker
@@ -149,3 +154,38 @@ Verification du lancement du conteneur avec `docker container ls` :
 CONTAINER ID   IMAGE            COMMAND     CREATED         STATUS         PORTS                                   NAMES
 36a318e3ec0e   traefik/whoami   "/whoami"   2 minutes ago   Up 2 minutes   0.0.0.0:8080->80/tcp, :::8080->80/tcp   test-app-1
 ```
+
+### Docker compose et les builds
+
+Création d'un dossier sitedoc , build ainsi que de 2 fichiers supplémentaires:
+```bash
+.
+├── sitedoc
+│   ├── build
+│   │   └── Dockerfile
+│   └── compose.yml
+```
+
+Mise en place du fichier dockerfile :
+```bash
+FROM registry.actilis.net/docker-images/httpd:2.4-alpine
+```
+
+Mise en place du compose.yml
+
+```yaml
+services:
+  app:
+    #image: 
+    build:
+      context: build
+      dockerfile: Dockerfile
+    ports:
+    - published: 8080
+      target: 80
+```
+
+!!!tip
+    Pour la déclaration des ports, 2 synthaxes sont possibles avec une *short* et une *long*
+
+    Documentation de docker disponible : [Reférence docker](https://docs.docker.com/compose/compose-file/#ports)
