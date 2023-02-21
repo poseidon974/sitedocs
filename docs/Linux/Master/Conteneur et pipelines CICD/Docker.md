@@ -260,3 +260,54 @@ build:
 deploy:
 	docker compose up -d --build 
 ```
+
+#### Configuration de Github pour l'envoie d'images
+
+!!!info
+  On cherche à uploder une image docker faite maison sur github.
+
+On génère une clé d'accès avec Github dans :
+
+- Settings du compte 
+- Developer settings
+- Personal acess tokens
+- Generate new token
+
+!!!warning
+  A la création du token, github affiche **1 seule et unique fois le token**. Il faut absolument garder ce token hors d'un environement sous git !!
+
+Connexion à git :
+```bash
+docker login ghcr.io -u poseidon974 --password-stdin < /home/user/token.txt
+```
+
+Modification du docker compose :
+
+```bash linenums="1" hl_lines="3"
+services:
+  app:
+    image: ghcr.io/poseidon974/cours:${VERSION:-latest}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+    - published: 8080
+      target: 80
+```
+
+Modification du makefile :
+```make
+build:
+	docker compose build 
+	docker compose push
+```
+
+Pour push et build on utilise la commande : 
+```bash
+make build
+```
+
+On push build et push directement sur github.
+
+On peux retrouver les package : https://github.com/USERNAME?tab=packages
+
