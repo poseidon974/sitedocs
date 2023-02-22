@@ -132,12 +132,120 @@ vul-scan:  # renommé "vul-scan" au lieu de "scan de vulnérabilité"
 
 ## Github
 
+!!!info
+  Ici on réalise une comparaison des fichier entre github et gitlab
+
 ### Création du runner
 
-- Duplicatat d'un repo git
-- modification d'un make file
-- make build 
-- make compose
+Pour réaliser un runner, on utilise une image disponible sur le web. On clone donc un repository github :
+
+```bash
+git clone https://github.com/tcardonne/docker-github-runner
+```
+Dans le dossier à la racine `./docker-github-runner/`, on va créer un fichier `.env` :
+
+```bash
+RUNNER_REPOSITORY_URL=https://github.com/poseidon974/cours
+GITHUB_ACCESS_TOKEN= votre_token
+```
+
+!!!info "Comment générer votre token"
+    Pour générer votre token, veuillez vous rendre sur github :
+
+    - Settings
+
+    - Developper settings
+
+    - Personnal access tokens
+
+    - Generate new token
+
+    - **Copier et garder bien le token car il sera affiché uniquement 1 fois.**
+
+Modification du make file pour ajouter une commande nommée compose :
+```bash
+compose:
+	docker compose up -d --scale runner=4
+	sleep 1
+	docker compose ps 
+
+```
+Pour lancer le runner, vous devez build l'image docker qui servira de runner. 
+
+```bash
+make build
+```
+!!!warning "Attention"
+    Avant de lancer le build, je vous conseille de mettre le plus de reesources sur votre machine virtuelle car cela peut prendre **beacuoup du temps**.
+
+Pour lancer l'image que vous venez de build, utiliser la commande :
+
+```bash 
+make compose
+```
 
 ### Ecriture du pipeline 
 
+!!!warning 
+    L'ecriture de la documentation du pipeline n'est terminée
+
+```yml
+
+name: Deployment sitedocs
+permissions: write-all
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # check:
+  #   runs-on: self-hosted
+  #   steps:
+  #   - name: Affichage Envvars
+  #     uses: actions/checkout@v3
+  #   - run: |
+  #       set
+  #   - run: 
+  #       echo "tag name ${{ github.ref_name }}"
+    # - name:  Set variables
+    #   run: |
+    #       if [ ${{ github.ref_name }} = 'main' ] ; then   $VARIABLE_TAG='devel' ; else  $VARIABLE_TAG=${{github.ref_name}} ; fi
+
+  logingit:
+    runs-on: self-hosted
+    steps:
+      - name: Login to Github Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+  buildimage:
+    runs-on: self-hosted
+    needs: [logingit]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build image
+        run: docker build -t ${{ github.repository }}:build-temp .
+     
+  
+  pushimage:
+    runs-on: self-hosted
+    needs: [buildimage]
+    steps:
+      # - name:  Set variables
+      #   run: |
+      #     if [ ${{ github.ref_name }} = 'main' ] ; then   VARIABLE_TAG='devel' ; else  VARIABLE_TAG=${{github.ref_name}} ; fi
+      - name: Push image
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker tag ${{ github.repository }}:build-temp ghcr.io/${{ github.repository }}:0.4
+          docker push ghcr.io/${{ github.repository }}:0.4
+          docker logout
+      - name: Clean up
+        run: docker image rm ${{ github.repository }}:build-temp ${{ github.repository }}:0.4
+
+```
