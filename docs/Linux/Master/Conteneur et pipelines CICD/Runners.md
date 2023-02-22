@@ -18,7 +18,7 @@ On clone le repo afin de pouvoir utiliser le runner en local.
 
 Après le clone, on modifie le fichier `formation.env` pour modifier le token, le serveur et le nom du projet :
 
-```bash
+```bash linenums="1"
 COMPOSE_PROJECT_NAME=runner-cours-cs2i
 GITLAB_SERVER_URL=https://gitlab.com/
 RUNNER_TOKEN=GR1348941tjJ6Vjq-xhxNzbPBqKx2
@@ -34,7 +34,7 @@ docker compose --env-file formation.env up -d
 
 Ecriture du fichier CI de début nommé `.gitlab-ci.yml` :
 
-```yml
+```yml linenums="1"
 image: docker:stable
 variables:
   IMAGE_NAME: ${CI_REGISTRY}/${CI_PROJECT_PATH}
@@ -80,7 +80,7 @@ Construction:
 
 Modification du script afin d'optimiser le runner local :
 
-```yml
+```yml linenums="1"
 image: docker:stable
 variables:
   IMAGE_NAME: ${CI_REGISTRY}/${CI_PROJECT_PATH}
@@ -113,7 +113,7 @@ publication de l'image:
 
 Ajout d'un module de sécuité :
 
-```yml
+```yml linenums="1"
 vul-scan:  # renommé "vul-scan" au lieu de "scan de vulnérabilité"
   stage: vul-scan
   script:
@@ -189,7 +189,79 @@ make compose
 !!!warning 
     L'ecriture de la documentation du pipeline n'est terminée
 
-```yml
+
+En première étape, nous allons pouvoir observer avec l'écriture d'un premier pipeline toutes les variables disponibles :
+
+```yml linenums="1"
+name: Permier-deploiement
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+   check:
+     runs-on: self-hosted
+     steps:
+     - name: Affichage Envvars
+       uses: actions/checkout@v3
+     - run: |
+         set
+```
+
+!!!info
+    Les options présentes ci-dessus permettent :
+    
+      - `runs-on` : permet d'utiliser le runner hébergé localement
+      - `run : set` : permet d'afffihcer les variables d'environement
+
+
+On va ensuite tester la connexion à `ghcr.io` avec le pipeline :
+```yml linenums="1"
+name: Test_login
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  logingit:
+    runs-on: self-hosted
+    steps:
+      - name: Login to Github Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+```
+!!!info
+    On utlise ici des variables d'environement mises à disposition par Github :
+      - `${{ github.actor }}`: permet d'afficher le nom d'utilisateur du propriètaire
+      - `${{ secrets.GITHUB_TOKEN }}`: permet d'utiliser le token de github pour se connecter
+
+```yml linenums="1"
+name: Test_build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  buildimage:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build image
+        run: docker build -t ${{ github.repository }}:build-temp .
+```
+
+!!!info
+    On utlise ici des variables d'environement mises à disposition par Github :
+      - `${{ github.repository }}`: permet d'afficher le nom de repository
+
+```yml linenums="1"
 
 name: Deployment sitedocs
 permissions: write-all
@@ -199,18 +271,18 @@ on:
       - main
 
 jobs:
-  # check:
-  #   runs-on: self-hosted
-  #   steps:
-  #   - name: Affichage Envvars
-  #     uses: actions/checkout@v3
-  #   - run: |
-  #       set
-  #   - run: 
-  #       echo "tag name ${{ github.ref_name }}"
-    # - name:  Set variables
-    #   run: |
-    #       if [ ${{ github.ref_name }} = 'main' ] ; then   $VARIABLE_TAG='devel' ; else  $VARIABLE_TAG=${{github.ref_name}} ; fi
+   check:
+     runs-on: self-hosted
+     steps:
+     - name: Affichage Envvars
+       uses: actions/checkout@v3
+     - run: |
+         set
+     - run: 
+         echo "tag name ${{ github.ref_name }}"
+     - name:  Set variables
+       run: |
+           if [ ${{ github.ref_name }} = 'main' ] ; then   $VARIABLE_TAG='devel' ; else  $VARIABLE_TAG=${{github.ref_name}} ; fi
 
   logingit:
     runs-on: self-hosted

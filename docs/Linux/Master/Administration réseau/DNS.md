@@ -12,6 +12,14 @@ hide:
 
 Pour la résolution de noms DNS, la commande `getent` est présente sur les systèmes linux. 
 
+
+!!!info "SPF"
+        Le protocole Simple Mail Transfer Protocol (SMTP) utilisé pour le transfert du courrier électronique sur Internet ne prévoit pas de mécanisme de vérification de l'expéditeur, c'est-à-dire qu'il est facile d'envoyer un courrier avec une adresse d'expéditeur factice, voire usurpée. SPF vise à réduire les possibilités d'usurpation en publiant, dans le DNS, un enregistrement (de type TXT)3 indiquant quelles adresses IP sont autorisées ou interdites à envoyer du courrier pour le domaine considéré.
+
+
+!!!info "DKIM"
+        DKIM (DomainKeys Identified Mail) est une norme d'authentification fiable du nom de domaine de l'expéditeur d'un courrier électronique. Elle constitue une protection efficace contre le spam et l'hameçonnage. En effet, DKIM fonctionne par signature cryptographique du corps du message ou d'une partie de celui-ci et d'une partie de ses en-têtes. Une signature DKIM vérifie donc l'authenticité du domaine expéditeur et garantit l'intégrité du message. DKIM intervient au niveau de la couche application du modèle OSI, ainsi il constitue une double protection pour des protocoles de messagerie électronique tels que SMTP, IMAP et POP en plus de l'utilisation de ces protocoles en mode sécurisé (POPS, IMAPS).
+
 ## Bind
 
 Installation de bind :
