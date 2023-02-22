@@ -294,6 +294,21 @@ jobs:
           docker logout
 ```
 
+!!!bug "Erreurs d'écritures"
+    On retrouve plusieurs erreurs de permissions d'écritures. 
+    
+    Pour résoudre les erreurs, il faut dans un premier temps modifier le fichier YML en ajoutant les permissions dessus :
+    ```yaml
+    permissions: write-all
+    ```
+    On modifie sur le package les droits d'écriture d'un repository. 
+     - Rendez vous sur la page du package 
+     - Allez dans les *Pakages settings* en bas à droite
+     - Ajoutez un repository (ici le repo dont le quel vous executez le pipeline)
+     - Mettez lui au minimun le role *Write*
+
+Voici le fichier complet :
+
 
 ```yaml linenums="1"
 
@@ -350,3 +365,6 @@ jobs:
           docker logout
 
 ```
+
+!!!info "Tag image"
+    Ici dans le code, on utilise le tag 0.4. Vous pouvez modifier ce tag manuellement
