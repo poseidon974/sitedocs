@@ -2,7 +2,7 @@
 hide: -footer
 ---
 
-# Deploiement de runners
+# Deploiement de runners et execution de pipelines
 
 ## Gitlab
 
@@ -34,7 +34,7 @@ docker compose --env-file formation.env up -d
 
 Ecriture du fichier CI de début nommé `.gitlab-ci.yml` :
 
-```yml linenums="1"
+```yaml linenums="1"
 image: docker:stable
 variables:
   IMAGE_NAME: ${CI_REGISTRY}/${CI_PROJECT_PATH}
@@ -80,7 +80,7 @@ Construction:
 
 Modification du script afin d'optimiser le runner local :
 
-```yml linenums="1"
+```yaml linenums="1"
 image: docker:stable
 variables:
   IMAGE_NAME: ${CI_REGISTRY}/${CI_PROJECT_PATH}
@@ -113,7 +113,7 @@ publication de l'image:
 
 Ajout d'un module de sécuité :
 
-```yml linenums="1"
+```yaml linenums="1"
 vul-scan:  # renommé "vul-scan" au lieu de "scan de vulnérabilité"
   stage: vul-scan
   script:
@@ -133,7 +133,7 @@ vul-scan:  # renommé "vul-scan" au lieu de "scan de vulnérabilité"
 ## Github
 
 !!!info
-  Ici on réalise une comparaison des fichier entre github et gitlab
+    Ici on réalise une comparaison des fichier entre github et gitlab
 
 ### Création du runner
 
@@ -192,7 +192,7 @@ make compose
 
 En première étape, nous allons pouvoir observer avec l'écriture d'un premier pipeline toutes les variables disponibles :
 
-```yml linenums="1"
+```yaml linenums="1"
 name: Permier-deploiement
 on:
   push:
@@ -217,7 +217,8 @@ jobs:
 
 
 On va ensuite tester la connexion à `ghcr.io` avec le pipeline :
-```yml linenums="1"
+
+```yaml linenums="1"
 name: Test_login
 on:
   push:
@@ -240,7 +241,7 @@ jobs:
       - `${{ github.actor }}`: permet d'afficher le nom d'utilisateur du propriètaire
       - `${{ secrets.GITHUB_TOKEN }}`: permet d'utiliser le token de github pour se connecter
 
-```yml linenums="1"
+```yaml linenums="1"
 name: Test_build
 on:
   push:
@@ -265,7 +266,7 @@ jobs:
 Création du block pour push l'image sur ghcr.io :
 
 
-```yml
+```yaml
 name: Deployment sitedocs
 on:
   push:
@@ -294,7 +295,7 @@ jobs:
 ```
 
 
-```yml linenums="1"
+```yaml linenums="1"
 
 name: Deployment sitedocs
 permissions: write-all
