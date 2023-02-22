@@ -261,6 +261,39 @@ jobs:
     On utlise ici des variables d'environement mises à disposition par Github :
       - `${{ github.repository }}`: permet d'afficher le nom de repository
 
+
+Création du block pour push l'image sur ghcr.io :
+
+
+```yml
+name: Deployment sitedocs
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  buildimage:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build image
+        run: docker build -t ${{ github.repository }}:build-temp .
+
+  pushimage:
+    runs-on: self-hosted
+    needs: [buildimage]
+    steps:
+      - name: Push image
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker tag ${{ github.repository }}:build-temp ghcr.io/${{ github.repository }}:0.4
+          docker push ghcr.io/${{ github.repository }}:0.4
+          docker logout
+```
+
+
 ```yml linenums="1"
 
 name: Deployment sitedocs
@@ -308,16 +341,11 @@ jobs:
     runs-on: self-hosted
     needs: [buildimage]
     steps:
-      # - name:  Set variables
-      #   run: |
-      #     if [ ${{ github.ref_name }} = 'main' ] ; then   VARIABLE_TAG='devel' ; else  VARIABLE_TAG=${{github.ref_name}} ; fi
       - name: Push image
         run: |
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
           docker tag ${{ github.repository }}:build-temp ghcr.io/${{ github.repository }}:0.4
           docker push ghcr.io/${{ github.repository }}:0.4
           docker logout
-      - name: Clean up
-        run: docker image rm ${{ github.repository }}:build-temp ${{ github.repository }}:0.4
 
 ```
