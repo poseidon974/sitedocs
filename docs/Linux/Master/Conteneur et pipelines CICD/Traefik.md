@@ -4,7 +4,7 @@ hide: -footer
 
 # Traefik 
 
-## Deployement d'un traefik sous docker 
+## Deploiement d'un traefik sous docker 
 
 ### Deploiement simple
 
@@ -230,3 +230,15 @@ services:
     Les doubles cotes ne sont pas obligatoire dans la déclaration d'un label.
 
 On oublie pas de relancer les conteneurs pour prendre en compte la modification.
+
+## Deploiement sous gitlab 
+
+Création d'une nouvelle arborescence sous git :
+
+```bash
+whoami/
+├── compose.yaml
+├── .git
+└── .gitlab-ci.yml
+```
+
