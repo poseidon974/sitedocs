@@ -1,0 +1,6 @@
+---
+hide:
+    - footer
+---
+
+# Index Linux
