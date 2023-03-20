@@ -218,6 +218,24 @@ docker stack deploy -c compose.yml leo
 
 Pour observer, les services on peux utliser 2 commandes :
 
-- docker stack services *nomduservice*
-- docker service ls
+- `docker stack services [NOM_DU_SERVICE]`
+- `docker service ls`
 
+!!!info "Emplacement des fichiers de swarm"
+    On retrouve tout les fichiers de swarm dans le dossier suivant `/var/lib/docker/swarm/` :
+
+    ```bash
+    ls -trl /var/lib/docker/swarm/
+    ```
+    Sortie de la commande avec tout les fichiers :
+
+    ```bash 
+    total 20
+    -rw-------. 1 root root  213 20 mars  13:54 docker-state.json
+    drwxr-xr-x. 2 root root 4096 20 mars  13:54 worker
+    drwxr-xr-x. 2 root root 4096 20 mars  13:54 certificates
+    drwx------. 4 root root 4096 20 mars  13:54 raft
+    -rw-------. 1 root root   69 20 mars  13:54 state.json
+    ```
+
+## Déploiement d'un traefik avec docker swarm
