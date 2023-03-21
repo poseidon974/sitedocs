@@ -126,6 +126,13 @@ mars 21 12:02:32 LG-stream9-1.local systemd[1]: httpd.service: Main process exit
 mars 21 12:02:32 LG-stream9-1.local systemd[1]: httpd.service: Failed with result 'exit-code'.
 mars 21 12:02:32 LG-stream9-1.local systemd[1]: Failed to start The Apache HTTP Server.
 ```
+!!!abstract "Pour plus d'info sur apache"
+
+    La documentation globale est disponible sur [https://httpd.apache.org/docs/2.4/](https://httpd.apache.org/docs/2.4/)
+    
+    La documentation des modules est disponible sur [https://httpd.apache.org/docs/2.4/mod/](https://httpd.apache.org/docs/2.4/mod/)
+
+    La documentation des directives est disponible sur [https://httpd.apache.org/docs/2.4/mod/quickreference.html](https://httpd.apache.org/docs/2.4/mod/quickreference.html)
 
 On cherche les différents modules à activer : 
 
@@ -151,7 +158,7 @@ Pour que apache puisse voir les fichiers déposés dans le dossier `\var\wwww\ht
 
 Le fichier qui est affiché si aucun fichier n'est présent dans le dossier précedent, il y a un fichier qui se trouve dans `/etc/httpd/conf.d/welcome.conf` :
 
-```conf linenums="1"
+```html linenums="1"
 # 
 # This configuration file enables the default "Welcome" page if there
 # is no default index page present for the root URL.  To disable the
@@ -174,3 +181,27 @@ Alias /poweredby.png /usr/share/httpd/icons/apache_pb3.png
 Alias /system_noindex_logo.png /usr/share/httpd/icons/system_noindex_logo.png
 ```
 
+## Test de charge de apache
+
+On cherche à activer le module `mod_status`. 
+
+!!!info "Information de la documentation officielle "
+
+    Les détails fournis pour le modile `mod_status` sont :
+
+    - Le nombre de processus servant les requêtes
+    - Le nombre de processus inactifs
+    - L'état de chaque processus, le nombre de requêtes qu'il a traitées et le nombre total d'octets qu'il a servis (*)
+    - Le nombre total d'accès effectués et d'octets servis (*)
+    - Le moment où le serveur a été démarré/redémarré et le temps écoulé depuis
+    - Les valeurs moyennes du nombre de requêtes par seconde, du nombre d'octets servis par seconde et du nombre d'octets par requête (*)
+    - Le pourcentage CPU instantané utilisé par chaque processus et par l'ensemble des processus (*)
+    - Les hôtes et requêtes actuellement en cours de traitement (*)
+
+On ajoute un fichier de configuration dans le dossier `/etc/httpd/config.d` qui se nomme `status.conf` :
+
+```html
+<location "/etat-serveur">
+    SetHandler server-status
+</location>
+```
