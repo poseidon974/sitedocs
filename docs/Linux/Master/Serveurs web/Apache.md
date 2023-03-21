@@ -201,7 +201,9 @@ On cherche à activer le module `mod_status`.
 On ajoute un fichier de configuration dans le dossier `/etc/httpd/config.d` qui se nomme `status.conf` :
 
 ```html
-<location "/etat-serveur">
-    SetHandler server-status
-</location>
+<IfModule status_module>
+        <location "/etat-serveur">
+                SetHandler server-status
+        </location>
+</ifmodule>
 ```
