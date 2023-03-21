@@ -287,3 +287,62 @@ services:
       - traefik.http.routers.whoami.rule=Path(`/whoami`)
       - traefik.http.services.whoami.loadbalancer.server.port=80
 ```
+
+## Mise en place d'un cleaner via gitlab
+
+```bash linenums="1"
+#!/bin/bash
+
+PROJECT_PATH=cs2ip16/valentin/srvdoc
+TOKEN=$(cat token_gitlab.txt)
+
+
+curl -s --header "PRIVATE-TOKEN: ${TOKEN}" "https://gitlab.com/api/v4/projects/${PROJECT_PATH//\//%2F}/registry/repositories" > /tmp/repo.$$.json
+
+REPO_ID=$(jq '.[].id' < /tmp/repo.$$.json)
+PROJECT_ID=$(jq '.[].project_id' < /tmp/repo.$$.json)
+
+#GET /projects/:id/registry/repositories/:repository_id/tags
+
+curl -s --header "PRIVATE-TOKEN: ${TOKEN}" "https://gitlab.com/api/v4/projects/${PROJECT_ID}/registry/repositories/${REPO_ID}/tags" > /tmp/tags.$$.json
+
+jq < /tmp/tags.$$.json
+
+#rm -f /tmp/repo.$$.json
+
+```
+
+
+## Mise en place des éléments de configurations et de secrets
+
+!!!info
+
+    Pour plus d'information concernant les syntaxes courtes et longues, le document de référence est :[ https://docs.docker.com/compose/compose-file/#configs](https://docs.docker.com/compose/compose-file/#configs)
+
+```yaml linenums="1"
+version: "3.9"
+
+configs:
+  maconfig: 
+    file:  ./fichier-de-config.txt
+
+secrets:
+  token1:
+    file: ./montoken.txt
+
+services:
+
+  test:
+    image: alpine:3.17
+    configs:
+      - source: maconfig
+        target: /etc/config-test
+        uid: "100"
+        gid: "100"
+        mode: 0440
+    command: | 
+      sh -c "
+      ls -l /etc/config-test
+      echo la config est :
+      cat /etc/config-test"
+```

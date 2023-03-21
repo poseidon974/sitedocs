@@ -1,35 +1,33 @@
-# FROM python:3.12.0a4-alpine3.17
+FROM python:3.12.0a6-alpine3.17
 
-# # Build-time flags
-# ARG WITH_PLUGINS=true
+# Build-time flags
+ARG WITH_PLUGINS=true
 
-# # Copy files necessary installation
-# COPY requirements.txt requirements.txt
-# COPY requirements-plugins.txt requirements-plugins.txt
+# Copy files necessary installation
+COPY requirements.txt requirements.txt
+COPY requirements-plugins.txt requirements-plugins.txt
 
-# # Needed for native module builds
-# RUN apk add build-base
+# Needed for native module builds
+RUN apk add build-base
 
-# # Perform mkdocs-material installation
-# RUN pip install --no-cache-dir -r requirements.txt \
-#   && \
-#     if [ "${WITH_PLUGINS}" = "true" ]; then \
-#       pip install --no-cache-dir -r requirements-plugins.txt; \
-#     fi
-# # RUN pip install mkdocs-material
-# # RUN pip install mkdocs-git-revision-date-localized-plugin
+# Perform mkdocs-material installation
+RUN pip install --no-cache-dir -r requirements.txt \
+  && \
+    if [ "${WITH_PLUGINS}" = "true" ]; then \
+      pip install --no-cache-dir -r requirements-plugins.txt; \
+    fi
+# RUN pip install mkdocs-material
+# RUN pip install mkdocs-git-revision-date-localized-plugin
 
-# # Set working directory
-# WORKDIR /docs
+# Set working directory
+WORKDIR /docs
 
-# # Expose MkDocs development server port
-# EXPOSE 8000
+# Expose MkDocs development server port
+EXPOSE 8000
 
-# # Start development server by default
-# ENTRYPOINT ["mkdocs"]
-# CMD ["serve", "--dev-addr=0.0.0.0:8000"]
-
-FROM squidfunk/mkdocs-material
+# Start development server by default
+ENTRYPOINT ["mkdocs"]
+CMD ["serve", "--dev-addr=0.0.0.0:8000"]
 
 # Packages qui seront conservés
 RUN set -eux \
