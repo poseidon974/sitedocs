@@ -1,0 +1,2 @@
+
+docker container run -it -d --restart on-failure -p 81:8000 -v ./:/docs test_image

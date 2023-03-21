@@ -239,3 +239,51 @@ Pour observer, les services on peux utliser 2 commandes :
     ```
 
 ## Déploiement d'un traefik avec docker swarm
+
+Modification du compose.yml :
+
+```yaml linenums="1" hl_lines="9 25 33 39"
+version: '3.9'
+networks:
+  traefik-net:
+    name: traefik-net
+services:
+  proxy:
+    image: traefik:latest
+    command: |-
+     --providers.docker.swarmMode=true
+     --providers.docker.exposedByDefault=false
+     --log.level=debug
+     --entryPoints.http.address=:80
+     --api.insecure=true
+     --api.dashboard=true
+
+    networks:
+      - traefik-net
+    ports:
+    - published: 80
+      target: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: /var/run/docker.sock
+      target: /var/run/docker.sock
+    deploy:
+      labels:
+        - traefik.enable=true
+        - "traefik.http.routers.dashboard.rule=PathPrefix(`/traefik`) || PathPrefix(`/api`)"
+        - "traefik.http.routers.dashboard.service=api@internal"
+        - "traefik.http.middlewares.dashboard-stripprefix.stripprefix.prefixes=/traefik"
+        - "traefik.http.routers.dashboard.middlewares=auth-dashboard,dashboard-stripprefix"
+        - "traefik.http.middlewares.auth-dashboard.basicauth.users=dashuser:$$apr1$$nWuK9JVS$$Cm580WakVYahBvJyVuYNI1"
+        - "traefik.http.services.dashboard.loadbalancer.server.port=8080"       
+
+  whoami:
+    image: traefik/whoami
+    networks:
+    - traefik-net
+    deploy:
+      labels:
+      - traefik.http.routers.whoami.rule=Path(`/whoami`)
+      - traefik.http.services.whoami.loadbalancer.server.port=80
+```
