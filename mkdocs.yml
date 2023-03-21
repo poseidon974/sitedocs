@@ -2,6 +2,9 @@ site_name: Documentation - CS2I
 #thème du site
 theme: 
   name: material
+  font:
+    text: Arimo
+    code: Inconsolata
   palette:
 
     # Palette toggle for light mode

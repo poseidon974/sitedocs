@@ -2,6 +2,10 @@
 hide:
   - footer
 ---
+
+!!!failure "Indisponibilité des liens"
+    **ATTENTION LES LIENS SONT ACTUELLEMENT NON FONCTIONNELS**
+
 | Nom |Fichier | Date de création | 
 | --- | --- | --- |
 | Syntaxe fichier deployment et services.md | [Syntaxe fichier deployment et services.md](/home/leo/Documents/Sitedoc/docs/Vitrualisation & cloud/Commandes/Syntaxe fichier deployment et services.md) | 2023-01-11 |
