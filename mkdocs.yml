@@ -105,6 +105,7 @@ extra_javascript:
   - javascripts/tablesort.js
 
 plugins:
+  - glightbox
   - search: 
       lang: fr
   - mike:
@@ -117,6 +118,7 @@ plugins:
       css_dir: css
       javascript_dir: js
   - git-revision-date-localized:
+      enable_creation_date: true
       type: date
       fallback_to_build_date: true
 
@@ -129,7 +131,7 @@ extra:
 #Avertissements cookies
   consent:
     title: Cookies
-    description : Sur ce site de documentation, quelques cookies peuvent être utilisés. Voici la liste ci-dessous 
+    description : Sur ce site de documentation, quelques cookies peuvent être utilisés. Voici l liste ci-dessous 
     actions :
       - accept
 

@@ -38,7 +38,7 @@ sudo systemctl restart sshd
 ## Fail2ban
 
 ???+ Info
-    Pour chercher des packages qui ne sont pas présent sur les depôts par défaut : [pkgs.org](pkgs.org)
+    Pour chercher des packages qui ne sont pas présent sur les depôts par défaut : [https://pkgs.org](https://www.pkgs.org)
 
 Installation d'un dépot supplémentaire :
 

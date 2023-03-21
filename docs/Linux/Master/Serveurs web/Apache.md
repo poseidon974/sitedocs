@@ -207,3 +207,85 @@ On ajoute un fichier de configuration dans le dossier `/etc/httpd/config.d` qui 
         </location>
 </ifmodule>
 ```
+
+## Authentification avec apache
+
+### Authentification par IP
+
+!!!abstract "Tache: Accèder à l'url /etat-serveur uniquement avec l'ip 127.0.0.1"
+    - [x] Activer le plugin pour faire de l'accès par IP
+    - [x] Modifier le fichier de configuration pour accorder l'accès à une seule IP : 127.0.0.1
+
+Ajout d'un nouveau plugin : 
+
+- mod_authz_host
+
+Modification du fichier `status.conf` :
+
+```html hl_lines="4-6" linenums="1"
+<IfModule status_module>
+        <location "/etat-serveur">
+                SetHandler server-status
+        <RequireAny>
+                Require ip 127.0.0.1
+        </Requireany>
+        </location>
+</ifmodule>
+```
+
+### Authentification par Token
+
+!!!abstract "Tache: Accèder à l'url /etat-serveur uniquement avec un token"
+    - [x] Activer le plugin pour l'authentification avec token
+    - [x] Modifier le fichier de configuration pour accorder les utilisateurs qui ont LeBonToken
+
+Ajout d'un nouveau plugin : 
+
+- mod_setenvif
+
+Modification du fichier `status.conf` :
+
+```html hl_lines="1-3" linenums="1"
+<IfModule setenvif_module>
+        SetEnvIf MonToken LeBonToken on_a_le_bon_token
+</IfModule>
+<IfModule status_module>
+        <location "/etat-serveur">
+                SetHandler server-status
+        <RequireAny>
+                Require ip 127.0.0.1
+                Require env on_a_le_bon_token
+        </RequireAny>
+        </location>
+</ifmodule>
+```
+
+On test avec curl si l'authentification fonctionne bien : 
+
+```bash
+curl -v -s -w '%{stderr}%{http_code}\n' -H "MonToken: LeBonToken" http://10.56.126.223/etat-serveur
+```
+
+
+### Configuration avec des fichiers de configuration
+
+```html linenums="1"
+<IfModule setenvif_module>
+        SetEnvIf MonToken LeBonToken on_a_le_bon_token
+</IfModule>
+<IfModule status_module>
+        <location "/etat-serveur">
+                AuthType BAsic
+                AuthNAme ServerStatus
+                AuthBasicProvider file
+                AuthUserFile /etc/httpd/auth.site1
+        <RequireAny>
+                Require ip 127.0.0.1
+                Require env on_a_le_bon_token
+                Require valid-user
+        </RequireAny>
+                SethHandler server-status
+        </location>
+</ifmodule>
+```
+
