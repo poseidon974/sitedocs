@@ -54,6 +54,9 @@ theme:
       provider: mike
       default: latest
 
+  custom_dir: overrides
+
+
 markdown_extensions:
 
 #images
