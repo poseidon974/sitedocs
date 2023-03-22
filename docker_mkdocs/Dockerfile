@@ -11,19 +11,19 @@ COPY requirements-plugins.txt requirements-plugins.txt
 RUN apk add build-base
 
 # Perform mkdocs-material installation
-RUN pip3 install --no-cache-dir -r requirements.txt \
+RUN pip install --no-cache-dir -r requirements.txt \
   && \
     if [ "${WITH_PLUGINS}" = "true" ]; then \
-      pip3 install --no-cache-dir -r requirements-plugins.txt; \
+      pip install --no-cache-dir -r requirements-plugins.txt; \
     fi
 
 # Packages qui seront conservés
 RUN set -eux \
  && apk add --no-cache \
       # For update dates
-      git 
+      git \
       # For PDF-EXPORT-PLUGIN
-      # libffi cairo pango gdk-pixbuf libstdc++ openjpeg
+      libffi cairo pango gdk-pixbuf libstdc++ openjpeg
 
 # Liste des dépendances / packages
 COPY requirements-plugins.txt .
@@ -46,10 +46,11 @@ RUN git config --global --add safe.directory /docs
 
 
 # Import Fonts (for PDF generator)
+
 # COPY fonts/static /usr/share/fonts/Additional
-# RUN apk --update --upgrade --no-cache add fontconfig ttf-dejavu \ 
-#  && fc-cache -f \ 
-#  && fc-list | sort 
+RUN apk --update --upgrade --no-cache add fontconfig ttf-dejavu \ 
+ && fc-cache -f \ 
+ && fc-list | sort 
 
 
 # Set working directory
@@ -60,11 +61,11 @@ EXPOSE 8000
 
 # Configuration pour versionning
 
-ENTRYPOINT ["mike"]
-CMD ["serve", "--dev-addr=0.0.0.0:8000", "--ignore"]
+# ENTRYPOINT ["mike"]
+# CMD ["serve", "--dev-addr=0.0.0.0:8000", "--ignore"]
 
 # Configuration globale en mode developpement
 
-# ENTRYPOINT [ "mkdocs" ]
-# CMD [ "serve", "--dev-addr=0.0.0.0:8000"]
+ENTRYPOINT [ "mkdocs" ]
+CMD [ "serve", "--dev-addr=0.0.0.0:8000"]
 

@@ -46,6 +46,13 @@ Lister les pods de manière plus complète
 kubectl get pods  -o wide
 ```
 
+Lister tout les pods 
+
+```bash
+kubectl get pods -A
+```
+
+
 Création d'un service
 
 ```bash
@@ -87,3 +94,4 @@ Passer en mode exectution dans le pod
 ```bash
 kubectl exec -it nginx-deployment -- sh
 ```
+
