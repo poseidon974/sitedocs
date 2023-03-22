@@ -3,4 +3,3 @@ hide:
     - footer
 ---
 
-# Index Linux
