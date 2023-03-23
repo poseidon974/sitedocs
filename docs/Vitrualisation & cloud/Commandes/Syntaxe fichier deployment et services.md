@@ -135,7 +135,13 @@ spec:
       targetPort: 1234
   type: LoadBalancer
 
+```
 
+## Ajout d'un namespace 
 
-
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: leo
 ```
