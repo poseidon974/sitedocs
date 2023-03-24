@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Add custom path
         run: |-
-        export PATH=$PATH:/docker_mkdocs/
+          export PATH=$PATH:/docker_mkdocs/
       - name: Build container
         run: docker build Dockerfile-mike
 
