@@ -22,12 +22,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Add custom path
-        run: export PATH=$PATH:/docker_mkdocs/
       - name: Print current directory contents
         run: ls -la
       - name: Build image
-        run: docker build -f Dockerfile_mike -t mkdocs_mike:latest .
+        run: docker build -f docker_mkdocs/Dockerfile_mike -t mkdocs_mike:latest .
 
 
 
