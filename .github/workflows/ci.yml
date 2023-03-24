@@ -23,7 +23,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Print current directory contents
-        run: ls -la /docker_mkdocs/
+        run: ls -la ./docker_mkdocs/
       - name: Build image
         run: docker build -f ./docker_mkdocs/Dockerfile_mike -t mkdocs_mike:latest .
 
