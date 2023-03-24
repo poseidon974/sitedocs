@@ -1,13 +1,12 @@
 site_name: Documentation - CS2I
 #thème du site
-theme: 
+theme:
   name: material
   custom_dir: ./overrides
   font:
     text: Arimo
     code: Inconsolata
   palette:
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -30,9 +29,9 @@ theme:
         name: Laisser le système décider
 
   language: fr
-  features :
+  features:
     - header.autohide
-       #navigation
+    #navigation
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.footer
@@ -50,67 +49,66 @@ theme:
     repo: fontawesome/brands/git-alt
 
   extra:
-#versionning
+    #versionning
     version:
       provider: mike
       default: latest
 
-  
-
-
 markdown_extensions:
-
-#images
+  #images
   - attr_list
   - md_in_html
-#listes
+  #listes
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
-#Admonitions
+  #Admonitions
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
-#Tableaux
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  #Tableaux
   - tables
-#Emojis
+  #Emojis
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-#formatages textes 
+  #formatages textes
   - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.tilde
-#faire du html dans du md
+  #faire du html dans du md
   - md_in_html
-#annotations
+  #annotations
   - pymdownx.superfences
-#lien permanants
+  #lien permanants
   - toc:
       permalink: true
-# content tab
+  # content tab
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
-
+      alternate_style: true
 
 extra_javascript:
-#tableaux
+  #tableaux
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
 
 plugins:
   - glightbox
-  - search: 
+  - search:
       lang: fr
   - mike:
       # These fields are all optional; the defaults are as below...
-#      alias_type: symlink
-#      redirect_template: null
-#      deploy_prefix: ''
+      #      alias_type: symlink
+      #      redirect_template: null
+      #      deploy_prefix: ''
       canonical_version: null
       version_selector: true
       css_dir: css
@@ -120,27 +118,24 @@ plugins:
       type: date
       fallback_to_build_date: true
 
-
-
 extra:
-#versionning
+  #versionning
   version:
     provider: mike
-#Avertissements cookies
+  #Avertissements cookies
   consent:
     title: Cookies
-    description : Sur ce site de documentation, quelques cookies peuvent être utilisés. Voici la liste ci-dessous 
-    actions :
+    description: Sur ce site de documentation, quelques cookies peuvent être utilisés. Voici la liste ci-dessous
+    actions:
       - accept
 
-
-# Pied de page 
+  # Pied de page
   social:
-    - icon : fontawesome/brands/linkedin
+    - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/l%C3%A9o-guilloux-0486921a6/
     - icon: fontawesome/brands/github
-      link : https://github.com/poseidon974
+      link: https://github.com/poseidon974
 
 copyright: Copyright &copy; 2022-2023 Léo Guilloux
-repo_url : https://github.com/poseidon974/sitedocs
+repo_url: https://github.com/poseidon974/sitedocs
 repo_name: poseidon974/sitedocs
