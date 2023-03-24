@@ -36,9 +36,6 @@ on:
 permissions:
   contents: read
 
-env:
-  DOCKER_PATH: /docker_mkdocs/
-
 jobs:
   logingit:
     runs-on: self-hosted
@@ -49,13 +46,18 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+  
   buildimage:
     env:
-      DOCKER_PATH: ${{ env.DOCKER_PATH }}
+      DOCKER_PATH: /docker_mkdocs/
     runs-on: self-hosted
     needs: [logingit]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Add custom path
+        run: |-
+          export PATH=$PATH:${{ env.DOCKER_PATH }}
       - name: Build image
         run: docker build -f Dockerfile_mike -t mkdocs_mike:latest .
+
