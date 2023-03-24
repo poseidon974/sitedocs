@@ -28,7 +28,7 @@ jobs:
         run: |-
           export PATH=$PATH:/docker_mkdocs/
       - name: Build image
-        run: docker build -t mkdocs_mike:latest -f Dockerfile_mike.
+        run: docker build -t mkdocs_mike:latest -f Dockerfile_mike .
 
   # deploy:
   #   runs-on: self-hosted
