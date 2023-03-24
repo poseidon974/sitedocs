@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build container
-        run: docker build ./../../docker_mkdocs/Dockerfile-mike
+        run: docker build ./docker_mkdocs/Dockerfile-mike
 
 
 
