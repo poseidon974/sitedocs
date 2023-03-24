@@ -1,3 +1,22 @@
+name: mkdocs_mike
+on:
+  push:
+    branches:
+      - master
+permissions: 
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build container
+        run: docker build ./../../docker_mkdocs/Dockerfile-mike
+
+
+
 # name: ci 
 # on:
 #   push:
