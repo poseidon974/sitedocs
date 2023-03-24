@@ -17,7 +17,7 @@ jobs:
         run: |-
           export PATH=$PATH:/docker_mkdocs/
       - name: Build container
-        run: docker build - f ./Dockerfile-mike -t mkdocs_mike:latest
+        run: docker build -f ./Dockerfile-mike -t mkdocs_mike:latest
 
 
 
