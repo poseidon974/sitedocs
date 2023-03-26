@@ -11,8 +11,7 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Varaibles d'environement
-        run: |
-          set
+        run: set
       - name: afficher tag 
         run: |
           echo "tag name ${{ github.ref_name }}"
