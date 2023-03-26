@@ -1,17 +1,17 @@
-name: mkdocs_serve
-on:
-  push:
-    branches:
-      - master
-permissions:
-  contents: read
+# name: mkdocs_serve
+# on:
+#   push:
+#     branches:
+#       - master
+# permissions:
+#   contents: read
 
-jobs:
-  logingit:
-    runs-on: self-hosted
-    steps:
-      - name: Varaibles d'environement
-        run: set
-      - name: afficher tag 
-        run: |
-          echo "tag name ${{ github.ref_name }}"
+# jobs:
+#   logingit:
+#     runs-on: self-hosted
+#     steps:
+#       - name: Varaibles d'environement
+#         run: set
+#       - name: afficher tag 
+#         run: |
+#           echo "tag name ${{ github.ref_name }}"
