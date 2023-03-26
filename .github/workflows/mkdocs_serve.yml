@@ -28,18 +28,18 @@ jobs:
           if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
           cd docker_mkdocs/mkdocs_serve
           ls -la 
-          docker build -t mkdocs_serve:$VARAIBLE_TAG .
+          docker build -t mkdocs_serve:$VARIABLE_TAG .
 
-#   # pushimage:
-#   #   runs-on: self-hosted
-#   #   needs: [buildimage]
-#   #   steps:
-#   #     - name: Push image
-#   #       run: |
-#   #         if [ ${{ github.ref_name }} = 'master' ] ; then   $VARIABLE_TAG='devel' ; else  $VARIABLE_TAG = ${{github.ref_name}} ; fi
-#   #         echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-#   #         docker tag ${{ github.repository }}:build-temp ghcr.io/${{ github.repository }}:$VARIABLE_TAG
-#   #         docker push ghcr.io/${{ github.repository }}:$VARIABLE_TAG
-#   #         docker logout
-#   #     - name: Clean up
-#   #       run: docker image rm ${{ github.repository }}:build-temp ${{ github.repository }}:$VARIABLE_TAG
+  pushimage:
+    runs-on: self-hosted
+    needs: [buildimage]
+    steps:
+      - name: Push image
+        run: |
+          if [ ${{ github.ref_name }} = 'master' ] ; then   $VARIABLE_TAG='devel' ; else  $VARIABLE_TAG = ${{github.ref_name}} ; fi
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+          docker tag mkdocs_serve:build-temp ghcr.io/${{ github.repository }}/mkdocs_serve:$VARIABLE_TAG
+          docker push ghcr.io/${{ github.repository }}/mkdocs_serve:$VARIABLE_TAG
+          docker logout
+      - name: Clean up
+        run: docker image rm mkdocs_serve:build-temp ${{ github.repository }}/mkdocs_serve:$VARIABLE_TAG
