@@ -57,5 +57,5 @@ jobs:
         run: |-
           cd docker_mkdocs/
           ls -la 
-          docker build -f Dockerfile_mike -t mkdocs_mike:latest .
+          docker build -t mkdocs_serve:latest .
 
