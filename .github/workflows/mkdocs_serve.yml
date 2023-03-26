@@ -40,5 +40,5 @@ jobs:
       - name: Clean up
         run: |
           if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
-          docker image rm  ${{ github.repository }}/mkdocs_serve:$VARIABLE_TAG
+          docker image rm mkdocs_serve:build-temp ghcr.io/${{ github.repository }}/mkdocs_serve:$VARIABLE_TAG
           
