@@ -59,8 +59,8 @@ WORKDIR /docs
 # Expose MkDocs development server port
 EXPOSE 8000
 
-# Configuration pour versionning
+# Configuration globale en mode developpement
 
-ENTRYPOINT ["mike"]
-CMD ["serve", "--dev-addr=0.0.0.0:8000", "--ignore"]
+ENTRYPOINT [ "mike" ]
+CMD [ "serve", "--dev-addr=0.0.0.0:8000", "--ignore"]
 

@@ -1,0 +1,14 @@
+name: mkdocs_serve
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: read
+
+jobs:
+  logingit:
+    runs-on: self-hosted
+    steps:
+      - name: Varaibles d'environement
+        run: SET

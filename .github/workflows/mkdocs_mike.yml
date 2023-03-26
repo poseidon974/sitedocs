@@ -1,4 +1,4 @@
-# name: mkdocs_serve
+# name: mkdocs_mike
 # on:
 #   push:
 #     branches:
@@ -25,7 +25,7 @@
 #         uses: actions/checkout@v2
 #       - name: Build image
 #         run: |-
-#           cd docker_mkdocs/mkdocs_serve
+#           cd docker_mkdocs/Mike
 #           ls -la 
 #           docker build -t mkdocs_mike:latest .
 
