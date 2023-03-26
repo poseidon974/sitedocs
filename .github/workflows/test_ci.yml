@@ -13,3 +13,6 @@ jobs:
       - name: Varaibles d'environement
         run: |
           set
+      - name: afficher tag 
+        run: |
+          echo "tag name ${{ github.ref_name }}"
