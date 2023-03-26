@@ -1,8 +1,7 @@
 name: mkdocs_mike
 on:
   push:
-permissions:
-  contents: read
+permissions: write-all
 
 jobs:
   
