@@ -7,12 +7,12 @@ permissions:
   contents: read
 
 jobs:
-  logingit:
+  set:
     runs-on: self-hosted
     steps:
       - name: Varaibles d'environement
         run: set
-      - name: afficher tag 
-        run: |
-          if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="-devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
-          echo $VARIABLE_TAG
+#       - name: afficher tag 
+#         run: |
+#           if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="-devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
+#           echo $VARIABLE_TAG

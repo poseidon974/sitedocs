@@ -1,33 +1,34 @@
-# name: mkdocs_mike
-# on:
-#   push:
-#     branches:
-#       - master
-# permissions:
-#   contents: read
+name: mkdocs_mike
+on:
+  push:
+    branches:
+      - master
+permissions:
+  contents: read
 
-# jobs:
-#   logingit:
-#     runs-on: self-hosted
-#     steps:
-#       - name: Login to Github Packages
-#         uses: docker/login-action@v2
-#         with:
-#           registry: ghcr.io
-#           username: ${{ github.actor }}
-#           password: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  logingit:
+    runs-on: self-hosted
+    steps:
+      - name: Login to Github Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
   
-#   buildimage:
-#     runs-on: self-hosted
-#     needs: [logingit]
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-#       - name: Build image
-#         run: |-
-#           cd docker_mkdocs/Mike
-#           ls -la 
-#           docker build -t mkdocs_mike:latest .
+  buildimage:
+    runs-on: self-hosted
+    needs: [logingit]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build image
+        run: |-
+          if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="-devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
+          cd docker_mkdocs/Mike
+          ls -la 
+          docker build -t mkdocs_mike:$VARIABLE_TAG .
 
 #   pushimage:
 #     runs-on: self-hosted
