@@ -53,10 +53,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Add custom path
+      - name: Build image
         run: |-
           cd docker_mkdocs/
-          ls -la
-      - name: Build image
-        run: docker build -f Dockerfile_mike -t mkdocs_mike:latest .
+          ls -la 
+          docker build -f Dockerfile_mike -t mkdocs_mike:latest .
 
