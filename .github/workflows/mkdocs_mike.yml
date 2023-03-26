@@ -1,8 +1,6 @@
 name: mkdocs_mike
 on:
   push:
-    branches:
-      - master
 permissions:
   contents: read
 

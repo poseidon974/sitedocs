@@ -1,8 +1,6 @@
 name: mkdocs_serve
 on:
   push:
-    branches:
-      - master
 permissions: write-all
 
 jobs:
