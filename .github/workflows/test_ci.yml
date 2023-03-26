@@ -11,4 +11,5 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Varaibles d'environement
-        run: SET
+        run: |
+          set
