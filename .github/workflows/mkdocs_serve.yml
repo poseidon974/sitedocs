@@ -4,7 +4,7 @@ on:
     branches:
       - master
 permissions:
-  contents: write
+  contents: write-all
 
 jobs:
   logingit:
