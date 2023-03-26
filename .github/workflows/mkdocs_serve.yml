@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: Push image
         run: |
-          if [ ${{ github.ref_name }} = 'main' ] ; then   $VARIABLE_TAG='devel' ; else  $VARIABLE_TAG=${{github.ref_name}} ; fi
+          if [ ${{ github.ref_name }} = 'master' ] ; then   $VARIABLE_TAG='devel' ; else  $VARIABLE_TAG=${{github.ref_name}} ; fi
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
           docker tag ${{ github.repository }}:build-temp ghcr.io/${{ github.repository }}:$VARIABLE_TAG
           docker push ghcr.io/${{ github.repository }}:$VARIABLE_TAG
