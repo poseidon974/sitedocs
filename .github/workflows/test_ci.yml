@@ -14,5 +14,5 @@ jobs:
         run: set
       - name: afficher tag 
         run: |
-          if [ ${{ github.ref_name }} = "master" ]; then $VARIABLE_TAG="-devel"; else $VARIABLE_TAG=${{github.ref_name}}; fi
+          if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="-devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
           echo $VARIABLE_TAG
