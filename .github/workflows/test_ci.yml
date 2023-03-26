@@ -1,4 +1,4 @@
-name: mkdocs_serve
+name: test_ci
 on:
   push:
     branches:

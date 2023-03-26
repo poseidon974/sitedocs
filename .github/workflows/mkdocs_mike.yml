@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build image
         run: |-
-          if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="-devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
+          if [ ${{ github.ref_name }} = "master" ]; then VARIABLE_TAG="devel"; else VARIABLE_TAG=${{github.ref_name}}; fi
           cd docker_mkdocs/Mike
           ls -la 
           docker build -t mkdocs_mike:$VARIABLE_TAG .
