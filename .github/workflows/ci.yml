@@ -48,8 +48,6 @@ jobs:
   #         password: ${{ secrets.GITHUB_TOKEN }}
   
   buildimage:
-    env:
-      DOCKER_PATH: /docker_mkdocs/
     runs-on: self-hosted
 #    needs: [logingit]
     steps:
@@ -58,6 +56,8 @@ jobs:
       - name: Add custom path
         run: |-
           cd docker_mkdocs/
+      - name: list path
+        run: ls -la
       - name: Build image
         run: docker build -f Dockerfile_mike -t mkdocs_mike:latest .
 
