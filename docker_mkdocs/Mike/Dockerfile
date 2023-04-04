@@ -1,4 +1,4 @@
-FROM python:3.12.0a6-alpine3.17
+FROM python:3.10.10-alpine3.17
 
 # Build-time flags
 ARG WITH_PLUGINS=true
@@ -21,9 +21,9 @@ RUN pip install --no-cache-dir -r requirements.txt \
 RUN set -eux \
  && apk add --no-cache \
       # For update dates
-      git \
+      git 
       # For PDF-EXPORT-PLUGIN
-      libffi cairo pango gdk-pixbuf libstdc++ openjpeg
+#      libffi cairo pango gdk-pixbuf libstdc++ openjpeg
 
 # Liste des dépendances / packages
 COPY requirements-plugins.txt .
@@ -36,21 +36,23 @@ RUN set -eux \
       make \
       gcc g++ \
       libc-dev \
-      musl-dev openjpeg-dev jpeg-dev zlib-dev libffi-dev cairo-dev pango-dev gdk-pixbuf-dev \
+#      musl-dev openjpeg-dev jpeg-dev zlib-dev libffi-dev cairo-dev pango-dev gdk-pixbuf-dev \
  && python -m pip install --upgrade pip \
  && python -m pip install -r requirements-plugins.txt \
  && apk del --no-cache .build-deps
 
 # Pour le plugin date 
+
 RUN git config --global --add safe.directory /docs
 
 
 # Import Fonts (for PDF generator)
 
 # COPY fonts/static /usr/share/fonts/Additional
-RUN apk --update --upgrade --no-cache add fontconfig ttf-dejavu \ 
- && fc-cache -f \ 
- && fc-list | sort 
+# RUN apk --update --upgrade --no-cache add fontconfig ttf-dejavu \ 
+#  && fc-cache -f \ 
+#  && fc-list | sort 
+
 
 
 # Set working directory
