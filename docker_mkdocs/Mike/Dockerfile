@@ -35,10 +35,10 @@ RUN set -eux \
       gzip \
       make \
       gcc g++ \
-      libc-dev \
+#      libc-dev \
 #      musl-dev openjpeg-dev jpeg-dev zlib-dev libffi-dev cairo-dev pango-dev gdk-pixbuf-dev \
  && python -m pip install --upgrade pip \
- && python -m pip install -r requirements-plugins.txt \
+ # && python -m pip install -r requirements-plugins.txt \
  && apk del --no-cache .build-deps
 
 # Pour le plugin date 

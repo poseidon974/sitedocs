@@ -35,23 +35,16 @@ RUN set -eux \
       gzip \
       make \
       gcc g++ \
-      libc-dev \
+#      libc-dev \
 #      musl-dev openjpeg-dev jpeg-dev zlib-dev libffi-dev cairo-dev pango-dev gdk-pixbuf-dev \
- && python -m pip install --upgrade pip \
- && python -m pip install -r requirements-plugins.txt \
+#  && python -m pip install --upgrade pip \
+#  && python -m pip install -r requirements-plugins.txt \
  && apk del --no-cache .build-deps
 
 # Pour le plugin date 
 
-RUN git config --global --add safe.directory /docs
-
-
-# Import Fonts (for PDF generator)
-
-# COPY fonts/static /usr/share/fonts/Additional
-# RUN apk --update --upgrade --no-cache add fontconfig ttf-dejavu \ 
-#  && fc-cache -f \ 
-#  && fc-list | sort 
+RUN git config --global --add safe.directory /docs &&\
+    git config --global --add safe.directory /site
 
 
 # Set working directory

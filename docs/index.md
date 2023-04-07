@@ -4,7 +4,7 @@ hide:
 ---
 
 !!!failure "Indisponibilité des liens"
-    **ATTENTION LES LIENS SONT ACTUELLEMENT NON FONCTIONNELS**
+    **ATTENTION LES LIENS SONT ACTUELLEMENT NON FONCTIONNELS !!**
 
 | Nom |Fichier | Date de création | 
 | --- | --- | --- |
