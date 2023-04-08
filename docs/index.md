@@ -2,6 +2,9 @@
 hide:
   - footer
 ---
+# Acceuil
+** Bienvenue sur la documentation CS2i réalisée par Léo Guilloux**
+
 *Page génrée automatiquement par un script*
 
 | Nom |Fichier | Date de création | 
@@ -31,8 +34,6 @@ hide:
 | LDAP | [LDAP](/Linux/Master/Administration réseau/LDAP) | 2023-02-16 |
 | DNS | [DNS](/Linux/Master/Administration réseau/DNS) | 2023-02-22 |
 | Acceuil_Linux | [Acceuil_Linux](/Linux/Acceuil_Linux) | 2023-03-22 |
-| README | [README](/README) | 2023-04-07 |
-| index | [index](/index) | 2023-04-08 |
 | Syntaxe fichier deployment et services | [Syntaxe fichier deployment et services](/Vitrualisation_et_cloud/Commandes/Syntaxe fichier deployment et services) | 2023-03-23 |
 | Syntaxes des stockages | [Syntaxes des stockages](/Vitrualisation_et_cloud/Commandes/Syntaxes des stockages) | 2023-03-23 |
 | Commandes dans kubernetes | [Commandes dans kubernetes](/Vitrualisation_et_cloud/Commandes/Commandes dans kubernetes) | 2023-03-22 |
@@ -40,4 +41,4 @@ hide:
 | pointasvaoir | [pointasvaoir](/Vitrualisation_et_cloud/kube/pointasvaoir) | 2023-03-24 |
 | les secrets | [les secrets](/Vitrualisation_et_cloud/kube/les secrets) | 2023-03-24 |
 | Rappel sur la virtualisation | [Rappel sur la virtualisation](/Vitrualisation_et_cloud/Rappels/Rappel sur la virtualisation) | 2023-01-11 |
-| Terraform | [Terraform](/Vitrualisation_et_cloud/Terraform/Terraform) | 2023-03-22 |
+| Terraform | [Terraform](/Vitrualisation_et_cloud/Terraform/Terraform) | 2023-04-08 |

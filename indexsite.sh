@@ -16,6 +16,9 @@ echo "---" >> "$index_file"
 echo "hide:" >> "$index_file"
 echo "  - footer" >> "$index_file"
 echo "---" >> "$index_file"
+echo "# Acceuil" >> "$index_file"
+echo "** Bienvenue sur la documentation CS2i réalisée par Léo Guilloux**" >> "$index_file"
+echo "" >> "$index_file"
 echo "*Page génrée automatiquement par un script*" >> "$index_file"
 echo "" >> "$index_file"
 echo "| Nom |Fichier | Date de création | " >> "$index_file"
@@ -25,5 +28,5 @@ echo "| --- | --- | --- |" >> "$index_file"
 find "$directory_path" -type f -name "*.md" -printf "| %f | [%f](%p) | %TY-%Tm-%Td |\n" >> "$index_file"
 sed -i 's/\/home\/leo\/Documents\/Sitedoc\/docs//g' ./docs/index.md
 sed -i 's/.md//g' ./docs/index.md
-
+sed -i '/index/d' ./docs/index.md
 

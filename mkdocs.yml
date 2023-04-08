@@ -1,5 +1,6 @@
 site_name: Documentation - CS2I
 #thème du site
+ 
 theme:
   name: material
   custom_dir: ./overrides
