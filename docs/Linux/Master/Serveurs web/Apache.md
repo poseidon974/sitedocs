@@ -16,6 +16,8 @@ Plusieurs règles s'applique aux logiciels open source et donc ici à apache :
 - Mises à jour et évolutions fréquentes
 - Obsolescence rapide des paquetages binaires
 
+Apcahe utilise un server NPM de type prefork.
+
 ## Installation de apache
 
 Pour installer apache, on utilise dnf :

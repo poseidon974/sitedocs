@@ -102,7 +102,6 @@ extra_javascript:
   - javascripts/tablesort.js
 
 plugins:
-  - info
   - glightbox
   - search:
       lang: fr
