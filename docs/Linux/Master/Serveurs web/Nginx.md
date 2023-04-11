@@ -128,3 +128,146 @@ Si on regarde les résultats, on obtient 2 pages différentes avec la commande `
     Site 2
     ```
 
+## Apllication d'un autoindex
+
+Modification du virtualhost :
+
+```bash hl_lines="6-8 10-14" linenums="1"
+    server {
+
+        server_name  site.local;
+        root         /var/www/html/site;
+
+        location /sous-dossier/ {
+            autoindex on;
+        }
+
+        location /icons/ {
+            root /usr/share/httpd;
+            # alias /usr/share/httpd/icons/;
+            autoindex on;
+        }
+
+
+    }
+```
+
+Pour les différents locations, on obtient les valeurs suivantes :
+
+=== "Sous-dossier"
+
+    Afin de d'avoir une valeur avec le curl, on crée dans `/var/www/html` un premier dossier `sous-dossier` et un second dossier dedans `dossier1`
+
+    ```html linenums="1"
+    <html>
+    <head><title>Index of /sous-dossier/</title></head>
+    <body>
+    <h1>Index of /sous-dossier/</h1><hr><pre><a href="../">../</a>
+    <a href="dossier1/">dossier1/</a>                                          11-Apr-2023 09:43                   -
+    </pre><hr></body>
+    </html>
+    ```
+=== "Icons"
+
+    ```html
+    <a href="small/">small/</a>                                             21-Mar-2023 10:11                   -
+    <a href="README">README</a>                                             28-Aug-2007 10:47                5108
+    <a href="README.html">README.html</a>                                        28-Aug-2007 10:47               36057
+    <a href="a.gif">a.gif</a>                                              20-Nov-2004 20:16                 246
+    <a href="a.png">a.png</a>                                              11-Sep-2007 05:11                 306
+    .
+    .
+    .
+    .
+    </pre><hr></body>
+    </html>
+    ```
+## Mise en place d'un controle d'accès
+
+Ajout d'une nouvelle règle :
+
+```bash linenums="1" hl_lines="10-13"
+    server {
+
+        server_name  site.local;
+        root         /var/www/html/site;
+
+        location /sous-dossier/ {
+            autoindex on;
+        }
+
+        location /prive/ {
+                allow 127.0.0.1;
+                deny all;
+        }
+        location /icons/ {
+            root /usr/share/httpd;
+            # alias /usr/share/httpd/icons/;
+            autoindex on;
+        }
+    }
+```
+
+On crée un fichier index.html dans `/var/www/html/site/prive` et on obtient :
+
+```bash
+hello-private
+```
+
+Si on accède par l'IP de la machine (et non 127.0.0.1), on obtient :
+
+```html
+<html>
+<head><title>403 Forbidden</title></head>
+<body>
+<center><h1>403 Forbidden</h1></center>
+<hr><center>nginx/1.22.1</center>
+</body>
+</html>
+```
+
+## Ajout d'erreurs
+
+```bash linenums="1" 
+    server {
+
+        server_name  site.local;
+        root         /var/www/html/site;
+
+        location /sous-dossier/ {
+            autoindex on;
+        }
+
+        location /prive/ {
+                allow 127.0.0.1;
+                deny all;
+        }
+        location /icons/ {
+            root /usr/share/httpd;
+            # alias /usr/share/httpd/icons/;
+            autoindex on;
+        }
+        location /errors/ {
+            alias /var/www/errors;
+        }
+        error_page 403 =418 /errors/403.html;
+        error_page 418 /errors/418.html;
+    }
+```
+
+## Php-fpm
+
+### Installation
+
+Installation de Php-fpm :
+
+```bash
+dnf install -y php-fpm
+```
+
+### Démarrage et écriture de fichier 
+
+!!!info "Configuration"
+
+        On retrouve la configuration dans `/etc/php-fpm.conf`.
+
