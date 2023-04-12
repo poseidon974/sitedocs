@@ -35,7 +35,7 @@ theme:
     - navigation.footer
     - navigation.sections
     - navigation.indexes
-    - toc.integrate
+#    - toc.integrate
     - navigation.top
     - content.action.view
     - content.code.copy
@@ -115,6 +115,7 @@ plugins:
       enable_creation_date: true
       type: date
       fallback_to_build_date: true
+
 
 extra:
   #versionning

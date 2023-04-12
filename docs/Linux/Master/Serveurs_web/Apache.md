@@ -344,8 +344,11 @@ problems. Please try again later.</p>
 Selinux protège la connexion, on active alors la règle SELinux correspondante :
 
 ```bash
-setsebool httpd_can_network_connect on
+setsebool -P httpd_can_network_connect on
 ```
+
+!!!warning "Attention à la persistance du règlage"
+        L'option -P est nécéssaire afin de faire persister le règlage !!
 
 On obtient maintenant le bon affichage :
 
@@ -405,8 +408,9 @@ moe-apache-3  | [Wed Apr 12 10:15:54.305280 2023] [authz_core:error] [pid 32] [c
 moe-apache-3  | 10.56.126.94 - - [12/Apr/2023:10:15:54 +0200] "GET / HTTP/1.1" 200 782 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
 ```
 
+## Loadbalancer
 
-### Activation du loadbalancer
+### Activation du loadbalancer de apacheimage.png
 
 
 Réalisation du fichier de configuration :
@@ -435,5 +439,83 @@ Réalisation du fichier de configuration :
 
 Actviation des modules suivants :
 - mod_proxy_balancer
+-  slotmem_shm_module
+
+### Activation de loadbalancer manager
+
+Ajout d'un élément de configuration :
+
+```bash linenums="1" hl_lines="8-13"
+<VirtualHost *:80>
+
+   DocumentRoot  /var/www/html/site
+   ServerName   site.local
+
+   ProxyPass   /favicon.ico   !
+
+   BalancerInherit Off
+   BalancerPersist On
+   <Location /bm>
+     ProxyPass !
+     SetHandler balancer-manager
+   </Location>
+
+   ProxyPassMatch   ^/(.*\.php)$  balancer://poolphp/$1
+   <Proxy balancer://poolphp>
+      BalancerMember http://10.0.0.1
+      BalancerMember http://10.0.0.2
+   </Proxy>
 
 
+   ProxyPassMatch   ^/(.*\.gif)$ http://10.0.0.1/$1
+   ProxyPassMatch   ^/(.*\.png)$ http://10.0.0.2/$1
+
+   ProxyPass    /     http://10.0.0.1/
+</VirtualHost>
+```
+
+On trouve la page suivante avec le `/bm` :
+
+<figure markdown>
+  ![Image de la page de loadbalancer](./images/Capture%20d'%C3%A9cran%202023-04-12%20112642.png)
+  <figcaption>Image de la page de loadbalancer</figcaption>
+</figure>
+
+### Activation avec les cookies
+
+Activation du module :
+
+- Headers
+
+Ajout d'une nouvelle configuration :
+
+```bash linenums="1" hl_lines="8-9 17-19 22" 
+<VirtualHost *:80>
+
+   DocumentRoot  /var/www/html/site
+   ServerName   site.local
+
+   ProxyPass   /favicon.ico   !
+
+#   BalancerInherit Off
+#   BalancerPersist On
+   <Location /bm>
+     ProxyPass !
+     SetHandler balancer-manager
+   </Location>
+
+   ProxyPassMatch   ^/(.*\.php)$  balancer://poolphp/$1
+   <Proxy balancer://poolphp>
+      BalancerMember http://10.0.0.1 route=S1
+      BalancerMember http://10.0.0.2 route=S2
+      ProxySet stickysession=ROUTERID nofailover=On
+   </Proxy>
+
+   Header add "Set-cookie" "ROUTERID=.%{BALANCER_WORKER_ROUTE}e; path=/" env=BALANCER_ROUTE_CHANGED
+
+   ProxyPassMatch   ^/(.*\.gif)$ http://10.0.0.1/$1
+   ProxyPassMatch   ^/(.*\.png)$ http://10.0.0.2/$1
+
+   ProxyPass    /     http://10.0.0.1/
+</VirtualHost>
+```
