@@ -291,7 +291,7 @@ curl -v -s -w '%{stderr}%{http_code}\n' -H "MonToken: LeBonToken" http://10.56.1
 </ifmodule>
 ```
 
-## Ajouts de virtualhosts
+## Apache et son proxy
 
 ### Création du fichier de configuration 
 
@@ -373,3 +373,67 @@ On obtient maintenant le bon affichage :
 <address>Apache/2.4.56 (Unix) Server at 10.0.0.1 Port 80</address>
 </body></html>
 ```
+
+### Activation du du proxymatch
+
+!!!info "But de la manoeuvre"
+        
+        Ici nous cherchons que le conteneur 1 réponde pour les .gif et que le serveur 2 reponde pour les .png
+
+
+```bash linenums="1" hl_lines="3 6 8-9"
+<VirtualHost *:80>
+
+   DocumentRoot  /var/www/html/site
+   ServerName   site.local
+
+   ProxyPass   /favicon.ico   !
+
+   ProxyPassMatch   ^/(.*\.gif)$ http://10.0.0.1/$1
+   ProxyPassMatch   ^/(.*\.png)$ http://10.0.0.2/$1
+
+   ProxyPass    /     http://10.0.0.1/
+</VirtualHost>
+```
+
+Si on regarde les logs du compose (`docker compose logs -f`):
+
+```bash
+moe-apache-2  | 10.56.126.94 - - [12/Apr/2023:10:15:47 +0200] "GET /image.gif HTTP/1.1" 304 - "http://10.56.126.223/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+moe-apache-2  | 10.56.126.94 - - [12/Apr/2023:10:15:47 +0200] "GET /image.gif HTTP/1.1" 304 - "http://10.56.126.223/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+moe-apache-3  | [Wed Apr 12 10:15:54.305280 2023] [authz_core:error] [pid 32] [client 10.0.0.254:52844] AH01630: client denied by server configuration: /var/www/html/.htaccess
+moe-apache-3  | 10.56.126.94 - - [12/Apr/2023:10:15:54 +0200] "GET / HTTP/1.1" 200 782 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
+```
+
+
+### Activation du loadbalancer
+
+
+Réalisation du fichier de configuration :
+
+```bash linenums="1" hl_lines="8-12"
+<VirtualHost *:80>
+
+   DocumentRoot  /var/www/html/site
+   ServerName   site.local
+
+   ProxyPass   /favicon.ico   !
+
+   ProxyPassMatch   ^/(.*\.php)$  balancer://poolphp/$1
+   <Proxy balancer://poolphp>
+      BalancerMember http://10.0.0.1
+      BalancerMember http://10.0.0.2
+   </Proxy>
+
+
+   ProxyPassMatch   ^/(.*\.gif)$ http://10.0.0.1/$1
+   ProxyPassMatch   ^/(.*\.png)$ http://10.0.0.2/$1
+
+   ProxyPass    /     http://10.0.0.1/
+</VirtualHost>
+```
+
+Actviation des modules suivants :
+- mod_proxy_balancer
+
+
