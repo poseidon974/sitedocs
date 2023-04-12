@@ -271,3 +271,75 @@ dnf install -y php-fpm
 
         On retrouve la configuration dans `/etc/php-fpm.conf`.
 
+Mise en place de la configuration dans le serveur nginx :
+
+```bash linenums="1" hl_lines="7"
+server {
+
+        server_name  site.local;
+        root         /var/www/html/site;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        location /sous-dossier/ {
+            autoindex on;
+        }
+
+        location /prive/ {
+                allow 127.0.0.1;
+                deny all;
+        }
+        location /icons/ {
+            root /usr/share/httpd;
+            # alias /usr/share/httpd/icons/;
+            autoindex on;
+        }
+        location /errors/ {
+            alias /var/www/errors;
+        }
+        error_page 403 =418 /errors/403.html;
+        error_page 418 /errors/418.html;
+    }
+```
+
+Ajout d'un fichier `/var/www/html/site/index.php` :
+
+```php
+<?php
+
+        echo "Avant<br>";
+        phpinfo();
+        echo "Après<br>";
+
+?>
+```
+
+Démarrage du php-fpm :
+
+```bash 
+systemctl start php-fpm
+```
+
+Restart du service nginx :
+
+```bash 
+systemctl reload nginx
+```
+
+On obteint ensuite :
+
+```html
+Avant<br><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<style type="text/css">
+.
+.
+.
+</p>
+<p>If you did not receive a copy of the PHP license, or have any questions about PHP licensing, please contact license@php.net.
+</p>
+</td></tr>
+</table>
+</div></body></html>Après<br>
+```

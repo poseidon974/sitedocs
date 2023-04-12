@@ -291,3 +291,85 @@ curl -v -s -w '%{stderr}%{http_code}\n' -H "MonToken: LeBonToken" http://10.56.1
 </ifmodule>
 ```
 
+## Ajouts de virtualhosts
+
+### Création du fichier de configuration 
+
+On utilise un package docker afin d'avoir des conteneurs apaches avec le git suivant : [Git_moe](https://gitlab.actilis.net/formation/moe.git)
+
+On lance les conteneurs apache avec un scale à 2 :
+
+```bash
+docker compose up -d --scale apache=2 apache
+```
+
+On crée un fichier de configuration dans `/etc/http/conf.d` :
+
+```bash
+<VirtualHost *:80>
+
+#   DocumentRoot  /var/www/html/site
+   ServerName   site.local
+
+   ProxyPass    /     http://10.0.0.1/
+</VirtualHost>
+```
+
+### Activation des plugins 
+
+Des plugins sont nécéssaires comme le plugin proxy, mime. Pour chercher les plugins :
+
+```bash
+grep -nri nom_du_plugin
+```
+
+On décommente des plugins et on restart Apache.
+
+On obtient maintenant une erreur 503 :
+
+```html
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>503 Service Unavailable</title>
+</head><body>
+<h1>Service Unavailable</h1>
+<p>The server is temporarily unable to service your
+request due to maintenance downtime or capacity
+problems. Please try again later.</p>
+</body></html>
+```
+
+### Activation des règles SElinux
+
+Selinux protège la connexion, on active alors la règle SELinux correspondante :
+
+```bash
+setsebool httpd_can_network_connect on
+```
+
+On obtient maintenant le bon affichage :
+
+```html
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /</title>
+ </head>
+ <body>
+<h1>Index of /</h1>
+<ul><li><a href="cpuload.php"> cpuload.php</a></li>
+<li><a href="image.gif"> image.gif</a></li>
+<li><a href="image.png"> image.png</a></li>
+<li><a href="info.php"> info.php</a></li>
+<li><a href="memload.php"> memload.php</a></li>
+<li><a href="menu.html"> menu.html</a></li>
+<li><a href="server-ip.php"> server-ip.php</a></li>
+<li><a href="session/"> session/</a></li>
+<li><a href="sleep.php"> sleep.php</a></li>
+<li><a href="sqlinject.php"> sqlinject.php</a></li>
+<li><a href="status.html"> status.html</a></li>
+<li><a href="status.php"> status.php</a></li>
+</ul>
+<address>Apache/2.4.56 (Unix) Server at 10.0.0.1 Port 80</address>
+</body></html>
+```
