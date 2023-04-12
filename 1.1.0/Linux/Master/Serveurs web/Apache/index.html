@@ -475,8 +475,37 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ajouts-de-virtualhosts">
+    Ajouts de virtualhosts
+  </a>
+<nav aria-label="Ajouts de virtualhosts" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creation-du-fichier-de-configuration">
+    Création du fichier de configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activation-des-plugins">
+    Activation des plugins
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#activation-des-regles-selinux">
+    Activation des règles SElinux
+  </a>
+</li>
 </ul>
 </nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Nginx/">
+        Nginx
+      </a>
 </li>
 </ul>
 </nav>
@@ -1094,12 +1123,71 @@ Alias /system_noindex_logo.png /usr/share/httpd/icons/system_noindex_logo.png
         <span class="p">&lt;/</span><span class="nt">location</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ifmodule</span><span class="p">&gt;</span>
 </code></pre></div></td></tr></table></div>
+<h2 id="ajouts-de-virtualhosts">Ajouts de virtualhosts<a class="headerlink" href="#ajouts-de-virtualhosts" title="Permanent link">¶</a></h2>
+<h3 id="creation-du-fichier-de-configuration">Création du fichier de configuration<a class="headerlink" href="#creation-du-fichier-de-configuration" title="Permanent link">¶</a></h3>
+<p>On utilise un package docker afin d'avoir des conteneurs apaches avec le git suivant : <a href="https://gitlab.actilis.net/formation/moe.git">Git_moe</a></p>
+<p>On lance les conteneurs apache avec un scale à 2 :</p>
+<div class="highlight"><pre><span></span><code>docker compose up -d --scale <span class="nv">apache</span><span class="o">=</span><span class="m">2</span> apache
+</code></pre></div>
+<p>On crée un fichier de configuration dans <code>/etc/http/conf.d</code> :</p>
+<div class="highlight"><pre><span></span><code>&lt;VirtualHost *:80&gt;
+
+<span class="c1">#   DocumentRoot  /var/www/html/site</span>
+   ServerName   site.local
+
+   ProxyPass    /     http://10.0.0.1/
+&lt;/VirtualHost&gt;
+</code></pre></div>
+<h3 id="activation-des-plugins">Activation des plugins<a class="headerlink" href="#activation-des-plugins" title="Permanent link">¶</a></h3>
+<p>Des plugins sont nécéssaires comme le plugin proxy, mime. Pour chercher les plugins :</p>
+<div class="highlight"><pre><span></span><code>grep -nri nom_du_plugin
+</code></pre></div>
+<p>On décommente des plugins et on restart Apache.</p>
+<p>On obtient maintenant une erreur 503 :</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>503 Service Unavailable<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Service Unavailable<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The server is temporarily unable to service your
+request due to maintenance downtime or capacity
+problems. Please try again later.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="activation-des-regles-selinux">Activation des règles SElinux<a class="headerlink" href="#activation-des-regles-selinux" title="Permanent link">¶</a></h3>
+<p>Selinux protège la connexion, on active alors la règle SELinux correspondante :</p>
+<div class="highlight"><pre><span></span><code>setsebool httpd_can_network_connect on
+</code></pre></div>
+<p>On obtient maintenant le bon affichage :</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Index of /<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+ <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+ <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Index of /<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"cpuload.php"</span><span class="p">&gt;</span> cpuload.php<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"image.gif"</span><span class="p">&gt;</span> image.gif<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"image.png"</span><span class="p">&gt;</span> image.png<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"info.php"</span><span class="p">&gt;</span> info.php<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"memload.php"</span><span class="p">&gt;</span> memload.php<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"menu.html"</span><span class="p">&gt;</span> menu.html<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"server-ip.php"</span><span class="p">&gt;</span> server-ip.php<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"session/"</span><span class="p">&gt;</span> session/<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"sleep.php"</span><span class="p">&gt;</span> sleep.php<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"sqlinject.php"</span><span class="p">&gt;</span> sqlinject.php<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"status.html"</span><span class="p">&gt;</span> status.html<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"status.php"</span><span class="p">&gt;</span> status.php<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">address</span><span class="p">&gt;</span>Apache/2.4.56 (Unix) Server at 10.0.0.1 Port 80<span class="p">&lt;/</span><span class="nt">address</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Dernière mise à jour:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 21, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 12, 2023</span>
 <br/>
         Créé:
         <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 21, 2023</span>
@@ -1129,13 +1217,13 @@ Alias /system_noindex_logo.png /usr/share/httpd/icons/system_noindex_logo.png
             </div>
 </div>
 </a>
-<a aria-label="Suivant: Se linux" class="md-footer__link md-footer__link--next" href="../../S%C3%A9curit%C3%A9/SElinux/" rel="next">
+<a aria-label="Suivant: Nginx" class="md-footer__link md-footer__link--next" href="../Nginx/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Suivant
               </span>
-              Se linux
+              Nginx
             </div>
 </div>
 <div class="md-footer__button md-icon">

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Traefik - Documentation - CS2I</title>
+<title>Nginx - Documentation - CS2I</title>
 <link href="../../../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -32,7 +32,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#traefik">
+<a class="md-skip" href="#nginx">
           Aller au contenu
         </a>
 </div>
@@ -68,7 +68,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Traefik
+              Nginx
             
           </span>
 </div>
@@ -369,8 +369,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_3" id="__nav_2_3_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_3">
           Conteneur et pipelines CICD
           <span class="md-nav__icon md-icon"></span>
@@ -382,77 +382,30 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Docker-swarm/">
+<a class="md-nav__link" href="../../Conteneur%20et%20pipelines%20CICD/Docker-swarm/">
         Docker Swarm
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Docker/">
+<a class="md-nav__link" href="../../Conteneur%20et%20pipelines%20CICD/Docker/">
         Docker
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../Runners/">
+<a class="md-nav__link" href="../../Conteneur%20et%20pipelines%20CICD/Runners/">
         Deploiement de runners et execution de pipelines
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Traefik
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Conteneur%20et%20pipelines%20CICD/Traefik/">
         Traefik
       </a>
-<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table des matières
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploiement-dun-traefik-sous-docker">
-    Deploiement d'un traefik sous docker
-  </a>
-<nav aria-label="Deploiement d'un traefik sous docker" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploiement-simple">
-    Deploiement simple
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ajout-dun-dashbord">
-    Ajout d'un dashbord
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ajout-dune-authentification">
-    Ajout d'une authentification
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ajout-de-lobligation-de-dexposition-de-services">
-    Ajout de l'obligation de d'exposition de services
-  </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#deploiement-sous-gitlab">
-    Deploiement sous gitlab
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_4" id="__nav_2_3_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_4" id="__nav_2_3_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2_3_4">
           Serveurs web
           <span class="md-nav__icon md-icon"></span>
@@ -464,14 +417,85 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../Serveurs%20web/Apache/">
+<a class="md-nav__link" href="../Apache/">
         Apache
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../Serveurs%20web/Nginx/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Nginx
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         Nginx
       </a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation-de-nginx">
+    Installation de Nginx
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#changement-de-configuration-de-nginx">
+    Changement de configuration de Nginx
+  </a>
+<nav aria-label="Changement de configuration de Nginx" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creation-dun-premier-virtualhost">
+    Création d'un premier virtualhost
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creation-de-mutliples-virtualhosts">
+    Création de mutliples virtualhosts
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#apllication-dun-autoindex">
+    Apllication d'un autoindex
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mise-en-place-dun-controle-dacces">
+    Mise en place d'un controle d'accès
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ajout-derreurs">
+    Ajout d'erreurs
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#php-fpm">
+    Php-fpm
+  </a>
+<nav aria-label="Php-fpm" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#demarrage-et-ecriture-de-fichier">
+    Démarrage et écriture de fichier
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -774,13 +798,343 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/poseidon974/sitedocs/edit/master/docs/Linux/Master/Conteneur et pipelines CICD/Traefik.md" title="Editer cette page">
+<a class="md-content__button md-icon" href="https://github.com/poseidon974/sitedocs/edit/master/docs/Linux/Master/Serveurs web/Nginx.md" title="Editer cette page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">¶</a></h1>
-<h2 id="deploiement-dun-traefik-sous-docker">Deploiement d'un traefik sous docker<a class="headerlink" href="#deploiement-dun-traefik-sous-docker" title="Permanent link">¶</a></h2>
-<h3 id="deploiement-simple">Deploiement simple<a class="headerlink" href="#deploiement-simple" title="Permanent link">¶</a></h3>
-<p>Création d'un fichier <code>compose.yml</code> :</p>
+<h1 id="nginx">Nginx<a class="headerlink" href="#nginx" title="Permanent link">¶</a></h1>
+<h2 id="installation-de-nginx">Installation de Nginx<a class="headerlink" href="#installation-de-nginx" title="Permanent link">¶</a></h2>
+<p>Dernière version : 1.23.4 (mars 2023)</p>
+<p>Installation de nginx :</p>
+<div class="highlight"><pre><span></span><code>dnf install -y nginx
+</code></pre></div>
+<p>Démarrage de nginx :</p>
+<div class="highlight"><pre><span></span><code>systemctl start nginx
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>On retrouve les fichiers de configuration dans <code>/etc/nginx</code>.</li>
+<li>Les sites se trouvent dans <code>/usr/share/nginx/html</code>.</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Rappel</p>
+<p>Pour rappel lorsqu'on a un dossier en <code>.d</code> pour les configurations, on <strong>utilise impérativement</strong> ce dossier qui prendra tout les fichiers et qui les intègras dans la condiguration de nginx.</p>
+</div>
+</div>
+<h2 id="changement-de-configuration-de-nginx">Changement de configuration de Nginx<a class="headerlink" href="#changement-de-configuration-de-nginx" title="Permanent link">¶</a></h2>
+<h3 id="creation-dun-premier-virtualhost">Création d'un premier virtualhost<a class="headerlink" href="#creation-dun-premier-virtualhost" title="Permanent link">¶</a></h3>
+<p>Création d'un fichier de configuration pour "surcharger" la configuration de nginx (dans <code>conf.d/</code>) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>server <span class="o">{</span>
+        listen       <span class="m">80</span><span class="p">;</span>
+        listen       <span class="o">[</span>::<span class="o">]</span>:80<span class="p">;</span>
+        server_name  test.local<span class="p">;</span>
+<span class="hll">        root         /var/www/html<span class="p">;</span>
+</span>
+        <span class="c1"># Load configuration files for the default server block.</span>
+        include /etc/nginx/default.d/*.conf<span class="p">;</span>
+
+        error_page <span class="m">404</span> /404.html<span class="p">;</span>
+        <span class="nv">location</span> <span class="o">=</span> /404.html <span class="o">{</span>
+        <span class="o">}</span>
+
+        error_page <span class="m">500</span> <span class="m">502</span> <span class="m">503</span> <span class="m">504</span> /50x.html<span class="p">;</span>
+        <span class="nv">location</span> <span class="o">=</span> /50x.html <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Dans cette configuration, on utilise un autre répertoire que celui par défaut (ligne en surbrillance).</p>
+<p>On peux vérifier site le site est mis en ligne avec la commande :</p>
+<div class="highlight"><pre><span></span><code>curl -H <span class="s2">"Host: test.local"</span> http://127.0.0.1:80
+</code></pre></div>
+<h3 id="creation-de-mutliples-virtualhosts">Création de mutliples virtualhosts<a class="headerlink" href="#creation-de-mutliples-virtualhosts" title="Permanent link">¶</a></h3>
+<p>On utilise plusieurs fichiers de configurations qui se trouvent dans le dossier <code>conf.d</code>. Les modifications des deux fichiers sont en surbrillances </p>
+<p>VirtalHost 1 :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>server <span class="o">{</span>
+        listen       <span class="m">80</span><span class="p">;</span>
+        listen       <span class="o">[</span>::<span class="o">]</span>:80<span class="p">;</span>
+<span class="hll">        server_name  test.local<span class="p">;</span>
+</span><span class="hll">        root         /var/www/html/site<span class="p">;</span>
+</span>
+        <span class="c1"># Load configuration files for the default server block.</span>
+        include /etc/nginx/default.d/*.conf<span class="p">;</span>
+
+        error_page <span class="m">404</span> /404.html<span class="p">;</span>
+        <span class="nv">location</span> <span class="o">=</span> /404.html <span class="o">{</span>
+        <span class="o">}</span>
+
+        error_page <span class="m">500</span> <span class="m">502</span> <span class="m">503</span> <span class="m">504</span> /50x.html<span class="p">;</span>
+        <span class="nv">location</span> <span class="o">=</span> /50x.html <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Virtalhost 2:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>server <span class="o">{</span>
+        listen       <span class="m">80</span><span class="p">;</span>
+        listen       <span class="o">[</span>::<span class="o">]</span>:80<span class="p">;</span>
+<span class="hll">        server_name  test1.local<span class="p">;</span>
+</span><span class="hll">        root         /var/www/html/site1<span class="p">;</span>
+</span>
+        <span class="c1"># Load configuration files for the default server block.</span>
+        include /etc/nginx/default.d/*.conf<span class="p">;</span>
+
+        error_page <span class="m">404</span> /404.html<span class="p">;</span>
+        <span class="nv">location</span> <span class="o">=</span> /404.html <span class="o">{</span>
+        <span class="o">}</span>
+
+        error_page <span class="m">500</span> <span class="m">502</span> <span class="m">503</span> <span class="m">504</span> /50x.html<span class="p">;</span>
+        <span class="nv">location</span> <span class="o">=</span> /50x.html <span class="o">{</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Si on regarde les résultats, on obtient 2 pages différentes avec la commande <code>curl -H "Host: test.local" http://127.0.0.1:80</code> et <code>curl -H "Host: test1.local" http://127.0.0.1:80</code> :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">test.local</label><label for="__tabbed_1_2">test2.local</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>hello world
+by nginx
+Site default
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>hello world
+by nginx
+Site <span class="m">2</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="apllication-dun-autoindex">Apllication d'un autoindex<a class="headerlink" href="#apllication-dun-autoindex" title="Permanent link">¶</a></h2>
+<p>Modification du virtualhost :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code>    server <span class="o">{</span>
+
+        server_name  site.local<span class="p">;</span>
+        root         /var/www/html/site<span class="p">;</span>
+
+<span class="hll">        location /sous-dossier/ <span class="o">{</span>
+</span><span class="hll">            autoindex on<span class="p">;</span>
+</span><span class="hll">        <span class="o">}</span>
+</span>
+<span class="hll">        location /icons/ <span class="o">{</span>
+</span><span class="hll">            root /usr/share/httpd<span class="p">;</span>
+</span><span class="hll">            <span class="c1"># alias /usr/share/httpd/icons/;</span>
+</span><span class="hll">            autoindex on<span class="p">;</span>
+</span><span class="hll">        <span class="o">}</span>
+</span>
+
+    <span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Pour les différents locations, on obtient les valeurs suivantes :</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Sous-dossier</label><label for="__tabbed_2_2">Icons</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Afin de d'avoir une valeur avec le curl, on crée dans <code>/var/www/html</code> un premier dossier <code>sous-dossier</code> et un second dossier dedans <code>dossier1</code></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Index of /sous-dossier/<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Index of /sous-dossier/<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">hr</span><span class="p">&gt;&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"../"</span><span class="p">&gt;</span>../<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"dossier1/"</span><span class="p">&gt;</span>dossier1/<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>                                          11-Apr-2023 09:43                   -
+<span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">hr</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"small/"</span><span class="p">&gt;</span>small/<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>                                             21-Mar-2023 10:11                   -
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"README"</span><span class="p">&gt;</span>README<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>                                             28-Aug-2007 10:47                5108
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"README.html"</span><span class="p">&gt;</span>README.html<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>                                        28-Aug-2007 10:47               36057
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"a.gif"</span><span class="p">&gt;</span>a.gif<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>                                              20-Nov-2004 20:16                 246
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"a.png"</span><span class="p">&gt;</span>a.png<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>                                              11-Sep-2007 05:11                 306
+.
+.
+.
+.
+<span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">hr</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</div>
+</div>
+</input></input></div>
+<h2 id="mise-en-place-dun-controle-dacces">Mise en place d'un controle d'accès<a class="headerlink" href="#mise-en-place-dun-controle-dacces" title="Permanent link">¶</a></h2>
+<p>Ajout d'une nouvelle règle :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code>    server <span class="o">{</span>
+
+        server_name  site.local<span class="p">;</span>
+        root         /var/www/html/site<span class="p">;</span>
+
+        location /sous-dossier/ <span class="o">{</span>
+            autoindex on<span class="p">;</span>
+        <span class="o">}</span>
+
+<span class="hll">        location /prive/ <span class="o">{</span>
+</span><span class="hll">                allow <span class="m">127</span>.0.0.1<span class="p">;</span>
+</span><span class="hll">                deny all<span class="p">;</span>
+</span><span class="hll">        <span class="o">}</span>
+</span>        location /icons/ <span class="o">{</span>
+            root /usr/share/httpd<span class="p">;</span>
+            <span class="c1"># alias /usr/share/httpd/icons/;</span>
+            autoindex on<span class="p">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<p>On crée un fichier index.html dans <code>/var/www/html/site/prive</code> et on obtient :</p>
+<div class="highlight"><pre><span></span><code>hello-private
+</code></pre></div>
+<p>Si on accède par l'IP de la machine (et non 127.0.0.1), on obtient :</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;</span><span class="nt">title</span><span class="p">&gt;</span>403 Forbidden<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">center</span><span class="p">&gt;&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>403 Forbidden<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;&lt;</span><span class="nt">center</span><span class="p">&gt;</span>nginx/1.22.1<span class="p">&lt;/</span><span class="nt">center</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="ajout-derreurs">Ajout d'erreurs<a class="headerlink" href="#ajout-derreurs" title="Permanent link">¶</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code>    server <span class="o">{</span>
+
+        server_name  site.local<span class="p">;</span>
+        root         /var/www/html/site<span class="p">;</span>
+
+        location /sous-dossier/ <span class="o">{</span>
+            autoindex on<span class="p">;</span>
+        <span class="o">}</span>
+
+        location /prive/ <span class="o">{</span>
+                allow <span class="m">127</span>.0.0.1<span class="p">;</span>
+                deny all<span class="p">;</span>
+        <span class="o">}</span>
+        location /icons/ <span class="o">{</span>
+            root /usr/share/httpd<span class="p">;</span>
+            <span class="c1"># alias /usr/share/httpd/icons/;</span>
+            autoindex on<span class="p">;</span>
+        <span class="o">}</span>
+        location /errors/ <span class="o">{</span>
+            <span class="nb">alias</span> /var/www/errors<span class="p">;</span>
+        <span class="o">}</span>
+        error_page <span class="nv">403</span> <span class="o">=</span><span class="m">418</span> /errors/403.html<span class="p">;</span>
+        error_page <span class="m">418</span> /errors/418.html<span class="p">;</span>
+    <span class="o">}</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="php-fpm">Php-fpm<a class="headerlink" href="#php-fpm" title="Permanent link">¶</a></h2>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h3>
+<p>Installation de Php-fpm :</p>
+<div class="highlight"><pre><span></span><code>dnf install -y php-fpm
+</code></pre></div>
+<h3 id="demarrage-et-ecriture-de-fichier">Démarrage et écriture de fichier<a class="headerlink" href="#demarrage-et-ecriture-de-fichier" title="Permanent link">¶</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Configuration<p>On retrouve la configuration dans <code>/etc/php-fpm.conf</code>.</p>
+</p>
+</div>
+<p>Mise en place de la configuration dans le serveur nginx :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -807,275 +1161,72 @@
 <span class="normal">24</span>
 <span class="normal">25</span>
 <span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">rp</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik-net</span><span class="w"></span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code>server <span class="o">{</span>
 
-<span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">proxy</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik</span><span class="w"></span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span><span class="w"></span>
-<span class="w">      </span><span class="no">--providers.docker</span><span class="w"></span>
-<span class="w">      </span><span class="no">--log.level=debug</span><span class="w"></span>
-<span class="w">      </span><span class="no">--entryPoints.http.address=:80</span><span class="w"></span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rp</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"80:80"</span><span class="w"></span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span><span class="w"></span>
-<span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
-<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
+        server_name  site.local<span class="p">;</span>
+        root         /var/www/html/site<span class="p">;</span>
 
-<span class="w">  </span><span class="nt">whoami</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik/whoami</span><span class="w"></span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rp</span><span class="w"></span>
-<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik.http.routers.whoami.rule=Path(`/whoami`)</span><span class="w"></span>
+        <span class="c1"># Load configuration files for the default server block.</span>
+<span class="hll">        include /etc/nginx/default.d/*.conf<span class="p">;</span>
+</span>
+        location /sous-dossier/ <span class="o">{</span>
+            autoindex on<span class="p">;</span>
+        <span class="o">}</span>
+
+        location /prive/ <span class="o">{</span>
+                allow <span class="m">127</span>.0.0.1<span class="p">;</span>
+                deny all<span class="p">;</span>
+        <span class="o">}</span>
+        location /icons/ <span class="o">{</span>
+            root /usr/share/httpd<span class="p">;</span>
+            <span class="c1"># alias /usr/share/httpd/icons/;</span>
+            autoindex on<span class="p">;</span>
+        <span class="o">}</span>
+        location /errors/ <span class="o">{</span>
+            <span class="nb">alias</span> /var/www/errors<span class="p">;</span>
+        <span class="o">}</span>
+        error_page <span class="nv">403</span> <span class="o">=</span><span class="m">418</span> /errors/403.html<span class="p">;</span>
+        error_page <span class="m">418</span> /errors/418.html<span class="p">;</span>
+    <span class="o">}</span>
 </code></pre></div></td></tr></table></div>
-<p>Lancement des conteneur :</p>
-<div class="highlight"><pre><span></span><code>docker compose up -d
+<p>Ajout d'un fichier <code>/var/www/html/site/index.php</code> :</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+
+        <span class="k">echo</span> <span class="s2">"Avant&lt;br&gt;"</span><span class="p">;</span>
+        <span class="nb">phpinfo</span><span class="p">();</span>
+        <span class="k">echo</span> <span class="s2">"Après&lt;br&gt;"</span><span class="p">;</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
 </code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>L'option -d est très utile pour lancer les conteneurs en mode détachés.</p>
-</div>
-<p>Verification du lancement du traefik avec un <code>curl 127.0.0.1/whoami</code>:</p>
-<div class="highlight"><pre><span></span><code>Hostname: ab75b31dfcab
-IP: <span class="m">127</span>.0.0.1
-IP: <span class="m">172</span>.19.0.2
-RemoteAddr: <span class="m">172</span>.19.0.3:56660
-GET /whoami HTTP/1.1
-Host: <span class="m">127</span>.0.0.1
-User-Agent: curl/7.76.1
-Accept: */*
-Accept-Encoding: gzip
-X-Forwarded-For: <span class="m">172</span>.19.0.1
-X-Forwarded-Host: <span class="m">127</span>.0.0.1
-X-Forwarded-Port: <span class="m">80</span>
-X-Forwarded-Proto: http
-X-Forwarded-Server: bb18d45e752b
-X-Real-Ip: <span class="m">172</span>.19.0.1
+<p>Démarrage du php-fpm :</p>
+<div class="highlight"><pre><span></span><code>systemctl start php-fpm
 </code></pre></div>
-<p>Modification de rule en utilisant le Host. On modifie donc le fichier sur les dernière lignes :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="nt">whoami</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik/whoami</span><span class="w"></span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rp</span><span class="w"></span>
-<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="hll"><span class="c1">#    - traefik.http.routers.whoami.rule=Path(`/whoami`)</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik.http.routers.whaomi.rule=Host(`truc.local`)</span><span class="w"></span>
-</span></code></pre></div></td></tr></table></div>
-<p>On relance les conteneurs pour la modification :</p>
-<div class="highlight"><pre><span></span><code>docker compose up -d
+<p>Restart du service nginx :</p>
+<div class="highlight"><pre><span></span><code>systemctl reload nginx
 </code></pre></div>
-<p>On teste la modification avec la commande <code>curl</code>:</p>
-<div class="highlight"><pre><span></span><code>curl -H <span class="s2">"Host: truc.local"</span>  http://127.0.0.1/
-</code></pre></div>
-<p>Réalisation de plusieurs services avec du loadbalancing :</p>
-<div class="highlight"><pre><span></span><code>docker compose up -d --scale <span class="nv">whoami</span><span class="o">=</span><span class="m">2</span>
-</code></pre></div>
-<p>On créé 2 conteneurs différents :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">[</span>+<span class="o">]</span> Running <span class="m">3</span>/3
- ⠿ Container root-whoami-2  Started                                                                                <span class="m">0</span>.6s
- ⠿ Container root-proxy-1   Running                                                                                <span class="m">0</span>.0s
- ⠿ Container root-whoami-1  Started                                                                                <span class="m">0</span>.9s
-</code></pre></div></td></tr></table></div>
-<h3 id="ajout-dun-dashbord">Ajout d'un dashbord<a class="headerlink" href="#ajout-dun-dashbord" title="Permanent link">¶</a></h3>
-<p>Ajout de configuration dans le <code>compose.yml</code> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="nt">proxy</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik</span><span class="w"></span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span><span class="w"></span>
-<span class="w">      </span><span class="no">--providers.docker</span><span class="w"></span>
-<span class="w">      </span><span class="no">--log.level=debug</span><span class="w"></span>
-<span class="w">      </span><span class="no">--entryPoints.http.address=:80</span><span class="w"></span>
-<span class="hll"><span class="w">      </span><span class="no">--api.insecure=true</span><span class="w"></span>
-</span><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rp</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"80:80"</span><span class="w"></span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span><span class="w"></span>
-<span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
-<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.rule=PathPrefix(`/traefik`)</span><span class="nv"> </span><span class="s">||</span><span class="nv"> </span><span class="s">PathPrefix(`/api`)"</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.service=api@internal"</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.middlewares=dashboard-stripprefix"</span><span class="w"></span>
-</span><span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.middlewares.dashboard-stripprefix.stripprefix.prefixes=/traefik"</span><span class="w"></span>
-</span></code></pre></div></td></tr></table></div>
-<p>On relance le conteneur afin de pouvoir tester les modifications.</p>
-<p>Verification du dashbord <code>http://10.56.126.223/traefik</code>:</p>
-<figure>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../Images/capture_traefik.png"><img alt="Imagedash traefik" src="../Images/capture_traefik.png"/></a>
-</p>
-<figcaption>Image du dashbord traefik</figcaption>
-</figure>
-<h3 id="ajout-dune-authentification">Ajout d'une authentification<a class="headerlink" href="#ajout-dune-authentification" title="Permanent link">¶</a></h3>
-<p>Ajout d'une ligne pour utiliser le middleware <em>auth-dashboard</em> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">  </span><span class="nt">proxy</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik</span><span class="w"></span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span><span class="w"></span>
-<span class="w">      </span><span class="no">--providers.docker</span><span class="w"></span>
-<span class="w">      </span><span class="no">--log.level=debug</span><span class="w"></span>
-<span class="w">      </span><span class="no">--entryPoints.http.address=:80</span><span class="w"></span>
-<span class="w">      </span><span class="no">--api.insecure=true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rp</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"80:80"</span><span class="w"></span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span><span class="w"></span>
-<span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
-<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
-<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.rule=PathPrefix(`/traefik`)</span><span class="nv"> </span><span class="s">||</span><span class="nv"> </span><span class="s">PathPrefix(`/api`)"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.service=api@internal"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.middlewares.dashboard-stripprefix.stripprefix.prefixes=/traefik"</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.middlewares=auth-dashboard,dashboard-stripprefix"</span><span class="w"></span>
-</span></code></pre></div></td></tr></table></div>
-<p>Génration d'un mot de passe <em>password</em> qui nous donnera un hash:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> password <span class="p">|</span> openssl passwd -apr1 -stdin
-</code></pre></div>
-<p>Modification du fichier compose.yml pour lui passer la ligne avec le mot de passe :
-<div class="highlight"><pre><span></span><code><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.rule=PathPrefix(`/traefik`)</span><span class="nv"> </span><span class="s">||</span><span class="nv"> </span><span class="s">PathPrefix(`/api`)"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.service=api@internal"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.middlewares.dashboard-stripprefix.stripprefix.prefixes=/traefik"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.middlewares=auth-dashboard,dashboard-stripprefix"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.middlewares.auth-dashboard.basicauth.users=dashuser:$</span><span class="nv"> </span><span class="s">YOUR_HACH_PASSWD"</span><span class="w"></span>
-</code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">Attention</p>
-<p>Dans le mot de passe hashé, vous pouvez avoir des <code>$</code>. Si vous avez ce symbole, vous devez <strong>absolument</strong> le doubler.</p>
-</div>
-<p>On relance ensuite les containers et on teste la connexion avec mot de passe.</p>
-<h3 id="ajout-de-lobligation-de-dexposition-de-services">Ajout de l'obligation de d'exposition de services<a class="headerlink" href="#ajout-de-lobligation-de-dexposition-de-services" title="Permanent link">¶</a></h3>
-<p>Modification du fichier compose avec les nouveautés :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">proxy</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik</span><span class="w"></span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span><span class="w"></span>
-<span class="w">      </span><span class="no">--providers.docker</span><span class="w"></span>
-<span class="w">      </span><span class="no">--log.level=debug</span><span class="w"></span>
-<span class="hll"><span class="w">      </span><span class="no">--providers.docker.exposedbydefault=false</span><span class="w"></span>
-</span><span class="w">      </span><span class="no">--entryPoints.http.address=:80</span><span class="w"></span>
-<span class="w">      </span><span class="no">--api.insecure=true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
-<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rp</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"80:80"</span><span class="w"></span>
-<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bind</span><span class="w"></span>
-<span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
-<span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock</span><span class="w"></span>
-<span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w"></span>
-<span class="hll"><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traefik.enable=true</span><span class="w"></span>
-</span><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.rule=PathPrefix(`/traefik`)</span><span class="nv"> </span><span class="s">||</span><span class="nv"> </span><span class="s">PathPrefix(`/api`)"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.service=api@internal"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.middlewares.dashboard-stripprefix.stripprefix.prefixes=/traefik"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.routers.dashboard.middlewares=auth-dashboard,dashboard-stripprefix"</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"traefik.http.middlewares.auth-dashboard.basicauth.users=dashuser:$$apr1$$nWuK9JVS$$Cm580WakVYahBvJyVuYNI1"</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<div class="admonition info">
-<p class="admonition-title">Les doubles cotes sur les labels</p>
-<p>Les doubles cotes ne sont pas obligatoire dans la déclaration d'un label.</p>
-</div>
-<p>On oublie pas de relancer les conteneurs pour prendre en compte la modification.</p>
-<h2 id="deploiement-sous-gitlab">Deploiement sous gitlab<a class="headerlink" href="#deploiement-sous-gitlab" title="Permanent link">¶</a></h2>
-<p>Création d'une nouvelle arborescence sous git :</p>
-<div class="highlight"><pre><span></span><code>whoami/
-├── compose.yaml
-├── .git
-└── .gitlab-ci.yml
+<p>On obteint ensuite :</p>
+<div class="highlight"><pre><span></span><code>Avant<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span><span class="cp">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd"&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">"http://www.w3.org/1999/xhtml"</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span><span class="p">&gt;</span><span class="w"></span>
+<span class="o">.</span><span class="w"></span>
+.
+.
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>If you did not receive a copy of the PHP license, or have any questions about PHP licensing, please contact license@php.net.
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>Après<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
 </code></pre></div>
 <hr/>
 <div class="md-source-file">
 <small>
     
       Dernière mise à jour:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 12, 2023</span>
 <br/>
         Créé:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 22, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 11, 2023</span>
 </small>
 </div>
 </article>
@@ -1089,7 +1240,7 @@ X-Real-Ip: <span class="m">172</span>.19.0.1
 </main>
 <footer class="md-footer">
 <nav aria-label="Pied de page" class="md-footer__inner md-grid" hidden="">
-<a aria-label="Précédent: Deploiement de runners et execution de pipelines" class="md-footer__link md-footer__link--prev" href="../Runners/" rel="prev">
+<a aria-label="Précédent: Apache" class="md-footer__link md-footer__link--prev" href="../Apache/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
 </div>
@@ -1098,17 +1249,17 @@ X-Real-Ip: <span class="m">172</span>.19.0.1
 <span class="md-footer__direction">
                 Précédent
               </span>
-              Deploiement de runners et execution de pipelines
+              Apache
             </div>
 </div>
 </a>
-<a aria-label="Suivant: Apache" class="md-footer__link md-footer__link--next" href="../../Serveurs%20web/Apache/" rel="next">
+<a aria-label="Suivant: Se linux" class="md-footer__link md-footer__link--next" href="../../S%C3%A9curit%C3%A9/SElinux/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 Suivant
               </span>
-              Apache
+              Se linux
             </div>
 </div>
 <div class="md-footer__button md-icon">
