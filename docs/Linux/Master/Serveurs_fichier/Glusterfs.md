@@ -81,3 +81,28 @@ Pour partir du cluster :
 ```bash
 gluster peer detach la_machine
 ```
+
+
+Création d'un volume avec les différentes nodes et un réplicat à 3 :
+
+```bash
+gluster volume create derriere replica 3 node-lg:/gluster/brick-derriere node-jg:/gluster/brick-derriere node-ac:/gluster/brick-derriere
+```
+
+Lister les volumes :
+
+```bash
+gluster volume list
+```
+
+Démarrage du volume :
+
+```bash
+gluster volume start derriere
+```
+
+Obtenir des information détaillées sur le volume :
+
+```bash 
+gluster volume info derriere
+```
